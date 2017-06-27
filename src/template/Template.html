@@ -1,0 +1,750 @@
+<html>
+
+<script>
+
+  // This is the jquery part of your template.  
+  // Try not modify any of this code too much since it makes your menu work.
+
+  $(document).ready(function() {
+
+    $("#HQ_page").attr('id','');
+
+    // call the functions that control the menu 
+    menu_functionality(); 
+    hide_show_menu();
+
+
+
+    //this function controls the expand and collapse buttons of the menu and changes the +/- symbols
+    function menu_functionality() {
+
+      //when clicking on a "menu_button", it will change the "+/-" accordingly and it will show/hide the corresponding submenu
+      $(".menu_button").click(function(){
+
+        // add or remove the class "open" , this class holds the "-" 
+        $(this).children().toggleClass("open");
+        // show or hide the submenu     
+        $(this).next('.submenu_wrapper').fadeToggle(400);
+      });
+
+      // when the screen size is smaller than 800px, the display_menu_control button appears and will show/hide the whole menu
+      $("#display_menu_control").click(function(){
+        $('#menu_content').fadeToggle(400);
+      });
+
+      // call the current page highlight function 
+      highlight_current_page();
+    }
+
+
+    // call the highlight current page function to show it on the menu with a different background color
+    function highlight_current_page() {
+
+      // select a page from the menu based on the id assigned to it and the current page name and add the class "current page" to make it change background color
+      $("#"+  wgPageName.substring(wgPageName.lastIndexOf("/")+1, wgPageName.length ) + "_page").addClass("current_page");
+
+      // now that the current_page class has been added to a menu item, make the submenu fade in
+      $(".current_page").parents(".submenu_wrapper").fadeIn(400);
+      // change the +/- symbol of the corresponding menu button
+      $(".current_page").parents(".submenu_wrapper").prev().children().toggleClass("open");
+      
+    }
+
+
+
+    // allow button on the black menu bar to show/hide the side menu
+    function hide_show_menu() {
+  
+      // in case you preview mode is selected, the menu is hidden for better visibility 
+      if (window.location.href.indexOf("submit") >= 0) {
+        $(".igem_2017_menu_wrapper").hide();
+      }
+
+      // if the black menu bar has been loaded
+        if (document.getElementById('bars_item')) {
+
+        // when the "bars_item" has been clicked
+        $("#bars_item").click(function() {
+          $("#sideMenu").hide();
+
+          // show/hide the menu wrapper
+          $(".igem_2017_menu_wrapper").fadeToggle("100");
+        });   
+        } 
+
+      // because the black menu bars loads at a different time than the rest of the page, this function is set on a time out so it can run again in case it has not been loaded yet
+      else {
+            setTimeout(hide_show_menu, 15);
+      }
+    }
+
+
+  });
+
+
+</script>
+
+
+
+
+
+<style>
+
+
+
+/***************************************************** DEFAULT WIKI SETTINGS  ****************************************************/
+  
+  /* Clear the default wiki settings */
+  
+  #home_logo, #sideMenu { display:none; }
+  #sideMenu, #top_title, .patrollink  {display:none;}
+  #content { width:100%; padding:0px;  margin-top:-7px; margin-left:0px;}
+  body {background-color:white; }
+  #bodyContent h1, #bodyContent h2, #bodyContent h3, #bodyContent h4, #bodyContent h5 { margin-bottom: 0px; }
+
+  
+  
+  
+/**************************************************************** MENU ***************************************************************/
+  /* Wrapper for the menu */
+  .igem_2017_menu_wrapper { 
+    width: 15%; 
+    height:100vh; 
+    position:fixed;
+    right:0%;
+    padding:0px;
+    float:right; 
+    border-left: 1px solid #d3d3d3; 
+    background-color:#dddddd; 
+    text-align:left;
+    font-family:Tahoma, Geneva, sans-serif; 
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  /* this hides the scrollbar to keep view consistency */
+  .igem_2017_menu_wrappe::-webkit-scrollbar { 
+    display: none; 
+  }
+  
+    
+  /* styling for links in the menu, removes the line under text */
+  .igem_2017_menu_wrapper a {  
+    text-decoration: none; 
+  }
+
+
+  /* styling for the images in the menu */
+  .igem_2017_menu_wrapper img { 
+    width: 100%;
+  }
+
+  /* styling for the menu buttons */
+  .igem_2017_menu_wrapper .menu_button { 
+    width: 100%; 
+    padding: 10px 0px 10px 15px; 
+    float:left; 
+    border-bottom: 1px solid #d3d3d3; 
+    font-size: 12px; 
+    font-weight: bold; 
+    color: #5e5f5f; 
+    cursor: pointer;
+  }
+
+
+  .igem_2017_menu_wrapper .menu_bottom_padding { 
+    width: 100%; 
+    height: 30px;
+    float:left;
+  }
+
+  .menu_button.direct_to_page { 
+    padding-left: 36px;
+  }
+
+
+  .igem_2017_menu_wrapper .menu_button .expand_collapse_icon {
+    width:10%;
+    float:left;
+  }
+
+  .igem_2017_menu_wrapper .menu_button .expand_collapse_icon::before {
+    content: "+";  
+  }
+  
+  .open::before {
+    content: "-" !important;  
+  }
+  
+  
+  
+  /* styling for the menu buttons on hover */
+  .igem_2017_menu_wrapper .menu_button:hover, .igem_2017_menu_wrapper .submenu_button:hover ,  .submenu_button.current_page:hover { 
+    background-color: #3399ff;   
+    text-decoration: none;
+    color:#ffffff; 
+  }
+
+  /* styling for the menu button when it is the current page */
+   .current_page { 
+    background-color:#7fc1f7  !important;
+    color:#5e5f5f !important;
+  }
+
+
+  /* styling for the submenu buttons */
+  .igem_2017_menu_wrapper .submenu_button { 
+    width: 100%; 
+    padding: 10px 0px 10px 34px; 
+    float:left;
+    background-color:#f2f2f2; 
+    border-bottom: 1px solid #d3d3d3; 
+    font-size: 12px; 
+    color: #5e5f5f; 
+    cursor: pointer;
+  }
+
+  /* wrapper for the submenu items, they are hidden by default*/
+  .igem_2017_menu_wrapper .submenu_wrapper { 
+    display:none;
+  }
+
+  /* when the page size is bigger than 800px, this show/hide control is hidden by default */
+  .igem_2017_menu_wrapper #display_menu_control {
+    display:none;
+    text-align:center;
+  }
+  
+
+/***************************************************** CONTENT OF THE PAGE ****************************************************/
+
+  /* Wrapper for the content */
+  .igem_2017_content_wrapper {
+    width: 81%;
+    margin: 2%;
+    display:block;
+    float:left; 
+    background-color:white; 
+    font-family:Tahoma, Geneva, sans-serif; 
+  }
+
+
+/********************************* HTML STYLING  *********************************/
+
+  /* styling for the titles h1 h2 */
+  .igem_2017_content_wrapper h1, .igem_2017_content_wrapper h2 {
+    padding:5px 15px; 
+    border-bottom: 0px; 
+    color: #3399ff;
+  }
+
+
+  /* styling for the titles  h3 h4 h5 h6*/
+  .igem_2017_content_wrapper h3, .igem_2017_content_wrapper h4, .igem_2017_content_wrapper h5, .igem_2017_content_wrapper h6 { 
+    padding:5px 15px; 
+    border-bottom:0px; 
+    color: #000000;  
+  }
+
+
+  /* font and text */
+  .igem_2017_content_wrapper p { 
+    padding: 0px 15px; 
+    font-size: 13px;
+  }
+
+  /* Links */
+  .igem_2017_content_wrapper a { 
+    font-weight: bold; 
+    text-decoration: underline;
+    text-decoration-color: #3399ff;
+    color:  #3399ff;
+    -webkit-transition: all 0.4s ease;
+     -moz-transition: all 0.4s ease; 
+    -ms-transition: all 0.4s ease; 
+    -o-transition: all 0.4s ease; 
+    transition: all 0.4s ease;
+  }
+
+  /* hover for the links */
+  .igem_2017_content_wrapper a:hover { 
+    text-decoration:none;
+    color:#000000;
+  }
+
+  /* non numbered lists */
+  .igem_2017_content_wrapper ul {
+    padding:0px 20px;
+    font-size: 13px;
+    font-family:Tahoma, Geneva, sans-serif; 
+  }
+
+  /* numbered lists */
+  .igem_2017_content_wrapper ol {
+    padding:0px; 
+    font-size: 13px;
+    font-family:Tahoma, Geneva, sans-serif; 
+  }
+
+  /* Table */
+  .igem_2017_content_wrapper table { 
+    width: 97%; 
+    margin:15px 10px; 
+    border: 1px solid #d3d3d3; 
+    border-collapse: collapse; 
+  }
+
+  /* table cells */
+  .igem_2017_content_wrapper  td { 
+    padding: 10px;
+    vertical-align: text-top; 
+    border: 1px solid #d3d3d3; 
+    border-collapse: collapse; 
+  }
+
+  /* table headers */
+  .igem_2017_content_wrapper th { 
+    padding: 10px; 
+    vertical-align: text-top; 
+    border: 1px solid #d3d3d3; 
+    border-collapse: collapse; 
+    background-color:#f2f2f2; 
+  }
+
+
+/**********************************LAYOUT CLASSES **********************************/
+
+  /* general class for column divs */
+  .igem_2017_content_wrapper .column  { 
+    padding: 10px 0px;
+    float:left; 
+  }
+
+  /* class for a full width column */
+  .column .full_size {
+    width:100%; 
+  }
+
+  /* styling for images in a full width column*/
+  .column.full_size img { 
+    width:97%; 
+    padding: 10px 15px;
+  }
+
+  /* class for a half width column */
+  .column.half_size {
+    width: 50%; 
+  }
+  /* styling for images in a half width column*/
+  .column.half_size img { 
+    width: 94.5%;
+    padding: 10px 15px;
+  }
+
+
+
+
+/********************************* SUPPORT CLASSES ********************************/
+
+  /* class that clears content below*/
+  .igem_2017_content_wrapper .clear {
+    clear:both;
+  }
+  
+  
+  /* adds extra spacing when clearing content */
+  .igem_2017_content_wrapper  .clear.extra_space {
+    height: 30px;
+  }
+
+
+  /* highlight class, makes content slightly smaller */
+  .igem_2017_content_wrapper .highlight { 
+    margin: 0px 15px;
+    padding: 15px 0px;
+  }
+
+
+  /* highlight class, adds a gray background */
+  .igem_2017_content_wrapper .highlight.gray {
+    background-color: #f2f2f2; 
+  }
+
+  /* highlight with decoration blue line on top */
+  .igem_2017_content_wrapper .highlight.blue_top {
+      border-top: 4px solid #3399ff;
+  }
+
+  /* highlight with a full blue border decoration */
+  .igem_2017_content_wrapper .highlight.blue_border {
+      border: 4px solid  #3399ff;
+  }
+
+
+  /* button class */
+  .igem_2017_content_wrapper .button{
+    max-width: 35%;
+    margin: 30px auto;
+    padding: 12px 10px;
+      background-color: #3399ff;  
+      text-align: center;
+      color: #ffffff;
+    -webkit-transition: all 0.4s ease; 
+    -moz-transition: all 0.4s ease; 
+    -ms-transition: all 0.4s ease; 
+    -o-transition: all 0.4s ease; transition: all 0.4s ease;  
+  }
+
+  /* styling for button on hover */
+  .igem_2017_content_wrapper .button:hover{
+    background-color: #3399ff;  
+      color: #000000;
+  }
+
+
+
+
+/***************************************************** RESPONSIVE STYLING ****************************************************/
+
+  /* IF THE SCREEN IS LESS THAN 1200PX */
+  @media only screen and (max-width: 1200px) {
+
+    #content {width:100%; }
+    .igem_2017_menu_wrapper {width:15%; right:0;}
+    .highlight {padding:10px 0px;}
+    .igem_2017_menu_wrapper #display_menu_control { display:none; }
+    #menu_content { display:block;}
+    .menu_button.direct_to_page {padding-left: 17px;}
+    
+  }
+
+  /* IF THE SCREEN IS LESS THAN 800PX */
+  @media only screen and (max-width: 800px) {
+
+    .igem_2017_menu_wrapper { width:100%; height: 15%; position:relative; left:0%;}
+    .igem_2017_content_wrapper {width:100%; margin-left:0px;}
+    .column.half_size  {width:100%; }
+    .column.full_size img, .column.half_size img {  width: 100%; padding: 10px 0px;} 
+    .highlight {padding:15px 5px;}
+    .igem_2017_menu_wrapper #display_menu_control { display:block; }
+    #menu_content { display:none;}
+    .igem_2017_menu_wrapper .menu_button .expand_collapse_icon { width: 5%; }
+    .menu_bottom_padding {display:none;}
+    .menu_button.direct_to_page { padding-left: 36px; }
+  }
+
+
+  
+  
+  /* special class that the system uses to make sure the team wants a page to be evaluated */
+  .judges-will-not-evaluate {
+      width: 96.6%;
+      margin: 5px 15px;
+      display: block;
+    border: 4px solid #3399ff;
+      font-weight: bold;
+  }
+  
+</style>
+
+
+<!--- THIS IS WHERE THE HTML BEGINS --->
+
+
+
+<head> 
+
+  <!-- This tells the browser that your page is responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+</head>
+
+
+
+<div class="igem_2017_menu_wrapper" >
+
+
+
+  <a href="http://2017.igem.org/Team:Lund">
+    <img src="http://placehold.it/350x150">
+  </a>
+
+
+  <!-- this div is hidden by default and will only be displayed if the screen size is too small -->
+  <div class="menu_button" id="display_menu_control">
+    MENU  
+  </div> 
+
+  <div id="menu_content">
+  
+
+
+
+    <a href="http://2017.igem.org/Team:Lund">
+      <div class="menu_button direct_to_page">
+        HOME
+      </div> 
+    </a>
+
+
+
+    <div class="menu_button">
+      <div class="expand_collapse_icon">  </div> TEAM 
+    </div> 
+
+    <div class="submenu_wrapper" id="team_submenu">
+    
+      <a href="http://2017.igem.org/Team:Lund/Team">
+        <div class="submenu_button" id="Team_page">
+          Team 
+        </div>
+      </a>
+
+      <a href="http://2017.igem.org/Team:Lund/Collaborations">
+        <div class="submenu_button"  id="Collaborations_page">
+          Collaborations
+        </div>
+      </a>
+      
+      
+    </div>
+
+
+    
+    
+
+    <div class="menu_button">
+      <div class="expand_collapse_icon">  </div> PROJECT
+    </div> 
+
+    <!-- project submenu -->
+    <div class="submenu_wrapper">
+    
+      <a href="http://2017.igem.org/Team:Lund/Description">
+        <div class="submenu_button"  id="Description_page">
+          Description
+        </div>
+      </a>
+
+      <a href="http://2017.igem.org/Team:Lund/Design">
+        <div class="submenu_button"  id="Design_page">
+          Design
+        </div>
+      </a>
+
+      <a href="http://2017.igem.org/Team:Lund/Experiments">
+        <div class="submenu_button"  id="Experiments_page">
+          Experiments
+        </div>
+      </a>
+
+
+      <a href="http://2017.igem.org/Team:Lund/Notebook">
+        <div class="submenu_button"  id="Notebook_page">
+          Notebook
+        </div>
+      </a>
+
+      <a href="http://2017.igem.org/Team:Lund/InterLab">
+        <div class="submenu_button"  id="InterLab_page">
+          InterLab
+        </div>
+      </a>
+
+      <a href="http://2017.igem.org/Team:Lund/Contribution">
+        <div class="submenu_button"  id="Contribution_page">
+          Contribution
+        </div>
+      </a>
+
+      <a href="http://2017.igem.org/Team:Lund/Model">
+        <div class="submenu_button"  id="Model_page">
+          Model
+        </div>
+      </a>
+
+      <a href="http://2017.igem.org/Team:Lund/Results">
+        <div class="submenu_button"  id="Results_page">
+          Results
+        </div>
+      </a>
+
+
+      <a href="http://2017.igem.org/Team:Lund/Demonstrate">
+        <div class="submenu_button"  id="Demonstrate_page">
+          Demonstrate
+        </div>
+      </a>
+
+      <a href="http://2017.igem.org/Team:Lund/Improve">
+        <div class="submenu_button"  id="Improve_page">
+          Improve
+        </div>
+      </a>
+
+      <a href="http://2017.igem.org/Team:Lund/Attributions">
+        <div class="submenu_button"  id="Attributions_page">
+          Attributions 
+        </div>
+      </a>
+
+    </div>
+
+    
+    
+    
+    
+
+    <div class="menu_button">
+      <div class="expand_collapse_icon">  </div> PARTS
+    </div>
+     
+    <!-- parts submenu -->
+    <div class="submenu_wrapper">
+      
+      <a href="http://2017.igem.org/Team:Lund/Parts">
+        <div class="submenu_button"  id="Parts_page">
+          Parts
+        </div>    
+      </a>
+
+      <a href="http://2017.igem.org/Team:Lund/Basic_Part">
+        <div class="submenu_button"  id="Basic_Part_page">
+          Basic Parts
+        </div>
+      </a>
+
+      <a href="http://2017.igem.org/Team:Lund/Composite_Part">
+        <div class="submenu_button"  id="Composite_Part_page">
+          Composite Parts
+        </div>
+      </a>
+
+      <a href="http://2017.igem.org/Team:Lund/Part_Collection">
+        <div class="submenu_button"  id="Part_Collection_page">
+          Part Collection
+        </div>
+      </a>
+    </div> 
+
+    
+    
+    
+    
+
+    <a href="http://2017.igem.org/Team:Lund/Safety">
+      <div class="menu_button direct_to_page">
+        SAFETY
+      </div> 
+    </a>
+
+
+
+
+
+
+
+    <div class="menu_button" >
+      <div class="expand_collapse_icon">  </div> HUMAN PRACTICES 
+    </div> 
+
+    <!-- human practices submenu -->
+    <div class="submenu_wrapper">
+
+      <a href="http://2017.igem.org/Team:Lund/HP/Silver">
+        <div class="submenu_button"   id="Silver_page">
+          Silver HP
+        </div>
+      </a>
+
+      <a href="http://2017.igem.org/Team:Lund/HP/Gold_Integrated">
+        <div class="submenu_button" id="Gold_Integrated_page">
+          Integrated and Gold
+        </div>
+      </a>
+
+
+      <a href="http://2017.igem.org/Team:Lund/Engagement">
+        <div class="submenu_button"  id="Engagement_page">
+          Public Engagement 
+        </div>
+      </a>
+
+    </div>
+
+
+    <div class="menu_button">
+      <div class="expand_collapse_icon">  </div> AWARDS
+    </div> 
+
+    <!-- awards submenu -->
+    <div class="submenu_wrapper">
+
+      <a href="http://2017.igem.org/Team:Lund/Applied_Design">
+        <div class="submenu_button"  id="Applied_Design_page">
+          Applied Design
+        </div>
+      </a>
+
+      <a href="http://2017.igem.org/Team:Lund/Entrepreneurship">
+        <div class="submenu_button"  id="Entrepreneurship_page">
+          Entrepreneurship
+        </div>
+      </a>
+
+      <a href="http://2017.igem.org/Team:Lund/Hardware">
+        <div class="submenu_button"  id="Hardware_page">
+          Hardware
+        </div>
+      </a>
+
+      <a href="http://2017.igem.org/Team:Lund/Measurement">
+        <div class="submenu_button"  id="Measurement_page">
+          Measurement
+        </div>
+      </a>
+
+      <a href="http://2017.igem.org/Team:Lund/Model">
+        <div class="submenu_button"  id="Model_page">
+          Model
+        </div>
+      </a>
+
+      <a href="http://2017.igem.org/Team:Lund/Plant">
+        <div class="submenu_button"  id="Plant_page">
+          Plant
+        </div>
+      </a>
+
+
+      <a href="http://2017.igem.org/Team:Lund/Software">
+        <div class="submenu_button"  id="Software_page">
+          Software
+        </div>
+      </a>
+
+    </div> 
+
+    <a href="http://igem.org/2017_Judging_Form?team=Lund">
+      <div class="menu_button direct_to_page">
+        JUDGING FORM
+      </div> 
+    </a>
+
+
+    
+    <div class="menu_bottom_padding" >
+    </div> 
+    
+  </div>
+
+
+
+
+</div>
+
+
+
+<!-- start of content -->
+<div class="igem_2017_content_wrapper">
+<h1>Lund</h1>

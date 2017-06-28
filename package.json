@@ -1,0 +1,10 @@
+{
+  "name": "wiki2017",
+  "private": true,
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-replace": "^0.6.1"
+  }
+}

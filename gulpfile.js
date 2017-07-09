@@ -5,15 +5,15 @@ const fs = require('fs');
 const browserSync = require('browser-sync');
 
 const config = {
-  TeamName: 'Lund',
+  teamName: 'Lund',
 };
 
 const paths = {
   appDir: 'app',
-  distDir: 'dist',
+  destDir: 'dist',
   pages: 'app/pages/**/*.html',
+  assets: `app/assets/**/*`,
   templatesDir: 'app/templates',
-  distPagesDir: 'dist/pages',
 };
 
 const wrapper = `
@@ -35,23 +35,34 @@ gulp.task('pages', () => {
       return template;
     }))
     .pipe(wrap(wrapper))
-    .pipe(gulp.dest(paths.distDir));
+    .pipe(gulp.dest(paths.destDir));
 });
 
-gulp.task('build', ['pages']);
+gulp.task('assets', () => {
+  gulp.src(paths.assets, { base: paths.appDir })
+    .pipe(gulp.dest(paths.destDir))
+})
+
+gulp.task('build', ['pages', 'assets']);
 
 gulp.task('browser-sync', ['pages'], () => {
-  const { TeamName } = config;
-  const routes = {};
-  routes[`/Team:${TeamName}`] = paths.distPagesDir;
-
   browserSync.init({
     server: {
-      baseDir: paths.distDir,
-      routes,
+      baseDir: paths.destDir,
       middleware: (req,res,next) => {
+        function reroute(url, from, to) {
+          if (url.startsWith(from)) {
+            return to + url.substring(from.length);
+          }
+          return url;
+        }
+
+        // Reroute wiki url to directory in dist
+        req.url = reroute(req.url, `/Team:${config.teamName}`, '/pages');
+        req.url = reroute(req.url, `/File:`, `/assets/`);
+
+        // Use .html as default extension if none is provided
         if (!(/\.[0-9a-z]+$/.test(req.url))) {
-          // Use .html as default extension if none is provided
           req.url = `${req.url}.html`;
         }
         return next();

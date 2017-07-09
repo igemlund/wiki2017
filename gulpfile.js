@@ -29,6 +29,7 @@ const wrapper = `
 </html>
 `;
 
+// == Build Tasks
 gulp.task('pages', () => {
   return gulp.src(paths.pages, { base: paths.appDir })
     .pipe(replace(/{{([^{}]+)}}/g, (match, name) => {
@@ -42,36 +43,29 @@ gulp.task('pages', () => {
 gulp.task('assets', () => {
   return gulp.src(paths.assets, { base: paths.appDir })
     .pipe(gulp.dest(paths.destDir))
-})
+});
 
+gulp.task('clean', () => {
+  del.sync(`${paths.destDir}/**/*`);
+});
+
+// == Serve Tasks
 gulp.task('browser-sync', ['build'], () => {
   browserSync.init({
+    startPath: `/Team:${config.teamName}`,
     server: {
       baseDir: paths.destDir,
+      serveStaticOptions: {
+        extensions: ["html"]
+      },
       middleware: (req,res,next) => {
-        function reroute(url, from, to) {
-          if (url.startsWith(from)) {
-            return to + url.substring(from.length);
-          }
-          return url;
-        }
-
         // Reroute wiki url to directory in dist
-        req.url = reroute(req.url, `/Team:${config.teamName}`, '/pages');
-        req.url = reroute(req.url, `/File:`, `/assets/`);
-
-        // Use .html as default extension if none is provided
-        if (!(/\.[0-9a-z]+$/.test(req.url))) {
-          req.url = `${req.url}.html`;
-        }
+        req.url = req.url.replace(/^\/Team:[^/]+/, '/pages');
+        req.url = req.url.replace(/^\/File:/, `/assets/`);
         return next();
       },
     },
   });
-});
-
-gulp.task('clean', () => {
-  del.sync(`${config.destDir}/**`);
 });
 
 // == Watch Tasks

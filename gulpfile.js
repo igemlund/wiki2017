@@ -3,6 +3,7 @@ const replace = require('gulp-replace');
 const wrap = require('gulp-wrap');
 const fs = require('fs');
 const browserSync = require('browser-sync');
+const del = require('del');
 
 const config = {
   teamName: 'Lund',
@@ -29,7 +30,7 @@ const wrapper = `
 `;
 
 gulp.task('pages', () => {
-  gulp.src(paths.pages, { base: paths.appDir })
+  return gulp.src(paths.pages, { base: paths.appDir })
     .pipe(replace(/{{([^{}]+)}}/g, (match, name) => {
       const template = fs.readFileSync(`${paths.templatesDir}/${name}.html`)
       return template;
@@ -39,13 +40,11 @@ gulp.task('pages', () => {
 });
 
 gulp.task('assets', () => {
-  gulp.src(paths.assets, { base: paths.appDir })
+  return gulp.src(paths.assets, { base: paths.appDir })
     .pipe(gulp.dest(paths.destDir))
 })
 
-gulp.task('build', ['pages', 'assets']);
-
-gulp.task('browser-sync', ['pages'], () => {
+gulp.task('browser-sync', ['build'], () => {
   browserSync.init({
     server: {
       baseDir: paths.destDir,
@@ -71,4 +70,26 @@ gulp.task('browser-sync', ['pages'], () => {
   });
 });
 
-gulp.task('serve', ['build', 'browser-sync']);
+gulp.task('clean', () => {
+  del.sync(`${config.destDir}/**`);
+});
+
+// == Watch Tasks
+gulp.task('sync-pages', ['pages'], (done) => {
+  browserSync.reload();
+  done();
+});
+
+gulp.task('sync-assets', ['assets'], (done) => {
+  browserSync.reload();
+  done();
+});
+
+gulp.task('watch', ['build', 'browser-sync'], () => {
+  gulp.watch(paths.pages, ['sync-pages']);
+  gulp.watch(paths.assets, ['sync-assets']);
+});
+
+// == Main Tasks
+gulp.task('build', ['clean', 'pages', 'assets']);
+gulp.task('serve', ['build', 'browser-sync', 'watch']);

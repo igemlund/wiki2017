@@ -24,6 +24,7 @@ const wrapper = `
   <title>iGEM Wiki</title>
 </head>
 <body>
+<script src="/jquery.js"></script>
 <%= contents %>
 </body>
 </html>
@@ -43,6 +44,11 @@ gulp.task('pages', () => {
 gulp.task('assets', () => {
   return gulp.src(paths.assets, { base: paths.appDir })
     .pipe(gulp.dest(paths.destDir))
+});
+
+gulp.task('jquery', () => {
+  return gulp.src('node_modules/jquery/dist/jquery.js')
+    .pipe(gulp.dest(paths.destDir));
 });
 
 gulp.task('clean', () => {
@@ -85,5 +91,5 @@ gulp.task('watch', ['build', 'browser-sync'], () => {
 });
 
 // == Main Tasks
-gulp.task('build', ['clean', 'pages', 'assets']);
+gulp.task('build', ['clean', 'pages', 'assets', 'jquery']);
 gulp.task('serve', ['build', 'browser-sync', 'watch']);

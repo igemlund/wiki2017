@@ -19,6 +19,7 @@ const paths = {
   templatesDir: 'app/templates',
   templates: 'app/templates/**/*.html',
   stylesDestDir: 'dist/pages/styles',
+  scriptsDestDir: 'dist/pages/scripts',
 };
 
 const wrapper = `
@@ -53,6 +54,11 @@ gulp.task('assets', () => {
 gulp.task('jquery', () => {
   return gulp.src('node_modules/jquery/dist/jquery.js')
     .pipe(gulp.dest(paths.destDir));
+});
+
+gulp.task('scripts', () => {
+  return gulp.src('node_modules/bootstrap/dist/js/bootstrap.js')
+    .pipe(gulp.dest(paths.scriptsDestDir));
 });
 
 gulp.task('less', function () {
@@ -105,5 +111,5 @@ gulp.task('watch', ['build', 'browser-sync'], () => {
 });
 
 // == Main Tasks
-gulp.task('build', ['clean', 'pages', 'assets', 'less', 'jquery']);
+gulp.task('build', ['clean', 'pages', 'assets', 'scripts', 'less', 'jquery']);
 gulp.task('serve', ['build', 'browser-sync', 'watch']);

@@ -3,6 +3,7 @@ const replace = require('gulp-replace');
 const wrap = require('gulp-wrap');
 const fs = require('fs');
 const browserSync = require('browser-sync');
+const less = require('gulp-less');
 const del = require('del');
 
 const config = {
@@ -14,7 +15,10 @@ const paths = {
   destDir: 'dist',
   pages: 'app/pages/**/*.html',
   assets: `app/assets/**/*`,
+  less: 'less/**/*.less',
   templatesDir: 'app/templates',
+  templates: 'app/templates/**/*.html',
+  stylesDestDir: 'dist/pages/styles',
 };
 
 const wrapper = `
@@ -49,6 +53,15 @@ gulp.task('assets', () => {
 gulp.task('jquery', () => {
   return gulp.src('node_modules/jquery/dist/jquery.js')
     .pipe(gulp.dest(paths.destDir));
+});
+
+gulp.task('less', function () {
+  return gulp.src(paths.less)
+    .pipe(less({
+      paths: ['node_modules'],
+    }))
+    .pipe(gulp.dest(paths.stylesDestDir))
+    .pipe(browserSync.stream());
 });
 
 gulp.task('clean', () => {
@@ -86,10 +99,11 @@ gulp.task('sync-assets', ['assets'], (done) => {
 });
 
 gulp.task('watch', ['build', 'browser-sync'], () => {
-  gulp.watch(paths.pages, ['sync-pages']);
+  gulp.watch([paths.pages, paths.templates], ['sync-pages']);
   gulp.watch(paths.assets, ['sync-assets']);
+  gulp.watch(paths.less, ['less']);
 });
 
 // == Main Tasks
-gulp.task('build', ['clean', 'pages', 'assets', 'jquery']);
+gulp.task('build', ['clean', 'pages', 'assets', 'less', 'jquery']);
 gulp.task('serve', ['build', 'browser-sync', 'watch']);

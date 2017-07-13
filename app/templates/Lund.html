@@ -4,6 +4,14 @@
 <script type="text/javascript" src="/Team:Lund/scripts/bootstrap.js"></script>
 
 <script>
+  $(document).ready(function() {
+    var listItem = $('#navbar li a[href="/' + wgPageName + '"]').parent();
+    listItem.addClass('active');
+    listItem.parent('.dropdown-menu').parent('#navbar .dropdown').addClass('active');
+  });
+</script>
+
+<script>
 
   // This is the jquery part of your template.  
   // Try not modify any of this code too much since it makes your menu work.
@@ -463,7 +471,7 @@
 </head>
 
 
-<nav class="navbar navbar-inverse navbar-static-top">
+<nav id="navbar" class="navbar navbar-inverse navbar-static-top">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">

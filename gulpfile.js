@@ -29,6 +29,9 @@ const wrapper = `
   <title>iGEM Wiki</title>
 </head>
 <body>
+<script>
+window.wgPageName = window.location.pathname.match(/^\\/?(.*?)\\/?$/)[1];
+</script>
 <script src="/jquery.js"></script>
 <%= contents %>
 </body>

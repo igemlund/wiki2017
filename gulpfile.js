@@ -15,7 +15,8 @@ const paths = {
   destDir: 'dist',
   pages: 'app/pages/**/*.html',
   assets: `app/assets/**/*`,
-  less: 'less/**/*.less',
+  lessFiles: 'less/**/*.less',
+  lessEntry: 'less/main.less',
   templatesDir: 'app/templates',
   templates: 'app/templates/**/*.html',
   stylesDestDir: 'dist/pages/styles',
@@ -65,7 +66,7 @@ gulp.task('scripts', () => {
 });
 
 gulp.task('less', function () {
-  return gulp.src(paths.less)
+  return gulp.src(paths.lessEntry)
     .pipe(less({
       paths: ['node_modules'],
     }))
@@ -110,7 +111,7 @@ gulp.task('sync-assets', ['assets'], (done) => {
 gulp.task('watch', ['build', 'browser-sync'], () => {
   gulp.watch([paths.pages, paths.templates], ['sync-pages']);
   gulp.watch(paths.assets, ['sync-assets']);
-  gulp.watch(paths.less, ['less']);
+  gulp.watch(paths.lessFiles, ['less']);
 });
 
 // == Main Tasks

@@ -58,8 +58,16 @@
 @import "bootstrap/less/utilities.less";
 @import "bootstrap/less/responsive-utilities.less";
 
-
-// == Imports
+// == Common
 @import "font.less";
 @import "igem-content.less";
 @import "navbar.less";
+
+// == Pages
+@import "pages/home.less";
+
+// == Core
+html {
+	// Base for rem units
+	font-size: @font-size-base;
+}

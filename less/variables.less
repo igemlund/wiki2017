@@ -4,7 +4,13 @@
 @green: #34BC6E;
 @blue: #5392ff;
 
+@navbar-logo-height: 48px;
+@navbar-logo-padding-vertical: 16px;
+
 // Bootstrap overrides
 @brand-primary: @blue;
 @brand-success: @green;
 @headings-font-family: 'Varela Round', sans-serif;
+
+@navbar-height:                    @navbar-logo-height + (2 * @navbar-logo-padding-vertical);
+@navbar-padding-vertical:          ((@navbar-height - @line-height-computed) / 2);

@@ -70,6 +70,7 @@ gulp.task('less', function () {
     .pipe(less({
       paths: ['node_modules'],
     }))
+    .on('error', console.error.bind(console))
     .pipe(gulp.dest(paths.stylesDestDir))
     .pipe(browserSync.stream());
 });

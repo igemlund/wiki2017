@@ -1,0 +1,34 @@
+footer.footer {
+  background-color: @gray-darker;
+  color: @gray-light;
+  padding-top: @footer-padding;
+  padding-bottom: @footer-padding;
+
+  h1, h2, h3, h4, h5, h6 {
+    color: fade(@gray-light, 60%);
+  }
+
+  section{
+    padding-top: @footer-padding;
+    padding-bottom: @footer-padding;
+  }
+
+  ul {
+    padding: 0;
+    list-style-type: none;
+  }
+
+  a {
+    transition: color 0.1s;
+    color: @gray-light;
+    &:hover {
+      text-decoration: none;
+      color: fade(@gray-light, 60%);
+    }
+  }
+
+  .copyright {
+    text-align: center;
+    color: fade(@gray-light, 60%);
+  }
+}

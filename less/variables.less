@@ -14,9 +14,22 @@
 
 @font-family-sans-serif:           -apple-system, BlinkMacSystemFont, Roboto, Arial, sans-serif;
 
+
+//== Navbar
+//
+//##
 @navbar-height:                    @navbar-logo-height + (2 * @navbar-logo-padding-vertical);
-@navbar-margin-bottom:             0px;
 @navbar-padding-vertical:          ((@navbar-height - @line-height-computed) / 2);
+
+//=== Inverted navbar
+// Reset inverted navbar basics
+@navbar-inverse-bg:                         @green;
+@navbar-inverse-border:                     transparent;
+
+// Inverted navbar links
+@navbar-inverse-link-color:                 fade(#fff, 60%);
+@navbar-inverse-link-active-bg:             transparent;
+
 
 // These are the values from Bootstrap 4
 @font-size-base: 16px;

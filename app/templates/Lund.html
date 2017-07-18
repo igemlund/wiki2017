@@ -1,4 +1,15 @@
 <html>
+<!-- MathJax CDN -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["[Contrib]/mhchem/mhchem.js"],
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
 
 <!-- TODO: include this locally -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -15,15 +26,15 @@
 
 <script>
 
-  // This is the jquery part of your template.  
+  // This is the jquery part of your template.
   // Try not modify any of this code too much since it makes your menu work.
 
   $(document).ready(function() {
 
     $("#HQ_page").attr('id','');
 
-    // call the functions that control the menu 
-    menu_functionality(); 
+    // call the functions that control the menu
+    menu_functionality();
     hide_show_menu();
 
 
@@ -34,9 +45,9 @@
       //when clicking on a "menu_button", it will change the "+/-" accordingly and it will show/hide the corresponding submenu
       $(".menu_button").click(function(){
 
-        // add or remove the class "open" , this class holds the "-" 
+        // add or remove the class "open" , this class holds the "-"
         $(this).children().toggleClass("open");
-        // show or hide the submenu     
+        // show or hide the submenu
         $(this).next('.submenu_wrapper').fadeToggle(400);
       });
 
@@ -45,7 +56,7 @@
         $('#menu_content').fadeToggle(400);
       });
 
-      // call the current page highlight function 
+      // call the current page highlight function
       highlight_current_page();
     }
 
@@ -60,15 +71,15 @@
       $(".current_page").parents(".submenu_wrapper").fadeIn(400);
       // change the +/- symbol of the corresponding menu button
       $(".current_page").parents(".submenu_wrapper").prev().children().toggleClass("open");
-      
+
     }
 
 
 
     // allow button on the black menu bar to show/hide the side menu
     function hide_show_menu() {
-  
-      // in case you preview mode is selected, the menu is hidden for better visibility 
+
+      // in case you preview mode is selected, the menu is hidden for better visibility
       if (window.location.href.indexOf("submit") >= 0) {
         $(".igem_2017_menu_wrapper").hide();
       }
@@ -82,8 +93,8 @@
 
           // show/hide the menu wrapper
           $(".igem_2017_menu_wrapper").fadeToggle("100");
-        });   
-        } 
+        });
+        }
 
       // because the black menu bars loads at a different time than the rest of the page, this function is set on a time out so it can run again in case it has not been loaded yet
       else {

@@ -1,0 +1,4 @@
+- Install Bootstrap locally
+- Install MathJax locally
+
+- Navbar looks weird on Ubuntu, font is too thin.  

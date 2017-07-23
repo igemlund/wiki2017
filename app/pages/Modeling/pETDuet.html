@@ -1,0 +1,181 @@
+{{Lund}}
+<html>
+<div class="clear"></div>
+
+<div class="column full-size">
+  <h1>Modeling the pETDuet plasmid</h1>
+  <p>
+    Previously, rigorous models on the <i>lac</i> operon has been made (see e.g. [1] for a review). Here we extend the methodology to the pETDuet plasmid which is used for the coexpression of two proteins in <i>Escherichia coli</i>. The constructed model is purely based on the law of mass action and few further assumptions are made. (kort om att vi inte tar hänsyn till rbs, camp etc). In addition, it can easily be converted into its stochastic system analog by converting the kinetic rate parameters into transition rates (reaction propensities) and the the reaction network into the transition matrix.
+  </p>
+</div>
+
+<div class="column half-size">
+  <h3>Overview</h3>
+  <p>
+      The pETDUet-1 is a plasmid vector designed for the co-expression of two taret genes. It has a copy number of 40 and is a T7 promoter expression vector. Each cloning site is preceeded by a T7 RNA polymerase promoter and a <i>lac</i> operator. In addition, the vector carries the <i>lacI</i> gene for the constitutive expression of the <i>lac</i> repressor. A schematic illustration of a, for our model, representative gene circuit is illustrated in figure 1. The target genes to be expressed, $A$ and $B$ are regulated by the <i>lac</i> operons denoted $\ce{O_\text{A}}$ and $\ce{O_\text{B}}$. A constituitive promoter expressd the <i>lacI</i> gene which in turn represses $\ce{O_\text{A}}$ and $\ce{O_\text{B}}$, inactivating the expression of $A$ and $B$. The addition of an inducer represses the $\text{LacI}$ repressor, which in turn activates the previously repressed operons. This pathway enables a very simple genetic switch which can be utilized to control gene expression via the addition of an inducer.
+  </p>
+
+  <p>
+      In the case of our construct, the system species evolves autonomously from the moment the cells starts growing. As the pETDuet plasmids are present, a cascade of transcriptional and translational reactions occur. At the initial state, <i>lacI</i> is expressed and translated into the $\text{LacI}$ repressor which binds to the available <i>lac</i> operons along the plasmid backbone. Upon addition of the $\text{LacI}$ targeted inducer, the molecule binds to both free and operator bound repressors, subsequently freeing the operator from the repressor, resulting in increased transcription levels. It is here important to estimate the amount of inhibited and free operators such that the transcriptional effect of the inducer can be deduced and the amount of proteins translated consequently estimated. These estimations then serve as a starting point in the modeling of the full biosensor in which the salicylate and estrogen analogs are measured in correspondence.
+  </p>
+
+  <figure>
+    <img src="../../assets/Modeling/T-Lund-lacoperon_sbol.png">
+    <figcaption>Figure 1: Schematic illustration of the components modeled in the pETDuet-1 plasmid. The system consists of a constituitive promoter expressing <i>lacI</i> which in turn repressed the <i>lac</i> operons $\ce{O_\text{A}}$ and $\ce{O_\text{B}}$. The repressor is in turn repressed by an inducer.
+  </figure>
+
+</div>
+
+<div class="column half-size">
+  <h3>Model derivation</h3>
+  <p>
+    The following is based on the work of M. Stamatakis and N. V. Mantzaris [2] who used mass action and stochastic kinetic models to study the autoregulation and bistability of the <i>lac</i> operon under the expression of <i>lacY</i>. The <i>lacY</i> gene translates into Beta-galactoside permease which fascilitates the transmembrane transport of lactose and corresponding analogs such as isopropyl β-D-1-thiogalactopyranoside (IPTG). Here we apply their model on the pETDuet plasmid and modify it to fit our system. A list of all interacting species used can be found in table 1.
+  </p>
+
+  <table class="table">
+    <caption>Table 1: List of model species</caption>
+    <thead>
+      <tr>
+        <th>Notation</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>$\ce{O_\text{R}}$</td>
+        <td><i>lacI</i> gene</td>
+      </tr>
+      <tr>
+        <td>$\ce{M_\text{R}}$</td>
+        <td>LacI mRNA</td>
+      </tr>
+      <tr>
+        <td>$\ce{R}$</td>
+        <td>LacI monomer</td>
+      </tr>
+      <tr>
+        <td>$\ce{R_2}$</td>
+        <td>LacI Repressor</td>
+      </tr>
+      <tr>
+        <td>$\ce{O_\text{A}}$</td>
+        <td><i>lac</i> operator for protein $\ce{A}$</td>
+      </tr>
+      <tr>
+        <td>$\ce{O_\text{B}}$</td>
+        <td><i>lac</i> operator for protein $\ce{B}$</td>
+      </tr>
+      <tr>
+        <td>$\ce{R_2O_\text{A}}$</td>
+        <td>Repressed <i>lac</i> operator for protein $\ce{A}$</td>
+      </tr>
+      <tr>
+        <td>$\ce{R_2O_\text{B}}$</td>
+        <td>Repressed <i>lac</i> operator for protein $\ce{B}$</td>
+      </tr>
+      <tr>
+        <td>$\ce{I_\text{ex}}$</td>
+        <td>Extracellular inducer</td>
+      </tr>
+      <tr>
+        <td>$\ce{I}$</td>
+        <td>Intracellular inducer</td>
+      </tr>
+      <tr>
+        <td>$\ce{I_2R_2}$</td>
+        <td>Inhibited $\ce{LacI}$ repressor</td>
+      </tr>
+      <tr>
+        <td>$\ce{M_\text{A}}$</td>
+        <td>mRNA protein $\ce{A}$</td>
+      </tr>
+      <tr>
+        <td>$\ce{M_\text{B}}$</td>
+        <td>mRNA protein $\ce{B}$</td>
+      </tr>
+      <tr>
+        <td>$\ce{A}$</td>
+        <td>Protein $\ce{A}$</td>
+      </tr>
+      <tr>
+        <td>$\ce{B}$</td>
+        <td>Protein $\ce{B}$</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>
+    Starting with the translational pathway for the <i>lac</i> repressor $\ce{R}$, the transcription of the <i>lacI</i> mRNA, $\ce{M_\text{R}}$ is assumed to be proportional to the amount of <i>lacI</i>, $\ce{O_\text{R}}$. The reaction is thus modelled as a catalytic first order reaction. The following translation of $\ce{R}$ is proportional to the amount of $\ce{M_\text{R}}$ and thus also of first order. Subsequently, the monomer $\ce{R}$ dimerizes into the active $\ce{LacI}$ repressor state $\ce{R_2}$ in an equilibrium.
+    $$\ce{O_R ->[k_{M_\text{R}}] O_\text{R} + M_R}\tag{1}$$
+    $$\ce{M_R ->[k_\text{R}] M_R + R}\tag{2}$$
+    $$\ce{2R ->[k_{2R}] R_2}\tag{3}$$
+    $$\ce{R_2 ->[k_{R_2}] 2R}\tag{4}$$
+    Following, $\ce{R_2}$ is able to interact with the lac operons in the plasmid, denoted $\ce{O_A}$ and $\ce{O_B}$, to yield the corresponding repressed states $\ce{R_2O_A}$ and $\ce{R_2O_B}$. This is modeled as an equilibrium where the repressed operon can dissociate back into the repressor and free operon.
+    $$\ce{R_2 + O_A ->[k_{rA}] R_2O_A}\tag{5}$$
+    $$\ce{R_2 + O_B ->[k_{rB}] R_2O_B}\tag{6}$$
+    $$\ce{R_2O_A ->[k'_{rA}] R_2 + O_A}\tag{7}$$
+    $$\ce{R_2O_B ->[k'_{rB}] R_2 + O_B}\tag{8}$$
+    The induction of the repressed state proceeds via an association between the inducer $\ce{I}$ and the repressor $\ce{R_2}$ to form $\ce{I_2R_2}$. This can take place between both free and operator bound repressors. The repression of $\ce{R_2}$ is modeled as a thid order reaction where two $\ce{I}$ reacts with every $\ce{R_2}$. The induction of $\ce{R_2O_A}$/$\ce{R_2O_B}$ is also modeled as a third order reaction, where the operator is freed after inhibition of $\ce{R}$. In addition, the $\ce{I_2R_2}$ can dissociate and derepress the operators $\ce{O_A/O_B}$
+    $$\ce{2I + R_2 ->[k_{dr}] I_2R_2}\tag{9}$$
+    $$\ce{I_2R_2 ->[k'_{dr}] 2I + R_2}\tag{10}$$
+    $$\ce{2I + R_2O_A ->[k_{drA}] I_2R_2 + O_A}\tag{11}$$
+    $$\ce{2I + R_2O_B ->[k_{drB}] I_2R_2 + O_B}\tag{12}$$
+    $$\ce{I_2R_2 + O_A ->[k'_{drA}] 2I + R_2O_A}\tag{13}$$
+    $$\ce{I_2R_2 + O_B ->[k'_{drB}] 2I + R_2O_B}\tag{14}$$
+    The inducer $\ce{I}$ is furthermore distinguished from extracellular inducer $\ce{I_ex}$ and the fluxes are modeled as free diffusion.
+    $$\ce{I_{ex} ->[k_{dI}] I}\tag{15}$$
+    $$\ce{I ->[k_{dI}] I_{ex}}\tag{16}$$
+    The transcriptions from the operators are modeled as catalytic first order reactions. The mRNA:s are denoted as $\ce{M_A}$ and $\ce{M_B}$ and can be transcribed directly from free operators as well as from repressed operators via leakage.
+    $$\ce{O_A ->[k_{M_A}] O_A + M_A}\tag{17}$$
+    $$\ce{O_B ->[k_{M_B}] O_B + M_B}\tag{18}$$
+    $$\ce{R_2O_A ->[k_{lMA}] R_2O_A + M_A}\tag{19}$$
+    $$\ce{R_2O_B ->[k_{lMB}] R_2O_B + M_B}\tag{20}$$
+    The translations of $\ce{M_A}$ and $\ce{M_B}$ are modeled as catalytic first order reactions and generates the proteins $\ce{A}$ and $\ce{B}$ respectively.
+    $$\ce{O_A ->[k_A] O_A + A}\tag{21}$$
+    $$\ce{O_B ->[k_B] O_B + B}\tag{22}$$
+    All degradations are modeled as first order reactions. It is assumed that all mRNA:s and proteins degrade with the exception of the operator bound repressor and the inducer.
+    $$\ce{M_R ->[\lambda_{M_R}] \phi}\tag{23}$$
+    $$\ce{M_A ->[\lambda_{M_A}] \phi}\tag{24}$$
+    $$\ce{M_B ->[\lambda_{M_B}] \phi}\tag{25}$$
+    $$\ce{R ->[\lambda_R] \phi}\tag{26}$$
+    $$\ce{R_2 ->[\lambda_{R_2}] \phi}\tag{27}$$
+    $$\ce{A ->[\lambda_A] \phi}\tag{28}$$
+    $$\ce{B ->[\lambda_B] \phi}\tag{29}$$
+    $$\ce{I_2R_2 ->[\lambda_{I_2R_2}] 2I}\tag{30}$$
+    The reactions are summarized in figure 2.
+  </p>
+
+  <figure>
+    <img src="" alt="Reaction scheme">
+    <figcaption>Figure 2: Reaction scheme for the pETDuet plasmid.</figcaption>
+  </figure>
+</div>
+
+<div class"column half-size">
+  <h3>Determinstic equations</h3>
+  <p>
+    Reaction rates -> odes
+  </p>
+</div>
+
+<div class="column half-size">
+  <h3>Qualitative analysis</h3>
+  <p>
+    Implemented in matlab ...
+    <br>
+    Representativa artiklar från artikeln
+    <br>
+    Dose-response curves IPTG vs Protein A and Protein B
+    <br>
+    Gör några experiment
+  </p>
+</div>
+
+<div class="column half-size">
+  <h3>References</h3>
+  <p>
+  </p>
+</div>
+
+<div class="clear"></div>
+</html>

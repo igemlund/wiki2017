@@ -14,13 +14,13 @@ const paths = {
   appDir: 'app',
   destDir: 'dist',
   pages: 'app/pages/**/*.html',
+  scripts: 'app/pages/scripts/**/*.js',
   assets: `app/assets/**/*`,
   lessFiles: 'less/**/*.less',
   lessEntry: 'less/main.less',
   templatesDir: 'app/templates',
   templates: 'app/templates/**/*.html',
   stylesDestDir: 'dist/pages/styles',
-  scriptsDestDir: 'dist/pages/scripts',
 };
 
 const wrapper = `
@@ -61,8 +61,8 @@ gulp.task('jquery', () => {
 });
 
 gulp.task('scripts', () => {
-  return gulp.src('node_modules/bootstrap/dist/js/bootstrap.js')
-    .pipe(gulp.dest(paths.scriptsDestDir));
+  return gulp.src(paths.scripts, { base: paths.appDir })
+    .pipe(gulp.dest(paths.destDir));
 });
 
 gulp.task('less', function () {

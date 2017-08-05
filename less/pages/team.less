@@ -1,13 +1,19 @@
 .team-landing {
   .display-section;
 
-  @background-image: '/File:T--Lund--Team.jpg';
   background: linear-gradient(
-    to left,
-    fade(@green, 80%),
-    fade(@blue, 80%)
-    ), url(@background-image);
-  background-position: center;
-  background-size: cover;
-  padding: 10rem 0;
+    to bottom,
+    fade(#000, 0%),
+    fade(#000, 70%)
+    );
+
+  p {
+    text-align: center;
+    b {
+      color: @green;
+    }
+  }
+
+  padding-top: 18rem;
+  padding-bottom: 2rem;
 }

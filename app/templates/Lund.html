@@ -16,9 +16,14 @@
 <link rel="stylesheet" type="text/css" href="/Team:Lund/styles/main.css">
 <script type="text/javascript" src="/Team:Lund/scripts/bootstrap.min.js"></script>
 <script type="text/javascript" src="/Team:Lund/scripts/parallax.min.js"></script>
+<script type="text/javascript" src="/Team:Lund/scripts/ScrollTrigger.min.js"></script>
 
 <script>
   $(document).ready(function() {
+    // Setup ScrollTrigger
+    var trigger = new ScrollTrigger();
+
+    // Select current page in navbar
     var listItem = $('#navbar li a[href="/' + wgPageName + '"]').parent();
     listItem.addClass('active');
     listItem.parent('.dropdown-menu').parent('#navbar .dropdown').addClass('active');

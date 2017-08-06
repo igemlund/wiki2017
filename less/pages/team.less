@@ -1,5 +1,6 @@
 .team-landing {
   .display-section;
+  height: 100vh;
 
   background: linear-gradient(
     to bottom,
@@ -13,16 +14,13 @@
       color: @green;
     }
   }
-
-  padding-top: 18rem;
-  padding-bottom: 2rem;
 }
 
 .team-members {
   background-color: #F9F9F9;
   background-image: url(/File:T--Lund--dna-green-blue.png);
   background-repeat: no-repeat;
-  background-position: right;
+  background-position: top right;
 
   .member {
     @avatar-size: 10rem;
@@ -30,7 +28,7 @@
     padding-left: @avatar-size + 1rem;
     margin: 4rem 0;
     min-height: @avatar-size;
-    max-width: 800px;
+    max-width: (100% * (2 / 3));
 
     .avatar {
       position: absolute;

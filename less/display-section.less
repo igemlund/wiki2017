@@ -1,4 +1,5 @@
 .display-section {
+  position: relative;
   margin-top: -(@navbar-height + 1px + @navbar-margin-bottom);
 
   padding: 10rem 0;
@@ -17,6 +18,17 @@
 
     b {
       font-weight: 500;
+    }
+  }
+
+
+  .text-bottom {
+    position: absolute;
+    width: 100%;
+    bottom: 2rem;
+    left: 0px;
+    p {
+      margin-bottom: 0;
     }
   }
 }

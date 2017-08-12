@@ -1,5 +1,12 @@
+# TODO
 - Install Bootstrap locally
 - Install MathJax locally
+- Include Roboto Font locally
 
 - Navbar looks weird on Ubuntu, font is too thin.
 - Add submenus to navbar items. 
+
+- Improve accesibility.
+- Scroll to top when clicking (external) iGEM navabar button.
+- Project scroll animation.
+- Warn if assets are not prefixed correctly.

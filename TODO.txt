@@ -1,6 +1,7 @@
 # TODO
 - Install Bootstrap locally
 - Install MathJax locally
+- Install ScrollMagic locally
 - Include Roboto Font locally
 
 - Navbar looks weird on Ubuntu, font is too thin.

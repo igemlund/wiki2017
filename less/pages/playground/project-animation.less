@@ -1,0 +1,42 @@
+#project-animation {
+  height: 2000px;
+
+  #gfp {
+    .gfp-model {
+      @model-width: 140px;
+      @segment-count: 5;
+      @segment-width: 20px;
+      @segment-h-margin: (@model-width - @segment-count * @segment-width) / @segment-count / 2;
+
+      position: relative;
+      width: @model-width;
+      height: 200px;
+      margin: auto;
+      margin-top: 22px;
+
+      .gfp-core {
+        background-color: #D0DADA;
+        width: 100px;
+        height: 200px;
+        margin: auto;
+      }
+
+      .gfp-segment-container {
+        top: 0;
+        left: 0;
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        margin: auto;
+      }
+
+      .gfp-segment {
+        background-color: @blue;
+        width: @segment-width;
+        height: 160px;
+        margin: 20px @segment-h-margin;
+        float: left;
+      }
+    }
+  }
+}

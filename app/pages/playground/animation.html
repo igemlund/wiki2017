@@ -1,9 +1,67 @@
 {{Lund}}
 <html>
-<h1>Project Animation</h1>
+<h1 class="text-center">Interactive Project</h1>
 </div> <!-- /.igem-content -->
-<!-- TODO: Include this locally -->
+
+<!-- TODO: Include these locally -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TimelineMax.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
+<script type="text/javascript">
+var controller = new ScrollMagic.Controller();
+</script>
+
+<div id="project-animation">
+  <div class="container">
+
+    <section id="gfp" class="row">
+      <div class="col-sm-6">
+
+        <div class="gfp-model">
+          <div class="gfp-core"></div>
+          <div class="gfp-segment-container">
+            <div class="gfp-segment"></div>
+            <div class="gfp-segment"></div>
+            <div id="gfp-segment-1" class="gfp-segment"></div>
+            <div class="gfp-segment"></div>
+            <div id="gfp-segment-2" class="gfp-segment"></div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-sm-6">
+        <h3>Green Fluorescent Protein (GFP)</h3>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
+    </section>
+    <script type="text/javascript">
+    $(document).ready(function() {
+
+      var timeline = new TimelineLite();
+
+      timeline
+        .to('#gfp-segment-1', 1, {x: 100, rotation: 190, ease: Linear.easeNone}, 0.2)
+        .to('#gfp-segment-2', 1, {x: 140, rotation: 170, ease: Linear.easeNone}, 0.2);
+
+      var scene = new ScrollMagic.Scene({
+        duration: 300
+      })
+      .setPin('#gfp')
+      .setTween(timeline)
+      .addTo(controller);
+
+    });
+    </script>
+
+  </div>
+</div>
+
 
 {{Lund--Footer}}
 </html>

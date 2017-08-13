@@ -46,13 +46,49 @@ var controller = new ScrollMagic.Controller();
       var timeline = new TimelineLite();
 
       timeline
-        .to('#gfp-segment-1', 1, {x: 100, rotation: 190, ease: Linear.easeNone}, 0.2)
-        .to('#gfp-segment-2', 1, {x: 140, rotation: 170, ease: Linear.easeNone}, 0.2);
+        .to('#gfp-segment-1', 1, {x: 100, rotation: 190, ease: Linear.easeNone}, 0)
+        .to('#gfp-segment-2', 1, {x: 140, rotation: 170, ease: Linear.easeNone}, 0);
 
       var scene = new ScrollMagic.Scene({
         duration: 300
       })
-      .setPin('#gfp')
+      .setTween(timeline)
+      .addTo(controller);
+
+    });
+    </script>
+
+    <section id="pop" class="row">
+      <div class="col-sm-6">
+
+        <div class="pop-model">
+          <img src="/File:T--Lund--nahr.svg">
+          <img id="pop-segment" src="/File:T--Lund--pop.svg">
+        </div>
+
+      </div>
+      <div class="col-sm-6">
+        <h3>Persistant Organic Pollutants (POP) and NahR receptor</h3>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
+    </section>
+    <script type="text/javascript">
+    $(document).ready(function() {
+
+      var timeline = new TimelineLite();
+
+      timeline
+        .from('#pop-segment', 1, {x: -60, y: -60, ease: Linear.easeNone}, 0.2);
+
+      var scene = new ScrollMagic.Scene({
+        offset: 300,
+        duration: '50%'
+      })
       .setTween(timeline)
       .addTo(controller);
 

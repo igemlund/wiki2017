@@ -18,7 +18,7 @@ const paths = {
   scripts: 'app/pages/**/*.{js,css}',
   assets: `app/assets/**/*`,
   lessFiles: 'less/**/*.less',
-  lessEntry: 'less/main.less',
+  lessEntry: 'less/wrapper.less',
   templatesDir: 'app/templates',
   templates: 'app/templates/**/*.html',
   stylesDestDir: 'dist/pages/styles',
@@ -87,7 +87,7 @@ gulp.task('browser-sync', ['build'], () => {
     server: {
       baseDir: paths.destDir,
       serveStaticOptions: {
-        extensions: ["html"]
+        extensions: ['html', 'css', 'min.css', 'js', 'min.js']
       },
       middleware: (req,res,next) => {
         // Reroute wiki url to directory in dist

@@ -1,9 +1,9 @@
 # TODO
-- Install Bootstrap locally
+~- Install Bootstrap locally~
 - Install MathJax locally
 - Include Roboto Font locally
 
-- Navbar looks weird on Ubuntu, font is too thin.
+~- Navbar looks weird on Ubuntu, font is too thin.~
 - Add submenus to navbar items. 
 
 - Improve accesibility.

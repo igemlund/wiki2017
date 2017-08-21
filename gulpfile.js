@@ -4,6 +4,7 @@ const wrap = require('gulp-wrap');
 const fs = require('fs');
 const browserSync = require('browser-sync');
 const less = require('gulp-less');
+const cssmin = require('gulp-cssmin');
 const del = require('del');
 
 const config = {
@@ -69,8 +70,8 @@ gulp.task('less', function () {
   return gulp.src(paths.lessEntry)
     .pipe(less({
       paths: ['node_modules'],
-    }))
-    .on('error', console.error.bind(console))
+    }).on('error', console.error.bind(console)))
+    .pipe(cssmin().on('error', console.error.bind(console)))
     .pipe(gulp.dest(paths.stylesDestDir))
     .pipe(browserSync.stream());
 });

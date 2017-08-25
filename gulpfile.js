@@ -29,6 +29,7 @@ const wrapper = `
 <html>
 <head>
   <title>iGEM Wiki</title>
+  <link rel="stylesheet" type="text/css" href="/Team:Lund/styles/do-not-publish.css">
 </head>
 <body>
 <script>

@@ -1,29 +1,10 @@
-// Dirty hack to prioritize bootstrap over default wiki styles.
-
+@import "reset.less";
 @import (multiple) "main.less";
 
-*, :after {
-  -webkit-box-sizing: inherit;
-  -moz-box-sizing: inherit;
-  box-sizing: inherit;
-}
-
-.mediawiki #HQ_page {
+// Dirty hack to prioritize bootstrap over default wiki styles.
+#content #bodyContent {
   @import (multiple) "main.less";
 
   &:extend(html);
   &:extend(body);
-
-
-  // == Some resets to fix problems with default wiki styles.
-
-  #mw-content-text > p:first-child {
-    display: none;
-  }
-
-  p {
-    font-family: inherit;
-    font-size: inherit;
-    text-align: inherit;
-  }
 }

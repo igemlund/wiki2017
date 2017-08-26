@@ -1,0 +1,10 @@
+@import "reset.less";
+@import (multiple) "main.less";
+
+// Dirty hack to prioritize bootstrap over default wiki styles.
+#content #bodyContent {
+  @import (multiple) "main.less";
+
+  &:extend(html);
+  &:extend(body);
+}

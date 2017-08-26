@@ -4,6 +4,7 @@ const wrap = require('gulp-wrap');
 const fs = require('fs');
 const browserSync = require('browser-sync');
 const less = require('gulp-less');
+const cssmin = require('gulp-cssmin');
 const del = require('del');
 
 const config = {
@@ -14,10 +15,10 @@ const paths = {
   appDir: 'app',
   destDir: 'dist',
   pages: 'app/pages/**/*.html',
-  scripts: 'app/pages/scripts/**/*.js',
+  scripts: 'app/pages/**/*.{js,css}',
   assets: `app/assets/**/*`,
   lessFiles: 'less/**/*.less',
-  lessEntry: 'less/main.less',
+  lessEntry: 'less/wrapper.less',
   templatesDir: 'app/templates',
   templates: 'app/templates/**/*.html',
   stylesDestDir: 'dist/pages/styles',
@@ -28,6 +29,7 @@ const wrapper = `
 <html>
 <head>
   <title>iGEM Wiki</title>
+  <link rel="stylesheet" type="text/css" href="/Team:Lund/styles/do-not-publish.css">
 </head>
 <body>
 <script>
@@ -69,8 +71,8 @@ gulp.task('less', function () {
   return gulp.src(paths.lessEntry)
     .pipe(less({
       paths: ['node_modules'],
-    }))
-    .on('error', console.error.bind(console))
+    }).on('error', console.error.bind(console)))
+    .pipe(cssmin().on('error', console.error.bind(console)))
     .pipe(gulp.dest(paths.stylesDestDir))
     .pipe(browserSync.stream());
 });
@@ -86,7 +88,7 @@ gulp.task('browser-sync', ['build'], () => {
     server: {
       baseDir: paths.destDir,
       serveStaticOptions: {
-        extensions: ["html"]
+        extensions: ['html', 'css', 'min.css', 'js', 'min.js']
       },
       middleware: (req,res,next) => {
         // Reroute wiki url to directory in dist
@@ -104,6 +106,11 @@ gulp.task('sync-pages', ['pages'], (done) => {
   done();
 });
 
+gulp.task('sync-scripts', ['scripts'], (done) => {
+  browserSync.reload();
+  done();
+});
+
 gulp.task('sync-assets', ['assets'], (done) => {
   browserSync.reload();
   done();
@@ -111,6 +118,7 @@ gulp.task('sync-assets', ['assets'], (done) => {
 
 gulp.task('watch', ['build', 'browser-sync'], () => {
   gulp.watch([paths.pages, paths.templates], ['sync-pages']);
+  gulp.watch(paths.scripts, ['sync-scripts']);
   gulp.watch(paths.assets, ['sync-assets']);
   gulp.watch(paths.lessFiles, ['less']);
 });

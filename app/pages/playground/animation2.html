@@ -1,0 +1,74 @@
+{{Lund}}
+<html>
+<h1 class="text-center">Interactive Project</h1>
+</div> <!-- /.igem-content -->
+
+<!-- TODO: Include these locally -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TimelineMax.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
+
+<div id="project-animation">
+  <div class="container">
+
+    <section id="gfp" class="row">
+      <div class="col-sm-6">
+
+        <svg width="100%" height="100%" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;"><rect id="Animation1" x="0" y="0" width="512" height="512" style="fill:none;"/><path id="gfpBase" d="M192,224c0,-17.661 -14.339,-32 -32,-32l-64,0c-17.661,0 -32,14.339 -32,32l0,128c0,17.661 14.339,32 32,32l64,0c17.661,0 32,-14.339 32,-32l0,-128Z" style="fill:#e3ecec;"/><path id="gfp1" d="M72,228c0,-2.208 -1.792,-4 -4,-4l-8,0c-2.208,0 -4,1.792 -4,4l0,120c0,2.208 1.792,4 4,4l8,0c2.208,0 4,-1.792 4,-4l0,-120Z" style="fill:#5392ff;"/><path id="gfp2" d="M104,228c0,-2.208 -1.792,-4 -4,-4l-8,0c-2.208,0 -4,1.792 -4,4l0,120c0,2.208 1.792,4 4,4l8,0c2.208,0 4,-1.792 4,-4l0,-120Z" style="fill:#5392ff;"/><path id="gfp3" d="M136,228c0,-2.208 -1.792,-4 -4,-4l-8,0c-2.208,0 -4,1.792 -4,4l0,120c0,2.208 1.792,4 4,4l8,0c2.208,0 4,-1.792 4,-4l0,-120Z" style="fill:#5392ff;"/><path id="gfp4" d="M168,228c0,-2.208 -1.792,-4 -4,-4l-8,0c-2.208,0 -4,1.792 -4,4l0,120c0,2.208 1.792,4 4,4l8,0c2.208,0 4,-1.792 4,-4l0,-120Z" style="fill:#5392ff;"/><path id="gfp5" d="M200,228c0,-2.208 -1.792,-4 -4,-4l-8,0c-2.208,0 -4,1.792 -4,4l0,120c0,2.208 1.792,4 4,4l8,0c2.208,0 4,-1.792 4,-4l0,-120Z" style="fill:#5392ff;"/><path id="pop" d="M424,357.282c24.752,-14.291 40,-40.701 40,-69.282c0,-44.153 -35.847,-80 -80,-80c-44.153,0 -80,35.847 -80,80c0,28.581 15.248,54.991 40,69.282l40,-69.282l40,69.282Z" style="fill:#9b82f3;"/><path id="cable1" d="M352,224c0,0 -24.264,-21.514 -16,-72" style="fill:none;stroke:#000;stroke-width:6px;stroke-dasharray:150,600,0,0;"/><path id="cable2" d="M416,224c0,0 24.264,-21.514 16,-72" style="fill:none;stroke:#000;stroke-width:6px;stroke-dasharray:150,600,0,0;"/><path id="diamond" d="M384,288l40,69.282l-40,69.282l-40,-69.282l40,-69.282Z" style="fill:#ff5c49;"/></svg>
+
+        <script type="text/javascript">
+        $(document).ready(function() {
+
+          function pathPrepare ($el) {
+            var lineLength = $el[0].getTotalLength();
+            $el.css("stroke-dasharray", lineLength);
+            $el.css("stroke-dashoffset", lineLength);
+          }
+
+          var $cable1 = $('#cable1');
+          var $cable2 = $('#cable2');
+          pathPrepare($cable1);
+          pathPrepare($cable2);
+
+          var controller = new ScrollMagic.Controller();
+
+          var timeline = new TimelineLite();
+
+          timeline
+            .to('#gfp3', 0.8, {x: 192, y: -192, rotation: 165, transformOrigin: '50% 50%', ease:Linear.easeNone}, 0)
+            .to('#gfp4', 0.8, {x: 288, y: -192, rotation: 195, transformOrigin: '50% 50%', ease:Linear.easeNone}, 0)
+            .to('#cable1', 0.2, {strokeDashoffset: 0, ease:Linear.easeNone}, 0.8)
+            .to('#cable2', 0.2, {strokeDashoffset: 0, ease:Linear.easeNone}, 0.8)
+            .from('#diamond', 0.4, {opacity: 0, ease:Linear.easeNone}, 1.0)
+            .from('#diamond', 0.4, {y: 80, ease:Linear.easeNone}, 1.0);
+
+          var scene = new ScrollMagic.Scene({
+            triggerElement: '#gfp',
+            triggerHook: 'onLeave',
+            duration: 300
+          })
+          .setPin('#gfp')
+          .setTween(timeline)
+          .addTo(controller);
+
+        });
+        </script>
+
+      </div>
+      <div class="col-sm-6">
+        <h3>Green Fluorescent Protein (GFP)</h3>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
+    </section>
+
+</div>
+
+
+{{Lund/footer}}
+</html>

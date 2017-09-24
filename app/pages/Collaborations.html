@@ -11,32 +11,139 @@
 <script type="text/javascript" src="/Team:Lund/scripts/jvectormap-world-mill?action=raw&ctype=text/javascript"></script>
 <script type="text/javascript">
 $(document).ready(function() {
+  var markers = [
+    {latLng: [55.6761, 12.5683], name: 'Copenhagen', ref: 'Copenhagen'},
+    {latLng: [57.7089, 11.9746], name: 'Gothenburg', ref: 'Gothenburg'},
+    {latLng: [13.0827, 80.2707], name: 'Chennai', ref: 'Chennai'},
+    {latLng: [59.8586, 17.6389], name: 'Uppsala', ref: 'Uppsala'},
+    {latLng: [51.0504, 13.7373], name: 'Dresden', ref: 'Dresden'},
+    {latLng: [30.0444, 31.2357], name: 'Cairo', ref: 'Cairo'},
+    {latLng: [-23.5505, -46.6333], name: 'São Paulo', ref: 'Sao_Paulo'},
+    {latLng: [53.9600, -1.0873], name: 'York', ref: 'York'},
+    {latLng: [52.0907, 5.1214], name: 'Utrecht', ref: 'Utrecht'},
+    {latLng: [52.0116, 4.3571], name: 'Delft', ref: 'Delft'},
+    {latLng: [59.3293, 18.0686], name: 'Stockholm', ref: 'Stockholm'},
+  ];
   $('#map').vectorMap({
     map: 'world_mill',
     zoomOnScroll: false,
-    markers: [
-      {latLng: [55.6761, 12.5683], name: 'Copenhagen'},
-      {latLng: [57.7089, 11.9746], name: 'Gothenburg'},
-      {latLng: [13.0827, 80.2707], name: 'Chennai'},
-      {latLng: [59.8586, 17.6389], name: 'Uppsala'},
-      {latLng: [51.0504, 13.7373], name: 'Dresden'},
-      {latLng: [30.0444, 31.2357], name: 'Cairo'},
-      {latLng: [-23.5505, -46.6333], name: 'São Paulo'},
-      {latLng: [53.9600, -1.0873], name: 'York'},
-      {latLng: [52.0907, 5.1214], name: 'Utrecht'},
-      {latLng: [52.0116, 4.3571], name: 'Delft'},
-      {latLng: [59.3293, 18.0686], name: 'Stockholm'},
-    ],
+    markers: markers,
     markerStyle: {
       initial: {
         fill: '#FED500',
-        stroke: '#343334'
+        stroke: '#343334',
+        r: 6
       }
+    },
+    onMarkerClick: function(e, code) {
+      $(window).scrollTo($('#' + markers[code].ref), 250);
     },
   });
 });
 </script>
 
 <div id="map"></div>
+
+<div class="content-wrapper">
+  <div id="Copenhagen" class="container">
+    <h2>Copenhagen</h2>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </div>
+  <div id="Gothenburg" class="container">
+    <h2>Gothenburg</h2>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </div>
+  <div id="Chennai" class="container">
+    <h2>Chennai</h2>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </div>
+  <div id="Uppsala" class="container">
+    <h2>Uppsala</h2>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </div>
+  <div id="Dresden" class="container">
+    <h2>Dresden</h2>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </div>
+  <div id="Cairo" class="container">
+    <h2>Cairo</h2>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </div>
+  <div id="Sao_Paulo" class="container">
+    <h2>São Paulo</h2>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </div>
+  <div id="York" class="container">
+    <h2>York</h2>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </div>
+  <div id="Utrecht" class="container">
+    <h2>Utrecht</h2>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </div>
+  <div id="Delft" class="container">
+    <h2>Delft</h2>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </div>
+  <div id="Stockholm" class="container">
+    <h2>Stockholm</h2>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </div>
+</div>
 
 </html>

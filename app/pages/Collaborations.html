@@ -3,7 +3,7 @@
 </div> <!-- /.igem-content -->
 
 <script type="text/javascript">
-  $('#navbar').addClass('navbar-no-margin');
+  $('#navbar').addClass('navbar-no-margin navbar-transparent navbar-absolute');
 </script>
 
 <link rel="stylesheet" type="text/css" href="/Team:Lund/styles/jvectormap?action=raw&ctype=text/css&cache=2.0.3">
@@ -28,6 +28,7 @@ $(document).ready(function() {
     map: 'world_mill',
     zoomOnScroll: false,
     markers: markers,
+    backgroundColor: '#535A5A',
     markerStyle: {
       initial: {
         fill: '#FED500',
@@ -42,7 +43,9 @@ $(document).ready(function() {
 });
 </script>
 
-<div id="map"></div>
+<div id="map-container">
+  <div id="map"></div>
+</div>
 
 <div class="content-wrapper">
   <div id="Copenhagen" class="container">

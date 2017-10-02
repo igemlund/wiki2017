@@ -17,4 +17,30 @@
   p {
     text-align: justify;
   }
+
+  q {
+    font-style: inherit;
+    font-family: inherit;
+    font-weight: 500;
+    &:before, &:after {
+      content: "";
+    }
+    &:hover {
+      background-color: @gray-dark;
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+
+  #references {
+    margin: 0;
+    list-style-type: none;
+
+    li {
+      margin: 0.5rem 0;
+      b {
+        font-weight: 500;
+      }
+    }
+  }
 }

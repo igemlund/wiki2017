@@ -1,0 +1,29 @@
+#experiments {
+  a, a:hover, a:active {
+    color: inherit;
+  }
+
+  a:focus {
+    color: inherit;
+    outline: 0px solid transparent;
+    text-decoration: none
+  }
+
+  a:hover {
+    color: inherit;
+    text-decoration: underline;
+  }
+}
+
+
+.experiments-landing {
+  .display-section;
+
+  @background-image: '/assets/Experiments/T--Lund--Experiments-Header.jpg';
+  background: linear-gradient(
+    to left,
+    fade(@gray, 50%),
+    fade(@gray, 50%)
+    ), url(@background-image);
+  background-position: bottom;
+}

@@ -1,0 +1,64 @@
+{{Lund}}
+<html>
+</div> <!-- iGEM stuff-->
+
+<script type="text/javascript">
+  $('#navbar').addClass('navbar-transparent');
+</script>
+
+<header class="modeling-landing">
+  <div class="container">
+    <h1 class="display">Modeling</h1>
+  </div>
+</header>
+
+<section id="modeling">
+  <div class="container">
+  <nav class="navbar navbar-default navbar-static-top nav nav-pills" style="background-color:white">
+    <li><a href="/Team:Lund/Model.html">Results</a></li>
+    <li class="active"><a href="/Team:Lund/Modeling/ModelDerivation.html">Model derivation</a></li>
+    <li><a href="/Team:Lund/Modeling/ParameterEstimation.html">Parameter estimation</a></li>
+    <li><a href="/Team:Lund/Modeling/Implementation.html">Implementation</a></li>
+  </nav>
+  <h3>Overview</h3>
+  <p>Om modellen: vi modellerar pETDuet-1 med två lac operons, en gen som kodar repressorn samt två vägar som genererar gfp1-9 och er-alphalbd för slutgiltig komplementation. MOdellen för lac operonet har vi tagit från en artikel och vi presenterar endast modellen kort. För mer info hänvisar vi därför läsaren till originalartikeln. Resten bygger på proportionalitetsantaganden baserat på kontemporär litteratur.</p>
+  <p><b>[Bild på systemet]</b> </p>
+  <h3>Modeling lac operon</h3>
+  <p>asjkdhaskd</p>
+  <h3>Modeling NahR</h3>
+  <p>It has been shown that NahR binds to the Psal promoter as a transcription factor regardless of the presence of salicylate [1989]. The binding affinity has been thought to be unaffected by the salicylate [1989], but recent in-vitro experiments with surface plasmon resonance spectroscopy indicate that salicylate actually has an inhibiting effect on the binding to Psal [SPR]. There has also been indications that NahR binds as a tetramer to the promoter [1990], but recent findings has shown that it binds sequentially the promoter to then undergo miltimerization on site [SPR]. The degree of multimerization is to our knowledge not known and there are indications that the pSal promoter can have up to eight bound monomers [SPR]. </p>
+  <p>
+    Regardless, as a first order approximation (and due to the numerical ill-posedness that comes with higher order systems) we choose to model both the binding of the NahR to pSal as a first order equilibrium sa well as the subsequent binding of salicylate to the NahR-Psal complex. The resulting Salicylate-Nahr-Psal complex then starts transcibing the gfp1-9 transcript. The wholer esults in a Michaelis-Menten like system:
+    $$\ce{N + P <--> NP}$$
+    $$\ce{NP + S <--> SNP}$$
+    $$\ce{SNP -> SNP + M_G}$$
+  </p>
+  <p>The following reactions .... </p>
+
+  <h3>Modeling hER</h3>
+  <p>
+    The human estrogen receptor ER-&alpha; is modeled using simple reaction schemes. The binding of the estrogen antagonist $\ce{E}$ onto the estrogen receptor alpha ligand binding domain $\ce{ER}$ is modeled as a second order reaction where the active estrogen receptor state $\ce{\text{a}ER}$ is formed. The active state can decompose into $\ce{E}$ and $\ce{ER}$, but since the equilibrium constant is strongly shifted towards the binding formation (see parameter estimation), we model it as an irreversible reaction.
+    $$\ce{ER + E ->[k_{ae}] \text{a}ER}$$
+  </p>
+  <p>
+    The entry of the antagonist $\ce{E}$ is modeled by assuming an extracellular unit $\ce{E_\text{ex}}$ which diffuses over the cell membrane.
+    $$\ce{E_\text{ex} <-->[k] E}$$
+    It is assumed later that the amount of $\ce{E_\text{ex}}$ is constant and is thus set as a boundary condition.
+  </p>
+  <p>
+    The degradations are all of first order.
+    $$\ce{ER -> \phi}$$
+    $$\ce{E -> \phi}$$
+  </p>
+  <h3>Modeling the complementation</h3>
+  <p>
+    djfgdI  g
+  </p>
+  <h3>Determinstic equations</h3>
+  <p>ajsfasf</p>
+
+  </div>
+</div>
+</section>
+</html>
+{{Lund/footer}}

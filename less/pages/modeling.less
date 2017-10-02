@@ -1,0 +1,39 @@
+#modeling {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 125%;
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Times New Roman", Times, serif;
+  }
+
+  a, a:hover, a:active {
+    color: black;
+  }
+
+  a:focus {
+    color:black;
+    outline: 0px solid transparent;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color:black;
+    text-decoration: none;
+  }
+
+  .nav-pills > .active > a, .nav-pills > .active > a:hover {
+    background-color: LightGray;
+  }
+}
+
+.modeling-landing {
+  .display-section;
+
+  @background-image: '/assets/';
+  background: linear-gradient(
+    to left,
+    fade(@gray, 70%),
+    fade(@gray, 70%)
+    ), url(@background-image);
+  background-position: bottom;
+}

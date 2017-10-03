@@ -57,6 +57,158 @@
   <h3>Determinstic equations</h3>
   <p>ajsfasf</p>
 
+  <div class="column half_size">
+      <h3>Model derivation</h3>
+      <p>
+        This section presents the derivation of the model. We use a simplified model
+        of the <i>lac</i> operon where we dont take into account of the expression of
+        <i>lac</i> repressor or cytoplasmic free repressors (mer...) This was done to keep
+        the model simple due to the lack of experimental data. It that the amount of data needed
+        increases exponentially with the amount of parameters used in a system, also called
+        curse of dimensionality ... yada yada yada.
+      </p>
+
+      <p>
+        A mechanistic scheme of the model is illustrated in figure x (gör chemdrawbild) and a list
+        of the model species is shown in table 1. Initially,
+        it is assumed that the two operons, $\ce{O_\text{N}}$ and $\ce{O_\text{E}}$, which control the
+        expression of NahR and ER-$\alpha$ exist exclusively in their repressed forms, $\ce{RO_\text{N}}$
+        and $\ce{RO_\text{E}}$, where $\ce{R}$ is the <i>lac</i> repressor. Through the addition of an inducer,
+        $\ce{I}$, the operons are induced to allow for expression. It has been shown that two inducers
+        are required to induce an peron [19 i lac].
+
+        $$\ce{2 I + RO_\text{N} <-->[k_1][k_2] RI_2 + O_\text{N}}\tag{1}$$
+        $$\ce{2 I + RO_\text{E} <-->[k_1][k_2] RI_2 + O_\text{E}}\tag{2}$$
+
+        Thereafter, $\ce{O_\text{N}}$ and $\ce{O_\text{E}}$ are transcribed to yield $\ce{M_\text{N}}$ and $\ce{M_\text{E}}$ which
+        are translated into NahR, $\ce{N}$ and the estrogen receptor alpha ligand binding domain, $\ce{E}$.
+        Both reactions are assumed to be self catalyzed and first order.
+
+        $$\ce{O_\text{N} ->[k] O_\text{N} + M_\text{N}}\tag{3}$$
+        $$\ce{O_\text{E} ->[k] O_\text{E} + M_\text{E}}\tag{4}$$
+
+        $$\ce{M_\text{N} ->[k] M_\text{N} + N}\tag{5}$$
+        $$\ce{M_\text{E} ->[k] M_\text{E} + E}\tag{6}$$
+
+        It has been shown that the ligand binding of estrogen analogs, $\ce{Es}$, to $\ce{E}$ are of first order
+        and that the consequent active ligand binding receptor complex, $\ce{aE}$, self dissociates in a first
+        order reaction [kinetic analysis er$\alpha$]. We assume that the linkers and the gfp fragments coupled
+        to the ligand binding domain do not alter the association kinetics.
+
+        $$\ce{E + Es <-->[k_\text{a}][k_\text{d}] \text{a}E}\tag{7}$$
+
+        It has been shown that NahR binds to the Psal promoter as a transcription factor regardless of the presence
+        of salicylate [1989]. The binding affinity has previously been thought to base unaffected
+        of salicylate, but recent in vitro studies with surface plasmon resonance indicate that
+        it in fact has an inhibinting impact on the binding to Psal [SPR]. There has also been indications
+        that NahR binds as a tetramer to the promoter [1990]. However, recent studies has shown
+        that NahR actually binds sequentially as a monomer to the promoter and then undergoes a multimerization
+        on site [SPR]. The degree of multimerization is to our knowledge ambiguous as immobilized
+        Psal has had up to eight bound monomers. In addition, we have not been able to find the salicylate
+        binding mechanisms to the Psal-NahR complex. We do thus not know wether one salicylate has to binds to
+        each NahR before transcription can occur or wether the activity is increased gradually
+        with each intermediately bound solute. Neither do we know how the transcriptional activity
+        changes with each intermediate NahR monomer bound to Psal. Assuming all intermediate steps exist
+        and contribute to the transcription, the model would quickly increase in size and complexity, yielding a
+        big parameter space. To be able to model this correctly, there is a need of a big amount of data
+        as the amount of data increases exponentially with each extra parameter.
+        As we only have a sparse amount of data, we choose to model the pathway in two steps, where the NahR, $\ce{N}$,
+        binds to Psal in a second order reaction. Consequently, one salicylate binds to the complex to
+        allow for transcription.
+
+        <b>Testa skriva något i stil med "One could image modeling the pathway as a series of reactions where with each extra nahr bound monomer a new equilibrium can occur where several salicylates bind, yielding different degrees of transcriptions."</b>
+
+        $$\ce{N + P\text{sal} <-->[k_1][k_2] NP\text{sal}}\tag{8}$$
+        $$\ce{S + NPsal <-->[k_1][k_2] SNPsal}\tag{9}$$
+        $$\ce{SNPsal ->[k] SNPsal + M_\text{G}}\tag{10}$$
+        $$\ce{M_\text{G} ->[k] M_\text{G} + G}\tag{11}$$
+
+
+        </p>
+
+      <table class="table">
+        <caption>Table 1: List of species</caption>
+        <thead>
+          <tr>
+            <th>Notation</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>$\ce{O_\text{R}}$</td>
+            <td><i>lacI</i> gene</td>
+          </tr>
+          <tr>
+            <td>$\ce{M_\text{R}}$</td>
+            <td>LacI mRNA</td>
+          </tr>
+          <tr>
+            <td>$\ce{R}$</td>
+            <td>LacI monomer</td>
+          </tr>
+          <tr>
+            <td>$\ce{R_2}$</td>
+            <td>LacI Repressor</td>
+          </tr>
+          <tr>
+            <td>$\ce{O_\text{A}}$</td>
+            <td><i>lac</i> operator for protein $\ce{A}$</td>
+          </tr>
+          <tr>
+            <td>$\ce{O_\text{B}}$</td>
+            <td><i>lac</i> operator for protein $\ce{B}$</td>
+          </tr>
+          <tr>
+            <td>$\ce{R_2O_\text{A}}$</td>
+            <td>Repressed <i>lac</i> operator for protein $\ce{A}$</td>
+          </tr>
+          <tr>
+            <td>$\ce{R_2O_\text{B}}$</td>
+            <td>Repressed <i>lac</i> operator for protein $\ce{B}$</td>
+          </tr>
+          <tr>
+            <td>$\ce{I_\text{ex}}$</td>
+            <td>Extracellular inducer</td>
+          </tr>
+          <tr>
+            <td>$\ce{I}$</td>
+            <td>Intracellular inducer</td>
+          </tr>
+          <tr>
+            <td>$\ce{I_2R_2}$</td>
+            <td>Inhibited $\ce{LacI}$ repressor</td>
+          </tr>
+          <tr>
+            <td>$\ce{M_\text{A}}$</td>
+            <td>mRNA protein $\ce{A}$</td>
+          </tr>
+          <tr>
+            <td>$\ce{M_\text{B}}$</td>
+            <td>mRNA protein $\ce{B}$</td>
+          </tr>
+          <tr>
+            <td>$\ce{A}$</td>
+            <td>Protein $\ce{A}$</td>
+          </tr>
+          <tr>
+            <td>$\ce{B}$</td>
+            <td>Protein $\ce{B}$</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <div class="clear"></div>
+
+    <div class="column half_size">
+      <h3>Determinstic equations</h3>
+    </div>
+
+    <div class="clear"></div>
+
+
   </div>
 </div>
 </section>

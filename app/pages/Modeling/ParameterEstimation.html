@@ -20,10 +20,393 @@
     <li class="active"><a href="/Team:Lund/Modeling/ParameterEstimation.html">Parameter estimation</a></li>
     <li><a href="/Team:Lund/Modeling/Implementation.html">Implementation</a></li>
   </nav>
-  <h3>Overview</h3>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   <h3>Parameters</h3>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <p>
+    For the <i>lac</i> repressor monomer transcription rate:
+    $$V = 8e-16$$
+    $$\text{C}_\text{P} = 40$$
+    $$\text{O}_{T} = 40 / (6.022e23 \cdot 8e-16) = 80.3 \text{nM}$$
+    $$\text{k}_\text{MR} = 0.23 \text{nM}\cdot\text{min}^{-1}$$
+    $$\text{k} = 0.23 \cdot 80.3 = 18.36 \text{min}^{-1}$$
+  </p>
+  <p>
+    The transcription rate is on average 50 nucleotides per second (stochastic processes in cell biology, cell biology by numbers).
+    <br>
+    The translation rate is on average 15 amino acids per second (<a href="http://book.bionumbers.org/what-is-faster-transcription-or-translation/">Cell Biology By numbers</a>).
+    <br>
+    The average lifetime of mRNA is assumed to be 5 min (<a href="http://book.bionumbers.org/how-fast-do-rnas-and-proteins-degrade/">Cell biology by numbers</a>).
+    <br>
+    transcription: 50 nucleotides/sec = 3000 nucleotides/min
+    translation: 15 amino acids/sec = 900 amino acids/min
+    <br>
+    NahR: 300 amino acids -> 900 nucleotides -> mRNA: 0.3 min^-1. protein: 0.33 min^-1
+    <br>
+    GFP10-link-ERa-link-GFP11: 606 amino acids -> 1818 nucleotides -> mRNA 0.606 min^-1 -> 0.673 min^-1
+    <br>
+    Maturation time sfGFP 6min <a href="http://book.bionumbers.org/what-is-the-maturation-time-for-fluorescent-proteins/">ref</a>
+    <br>
+    Half-life sgGFP: 28 min - 119 min for R-MCherry GFP. We assume a half-life of 120 min for our sfGFP. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4713137/pdf/360.pdf">link</a>.
+    <br>
+    Half lifes for common fluorescent proteins has been shown to range over one to two hours [<a href="http://bionumbers.hms.harvard.edu/search.aspx?log=y&task=searchbytrmorg&trm=half-life+gfp+Bacteria+Escherichia+coli">bionumbers</a>]. We take a value of 120 minutes.
+    -> $\lambda_\text{G} = \log{(2)}/120 \text{min}^{-1}$
+    <br>
+    For the estrogen receptor alpha, the half-life varies from 2 to 24 hours in human (link). We assume a half-life of 6 hours.
+    <br>
+    The folding times for the proteins are estimated as directly proportional to the sequence length via the relation $N^{1/2} = \log(\tau)$, where N is the chain length and $\tau$ is the folding time in microseconds. [källa].
+    <br>
+    For membrane diffusion rates estimated from the permeability $p$, we estimate the rate constants as $\text{k} = p\frac{A}{V}$.
+    <br>
+    The NahR rate constants were obtained by fitting our system of equations to induction ratios taken from literature [link], <b>assuming</b> an expression of 100 nM at base level and a steady state after 4 hours.
+  </p>
+
+  <table class="table">
+    <caption>Table 1: List of parameters, a) Constant was calculated from the permeability $p$ using the relation $k = p \frac{A}{V}$ where $A$ is the surface area and $V$ cell volume, assuming the cell is a sphere.  b) Constant was calculated from the diffusion constant $D$ via $k = \frac{D}{A}$ where $A$ is the cell surface area, assuming a perfect sphere. c)</caption>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Value</th>
+        <th>Unit</th>
+        <th>Description</th>
+        <th>Reference</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>$\ce{C_\text{p}}$</td>
+        <td>$40$</td>
+        <td>-</td>
+        <td>Copy number</td>
+        <td>[1]</td>
+      </tr>
+      <tr>
+        <td>$\ce{V}$</td>
+        <td>$8 \cdot 10^{-16}$</td>
+        <td>L</td>
+        <td>E. coli cell volume</td>
+        <td>[2]</td>
+      </tr>
+      <tr>
+        <td>$\ce{k_\text{MR}}$</td>
+        <td>0.11</td>
+        <td>$\text{min}^{-1}$</td>
+        <td>MR transcription rate constant</td>
+        <td>[2]</td>
+      <tr>
+      <tr>
+        <td>$\ce{k_\text{R}}$</td>
+        <td>15</td>
+        <td>$\ce{min}^{-1}$</td>
+        <td>R translation rate constant</td>
+        <td>[2]</td>
+      </tr>
+      <tr>
+        <td>$\ce{k_\text{2R}}$</td>
+        <td>$50$</td>
+        <td>$\ce{\text{nM}^{-1}\cdot min^{-1}}$</td>
+        <td>R dimerization rate constant</td>
+        <td>[2]</td>
+      </tr>
+      <tr>
+        <td>$\ce{k_\text{-2R}}$</td>
+        <td>$10^{-3}$</td>
+        <td>$\ce{min}^{-1}$</td>
+        <td>R$_2$ dissociation rate constant</td>
+        <td>[2]</td>
+      </tr>
+      <tr>
+        <td>$\ce{k_\text{r}}$</td>
+        <td>$960$</td>
+        <td>$\text{nM}^{-1}\cdot \text{min}^{-1}$</td>
+        <td>Operator repression rate constant</td>
+        <td>[2]</td>
+      </tr>
+      <tr>
+        <td>$\ce{k_\text{-r}}$</td>
+        <td>$2.4$</td>
+        <td>$\text{min}^{-1}$</td>
+        <td>Operator derepression rate constant</td>
+        <td>[2]</td>
+      </tr>
+      <tr>
+        <td>$\ce{k_\text{dr1}}$</td>
+        <td>$3\cdot 10^{-7}$</td>
+        <td>$\text{nM}^{-2}\cdot\text{min}^{-1}$</td>
+        <td>Free R$_2$ repression rate constant</td>
+        <td>[2]</td>
+      </tr>
+      <tr>
+        <td>$\ce{k_\text{-dr1}}$</td>
+        <td>12</td>
+        <td>$\text{min}^{-1}$</td>
+        <td>Free R$_2$ derepression rate constant</td>
+        <td>[2]</td>
+      </tr>
+      <tr>
+        <td>$\ce{k_\text{dr2}}$</td>
+        <td>$3\cdot 10^{-7}$</td>
+        <td>$\text{nM}^{-2}\cdot \text{min}^{-1}$</td>
+        <td>Operator bound R$_2$ repression rate constant</td>
+        <td>[2]</td>
+      </tr>
+      <tr>
+        <td>$\ce{k_\text{-dr2}}$</td>
+        <td>$4.8 \cdot 10^{3}$</td>
+        <td>$\text{nM}^{-1} \cdot \text{min}^{-1}$</td>
+        <td>Operator bound R$_2$ derepression rate constant</td>
+        <td>[2]</td>
+      </tr>
+      <tr>
+        <td>$\ce{k_\text{MN}}$</td>
+        <td>$3.09$</td>
+        <td>$\text{min}^{-1}$</td>
+        <td>NahR mRNA transcription rate constant</td>
+        <td>Bionumbers</td>
+      </tr>
+      <tr>
+        <td>$\ce{k_\text{ME}}$</td>
+        <td>$3.18$</td>
+        <td>$\text{min}^{-1}$</td>
+        <td>Estrogen receptor LBD mRNA transcription rate constant</td>
+        <td>Bionumbers</td>
+      </tr>
+      <tr>
+        <td>$\ce{k_\text{MG}}$</td>
+        <td>$4.72$</td>
+        <td>$\text{min}^{-1}$</td>
+        <td>GFP1-9 mRNA transcription rate constant</td>
+        <td>Bionumbers</td>
+      </tr>
+      <tr>
+        <td>$\ce{k_\text{N}}$</td>
+        <td>$3.0$</td>
+        <td>$\text{min}^{-1}$</td>
+        <td>NahR translation rate constant</td>
+        <td>Bionumbers</td>
+      </tr>
+      <tr>
+        <td>$\ce{k_\text{E}}$</td>
+        <td>$2.86$</td>
+        <td>$\text{min}^{-1}$</td>
+        <td>Estrogen receptor LBD translation rate constant</td>
+        <td>Bionumbers</td>
+      </tr>
+      <tr>
+        <td>$\ce{k_\text{G}}$</td>
+        <td>4.59</td>
+        <td>$\text{min}^{-1}$</td>
+        <td>GFP1-9 translation rate constant</td>
+        <td>Bionumbers</td>
+      </tr>
+      <tr>
+        <td>$\ce{k_\text{fE}}$</td>
+        <td>$1.8$</td>
+        <td>$\text{min}^{-1}$</td>
+        <td>Estrogen receptor LBD folding rate constant</td>
+        <td>Folding article</td>
+      </tr>
+      <tr>
+        <td>$\ce{k_\text{fN}}$</td>
+        <td>$1.21$</td>
+        <td>$\text{min}^{-1}$</td>
+        <td>NahR folding rate constant</td>
+        <td>Folding article</td>
+      </tr>
+      <tr>
+        <td>$\ce{k_\text{mG}}$</td>
+        <td>$0.167$</td>
+        <td>$\text{min}^{-1}$</td>
+        <td>GFP1-9 maturation rate constant</td>
+        <td>Bionumbers</td>
+      </tr>
+      <tr>
+        <td>$\ce{k_\text{aEEs}}$</td>
+        <td>$7.8 \cdot 10^{16}$</td>
+        <td>$\text{nM}\cdot \text{min}^{-1}$</td>
+        <td>Estrogen receptor-ligand association rate constant</td>
+        <td>[6]</td>
+      </tr>
+      <tr>
+        <td>$\ce{k_\text{dEEs}}$</td>
+        <td>$7.2 \cdot 10^{-4}$</td>
+        <td>$\text{min}^{-1}$</td>
+        <td>Estrogen receptor-ligand dissociation rate constant</td>
+        <td>[6]</td>
+      </tr>
+      <tr>
+        <td>$\ce{k_\text{aNP}}$</td>
+        <td></td>
+        <td></td>
+        <td>NahR-Psal association rate constant</td>
+        <td>Estimated from literature data</td>
+      </tr>
+      <tr>
+        <td>$\ce{k_\text{dNP}}$</td>
+        <td></td>
+        <td></td>
+        <td>NahR-Psal dissociation rate constant</td>
+        <td>Estimated from literature data</td>
+      </tr>
+      <tr>
+        <td>$\ce{k_\text{aSNP}}$</td>
+        <td></td>
+        <td></td>
+        <td>Salicylate-[NahR-Psal] association rate constant</td>
+        <td>Estimated from literature data</td>
+      </tr>
+      <tr>
+        <td>$\ce{k_\text{dSNP}}$</td>
+        <td></td>
+        <td></td>
+        <td>Salicylate-[NahR-Psal] dissociation rate constant</td>
+        <td>Estimated from literature data</td>
+      </tr>
+      <tr>
+        <td>$\ce{k_\text{aGFP}}$</td>
+        <td></td>
+        <td></td>
+        <td>Tripartite GFP association rate constant</td>
+        <td>Needs experimental data?</td>
+      </tr>
+      <tr>
+        <td>$\ce{k_\text{dGFP}}$</td>
+        <td></td>
+        <td></td>
+        <td>Tripartite GFP dissociation rate constant</td>
+        <td>Needs experimental data?</td>
+      </tr>
+      <tr>
+        <td>$\ce{k_\text{dI}}$</td>
+        <td>0.92</td>
+        <td>$\text{min}^{-1}$</td>
+        <td>IPTG diffusion constant</td>
+        <td>[2]</td>
+      </tr>
+      <tr>
+        <td>$\ce{k_\text{dS}}$</td>
+        <td>$0.0294$</td>
+        <td>$\text{min}^{-1}$</td>
+        <td>Salicylate diffusion rate constant</td>
+        <td>[3]$^a$</td>
+      </tr>
+      <tr>
+        <td>$\ce{k_\text{dE}}$</td>
+        <td>$0.0144$</td>
+        <td>$\text{min}^{-1}$</td>
+        <td>Estrogen diffusion rate constant</td>
+        <td>[4]$^b$</td>
+      </tr>
+      <tr>
+        <td>$\ce{\lambda_\text{MR}}$</td>
+        <td>$0.462$</td>
+        <td>$\ce{min^{-1}}$</td>
+        <td>MR degradation rate constant</td>
+        <td>[2]</td>
+      </tr>
+      <tr>
+        <td>$\ce{\lambda_\text{MN}}$</td>
+        <td>$0.2$</td>
+        <td>$\text{min}^{-1}$</td>
+        <td>NahR mRNA degradation rate constant</td>
+        <td>Bionumbers</td>
+      </tr>
+      <tr>
+        <td>$\ce{\lambda_\text{ME}}$</td>
+        <td>$0.2$</td>
+        <td>$\text{min}^{-1}$</td>
+        <td>Estrogen receptor LBD mRNA degradation rate constant</td>
+        <td>Bionumbers</td>
+      </tr>
+      <tr>
+        <td>$\ce{\lambda_\text{MG}}$</td>
+        <td>0.2</td>
+        <td>$\text{min}^{-1}$</td>
+        <td>GFP1-9 mRNA degradation rate constant</td>
+        <td>Bionumbers</td>
+      </tr>
+      <tr>
+        <td>$\ce{\lambda_\text{R}}$</td>
+        <td>0.2</td>
+        <td>$\ce{min}^{-1}$</td>
+        <td>R degradation rate constant</td>
+        <td>[2]</td>
+      </tr>
+      <tr>
+        <td>$\ce{\lambda_{\text{R}_2}}$</td>
+        <td>0.2</td>
+        <td>$\ce{min}^{-1}$</td>
+        <td>R$_2$ degradation rate constant</td>
+        <td>[2]</td>
+      </tr>
+      <tr>
+        <td>$\ce{\lambda_{\text{I}_2\text{R}_2}}$</td>
+        <td>0.2</td>
+        <td>$\ce{min}^{-1}$</td>
+        <td>I$_2$R$_2$ degradation rate constant</td>
+        <td>[2]</td>
+      </tr>
+      <tr>
+        <td>$\ce{\lambda_\text{N}}$</td>
+        <td></td>
+        <td></td>
+        <td>NahR degradation rate constant</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>$\ce{\lambda_\text{E}}$</td>
+        <td>$2.8 \cdot 10^{-4}$</td>
+        <td>$\text{min}^{-1}</td>
+        <td>Estrogen receptor LBD degradation rate constant</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>$\ce{\lambda_\text{G}}$</td>
+        <td>$0.0058$</td>
+        <td>$\text{min}^{-1}$</td>
+        <td>GFP1-9 degradation rate constant</td>
+        <td>[note]</td>
+      </tr>
+      <tr>
+        <td>$\ce{\lambda_\text{GFP}}$</td>
+        <td></td>
+        <td></td>
+        <td>GFP degradation rate constant</td>
+        <td>Needs experimental data</td>
+      </tr>
+      <tr>
+        <td>$\ce{k_\text{transcription}}$</td>
+        <td>$50$</td>
+        <td>$\text{nucleotides}\cdot\text{s}^{-1}$</td>
+        <td>Average transcription rate</td>
+        <td>Bionumbers</td>
+      </tr>
+      <tr>
+        <td>$\ce{k_\text{translation}}$</td>
+        <td>$15$</td>
+        <td>$\text{amino acids}\cdot\text{s}^{-1}$</td>
+        <td>Average translation rate</td>
+        <td>Bionumbers</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h3>Implementation</h3>
+  <figure>
+    <img src="../../assets/Modeling/T-Lund-implementation.svg" alt="Full implementation">
+    <figcaption>Figure x: Reaction diagram</figcaption>
+  </figure>
+
+
+  <h3>References</h3>
+  <p>[1] http://www.merckmillipore.com/SE/en/product/pETDuet%E2%84%A2-1-DNA---Novagen,EMD_BIO-71146#documentation</p>
+  <p>[2] Michaeil Stamatakis and Nikos V. Mantzaris. "Comparision of Determinstic and Stochastic Models of the <i>lac</i> Operon Genetic Network". Biophysical Journal Volume 96. Feb 2009 887-906</p>
+  <p>[2] http://book.bionumbers.org/how-big-is-an-e-coli-cell-and-what-is-its-mass/ </p>
+  <p>[3] John Gutknecht. "Aspirin, acetaminophen and proton transport through phospholipid bilayers and mitochondrial membranes". Molecular and Cellular Biochemistry 114: 3-8, 1992</p>
+  <p>[4] Idit Oren, Sarel J. Fleishman, Amit Kessel, Nir Ben-Tal. "Free Diffusion of Steroid Hormones Across Biomembranes: A Simplex Search with Implicit Solvent Model Calculations". Biophysical Journal Vol. 87, August 2004, p. 768-779.</p>
+  <p>[5] Bionumbers average translation and transcription rate.
+  <p>[6] Rebecca L. Rich*, Lise R. Hoth†, Kieran F. Geoghegan†, Thomas A. Brown†, Peter K. LeMotte†, Samuel P. Simons†,Preston Hensley†, and David G. Myszka*. "Kinetic analysis of estrogen receptor ligand interactions". </p>
+</div>
+</div>
   </div>
 </div>
 </section>

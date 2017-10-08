@@ -21,6 +21,27 @@
     <li><a href="/Team:Lund/Modeling/Implementation.html">Implementation</a></li>
   </nav>
   <h3>Overview</h3>
+  <p>The pETDuet-1 is a plasmid vector designed for the co-expression of two target genes. It has a copy number of 40 and is a T7 promoter expression vector. Each cloning site is preceded by a T7 RNAP promoter, a <i>lac</i> operator and ribosome binding site. In addition, the vector carries the <i>lacI</i> gene for the constituitive expression of the <i>lac</i> repressor. An illustration is shown in figure 1. The target genes to be expressed, $\ce{A}$ and $\ce{B}$ are regulated by two <i>lac</i> operons denoted $\ce{OA}$ and $\ce{OB}$. A constituitive promoter expressed the <i>lacI</i> gene which in turn represses $\ce{OA}$ and $\ce{OB}$, inactivating the epresion of $\ce{A}$ and $\ce{B}$. The addition of an inducer represses the repressor LacI, which in turn activates the previously repressed operons. This pathway enables a very simple genetic switch which can be utilied to control gene expression by the addition of an inducer.</p>
+  <p>In this section we provide a derivation of our model. We present the reasoning behind every reaction and the corresponding assumptions. We start by modeling the regulation of the pETDuet-1 plasmid which consists of one gene coding for the <i>lac</i> repressor and two <i>lac</i> regulated genes which constitute the respective pathway in our AND-logic. The biomolecular network is then presented for each pathway followed by the final GFP complementation. The entire casette is illustrated in figure 1. The pathway starts with an ITPG induction to yield NahR and the Estrogen Receptor-&alpha; Ligand Binding Domain with linker bound gfp10 and gfp11 fragments. As salicylate is added it binds to the NahR to start the expression of the first gfp1-9 fragment. Simulatenously, an estrogen analog binds to the Estrogen Receptor-&alpha; LBD which causes a conformational change to bring the complementary gfp fragments gfp10 and gfp11 to come into close proximity. This situation allows for the gfp1-9 fragment to complement with gfp10 and gfp11 and cause fluorescence.</p>
+
+
+  <figure style="text-align:center">
+    <img src="../../assets/Modeling/T-Lund-lacoperon_sbol.png" alt="Reaction scheme">
+    <figcaption><i>The important parts in the pETDuet-1 plasmid. The system consists of a constitutive promoter expressing lacI which in turn represses the lac operons OA and OB. The repressor is in turn repressed by an inducer. The ribosome binding site located downstream of the promoters are denoted rbs.</i></figcaption>
+  </figure>
+
+  <figure style="text-align:center">
+    <img src="../../assets/Modeling/network1.png" alt="Reaction scheme">
+    <figcaption><i>Figure 2: Reaction scheme.</i></figcaption>
+  </figure>
+
+  <h3><i>lac</i> regulation</h3>
+  <p>
+
+  </p>
+
+
+
   <p>Om modellen: vi modellerar pETDuet-1 med två lac operons, en gen som kodar repressorn samt två vägar som genererar gfp1-9 och er-alphalbd för slutgiltig komplementation. MOdellen för lac operonet har vi tagit från en artikel och vi presenterar endast modellen kort. För mer info hänvisar vi därför läsaren till originalartikeln. Resten bygger på proportionalitetsantaganden baserat på kontemporär litteratur.</p>
   <p><b>[Bild på systemet]</b> </p>
   <h3>Modeling lac operon</h3>

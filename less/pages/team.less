@@ -28,27 +28,31 @@
   .member {
     @avatar-size: 10rem;
     position: relative;
-    padding-left: @avatar-size + 1rem;
     margin: 4rem 0;
     min-height: @avatar-size;
-    max-width: (100% * (2 / 3));
 
     .avatar {
-      position: absolute;
-      left: 0;
-      top: 0;
-      border-radius: 50%;
-      width: @avatar-size;
-      height: @avatar-size;
+      text-align: center;
+      img {
+        border-radius: 50%;
+        width: @avatar-size;
+        height: @avatar-size;
+        margin-bottom: 2rem;
+      }
     }
 
     h3 {
+      margin-top: 0;
       color: @blue;
     }
 
     h6 {
       font-family: inherit;
       color: @gray-light;
+    }
+
+    @media (max-width: @screen-xs-max) {
+      text-align: center;
     }
   }
 }

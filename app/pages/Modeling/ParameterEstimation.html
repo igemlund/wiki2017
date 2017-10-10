@@ -20,45 +20,12 @@
     <li class="active"><a href="/Team:Lund/Modeling/ParameterEstimation.html">Parameter estimation</a></li>
     <li><a href="/Team:Lund/Modeling/Implementation.html">Implementation</a></li>
   </nav>
-  <h3>Parameters</h3>
-  <p>
-    For the <i>lac</i> repressor monomer transcription rate:
-    $$V = 8e-16$$
-    $$\text{C}_\text{P} = 40$$
-    $$\text{O}_{T} = 40 / (6.022e23 \cdot 8e-16) = 80.3 \text{nM}$$
-    $$\text{k}_\text{MR} = 0.23 \text{nM}\cdot\text{min}^{-1}$$
-    $$\text{k} = 0.23 \cdot 80.3 = 18.36 \text{min}^{-1}$$
-  </p>
-  <p>
-    The transcription rate is on average 50 nucleotides per second (stochastic processes in cell biology, cell biology by numbers).
-    <br>
-    The translation rate is on average 15 amino acids per second (<a href="http://book.bionumbers.org/what-is-faster-transcription-or-translation/">Cell Biology By numbers</a>).
-    <br>
-    The average lifetime of mRNA is assumed to be 5 min (<a href="http://book.bionumbers.org/how-fast-do-rnas-and-proteins-degrade/">Cell biology by numbers</a>).
-    <br>
-    transcription: 50 nucleotides/sec = 3000 nucleotides/min
-    translation: 15 amino acids/sec = 900 amino acids/min
-    <br>
-    NahR: 300 amino acids -> 900 nucleotides -> mRNA: 0.3 min^-1. protein: 0.33 min^-1
-    <br>
-    GFP10-link-ERa-link-GFP11: 606 amino acids -> 1818 nucleotides -> mRNA 0.606 min^-1 -> 0.673 min^-1
-    <br>
-    Maturation time sfGFP 6min <a href="http://book.bionumbers.org/what-is-the-maturation-time-for-fluorescent-proteins/">ref</a>
-    <br>
-    Half-life sgGFP: 28 min - 119 min for R-MCherry GFP. We assume a half-life of 120 min for our sfGFP. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4713137/pdf/360.pdf">link</a>.
-    <br>
-    Half lifes for common fluorescent proteins has been shown to range over one to two hours [<a href="http://bionumbers.hms.harvard.edu/search.aspx?log=y&task=searchbytrmorg&trm=half-life+gfp+Bacteria+Escherichia+coli">bionumbers</a>]. We take a value of 120 minutes.
-    -> $\lambda_\text{G} = \log{(2)}/120 \text{min}^{-1}$
-    <br>
-    For the estrogen receptor alpha, the half-life varies from 2 to 24 hours in human (link). We assume a half-life of 6 hours.
-    <br>
-    The folding times for the proteins are estimated as directly proportional to the sequence length via the relation $N^{1/2} = \log(\tau)$, where N is the chain length and $\tau$ is the folding time in microseconds. [källa].
-    <br>
-    For membrane diffusion rates estimated from the permeability $p$, we estimate the rate constants as $\text{k} = p\frac{A}{V}$.
-    <br>
-    The NahR rate constants were obtained by fitting our system of equations to induction ratios taken from literature [link], <b>assuming</b> an expression of 100 nM at base level and a steady state after 4 hours.
-  </p>
+  <h3>Overview</h3>
+  <p>In this section we provide the parameters used in the model. Table 1 yields an overview for all parameters with a
+  corresponding reference to either the literature or explanation in the description section.</p>
+  <br>
 
+  <h3>Parameters</h3>
   <table class="table">
     <caption>Table 1: List of parameters, a) Constant was calculated from the permeability $p$ using the relation $k = p \frac{A}{V}$ where $A$ is the surface area and $V$ cell volume, assuming the cell is a sphere.  b) Constant was calculated from the diffusion constant $D$ via $k = \frac{D}{A}$ where $A$ is the cell surface area, assuming a perfect sphere. c)</caption>
     <thead>
@@ -160,63 +127,63 @@
         <td>$3.09$</td>
         <td>$\text{min}^{-1}$</td>
         <td>NahR mRNA transcription rate constant</td>
-        <td>Bionumbers</td>
+        <td>Bionumbers<sup>[a]</sup></td>
       </tr>
       <tr>
         <td>$\ce{k_\text{ME}}$</td>
         <td>$3.18$</td>
         <td>$\text{min}^{-1}$</td>
         <td>Estrogen receptor LBD mRNA transcription rate constant</td>
-        <td>Bionumbers</td>
+        <td>Bionumbers<sup>[a]</sup></td>
       </tr>
       <tr>
         <td>$\ce{k_\text{MG}}$</td>
         <td>$4.72$</td>
         <td>$\text{min}^{-1}$</td>
         <td>GFP1-9 mRNA transcription rate constant</td>
-        <td>Bionumbers</td>
+        <td>Bionumbers<sup>[a]</sup></td>
       </tr>
       <tr>
         <td>$\ce{k_\text{N}}$</td>
         <td>$3.0$</td>
         <td>$\text{min}^{-1}$</td>
         <td>NahR translation rate constant</td>
-        <td>Bionumbers</td>
+        <td>Bionumbers<sup>[a]</sup></td>
       </tr>
       <tr>
         <td>$\ce{k_\text{E}}$</td>
         <td>$2.86$</td>
         <td>$\text{min}^{-1}$</td>
         <td>Estrogen receptor LBD translation rate constant</td>
-        <td>Bionumbers</td>
+        <td>Bionumbers<sup>[a]</sup></td>
       </tr>
       <tr>
         <td>$\ce{k_\text{G}}$</td>
         <td>4.59</td>
         <td>$\text{min}^{-1}$</td>
         <td>GFP1-9 translation rate constant</td>
-        <td>Bionumbers</td>
+        <td>Bionumbers<sup>[a]</sup></td>
       </tr>
       <tr>
         <td>$\ce{k_\text{fE}}$</td>
         <td>$1.8$</td>
         <td>$\text{min}^{-1}$</td>
         <td>Estrogen receptor LBD folding rate constant</td>
-        <td>Folding article</td>
+        <td>Folding article<sup>[a]</sup></td>
       </tr>
       <tr>
         <td>$\ce{k_\text{fN}}$</td>
         <td>$1.21$</td>
         <td>$\text{min}^{-1}$</td>
         <td>NahR folding rate constant</td>
-        <td>Folding article</td>
+        <td>Folding article<sup>[a]</sup></td>
       </tr>
       <tr>
         <td>$\ce{k_\text{mG}}$</td>
         <td>$0.167$</td>
         <td>$\text{min}^{-1}$</td>
         <td>GFP1-9 maturation rate constant</td>
-        <td>Bionumbers</td>
+        <td>Bionumbers<sup>[a]</sup></td>
       </tr>
       <tr>
         <td>$\ce{k_\text{aEEs}}$</td>
@@ -237,28 +204,28 @@
         <td></td>
         <td></td>
         <td>NahR-Psal association rate constant</td>
-        <td>Estimated from literature data</td>
+        <td>Estimated from literature data<sup>[a]</sup></td>
       </tr>
       <tr>
         <td>$\ce{k_\text{dNP}}$</td>
         <td></td>
         <td></td>
         <td>NahR-Psal dissociation rate constant</td>
-        <td>Estimated from literature data</td>
+        <td>Estimated from literature data<sup>[a]</sup></td>
       </tr>
       <tr>
         <td>$\ce{k_\text{aSNP}}$</td>
         <td></td>
         <td></td>
         <td>Salicylate-[NahR-Psal] association rate constant</td>
-        <td>Estimated from literature data</td>
+        <td>Estimated from literature data<sup>[a]</sup></td>
       </tr>
       <tr>
         <td>$\ce{k_\text{dSNP}}$</td>
         <td></td>
         <td></td>
         <td>Salicylate-[NahR-Psal] dissociation rate constant</td>
-        <td>Estimated from literature data</td>
+        <td>Estimated from literature data<sup>[a]</sup></td>
       </tr>
       <tr>
         <td>$\ce{k_\text{aGFP}}$</td>
@@ -286,14 +253,14 @@
         <td>$0.0294$</td>
         <td>$\text{min}^{-1}$</td>
         <td>Salicylate diffusion rate constant</td>
-        <td>[3]$^a$</td>
+        <td>[3]<sup>[a]</sup></td>
       </tr>
       <tr>
         <td>$\ce{k_\text{dE}}$</td>
         <td>$0.0144$</td>
         <td>$\text{min}^{-1}$</td>
         <td>Estrogen diffusion rate constant</td>
-        <td>[4]$^b$</td>
+        <td>[4]<sup>[a]</sup></td>
       </tr>
       <tr>
         <td>$\ce{\lambda_\text{MR}}$</td>
@@ -307,21 +274,21 @@
         <td>$0.2$</td>
         <td>$\text{min}^{-1}$</td>
         <td>NahR mRNA degradation rate constant</td>
-        <td>Bionumbers</td>
+        <td>Bionumbers<sup>[a]</sup></td>
       </tr>
       <tr>
         <td>$\ce{\lambda_\text{ME}}$</td>
         <td>$0.2$</td>
         <td>$\text{min}^{-1}$</td>
         <td>Estrogen receptor LBD mRNA degradation rate constant</td>
-        <td>Bionumbers</td>
+        <td>Bionumbers<sup>[a]</sup></td>
       </tr>
       <tr>
         <td>$\ce{\lambda_\text{MG}}$</td>
         <td>0.2</td>
         <td>$\text{min}^{-1}$</td>
         <td>GFP1-9 mRNA degradation rate constant</td>
-        <td>Bionumbers</td>
+        <td>Bionumbers<sup>[a]</sup></td>
       </tr>
       <tr>
         <td>$\ce{\lambda_\text{R}}$</td>
@@ -354,7 +321,7 @@
       <tr>
         <td>$\ce{\lambda_\text{E}}$</td>
         <td>$2.8 \cdot 10^{-4}$</td>
-        <td>$\text{min}^{-1}</td>
+        <td>$\text{min}^{-1}$</td>
         <td>Estrogen receptor LBD degradation rate constant</td>
         <td></td>
       </tr>
@@ -377,25 +344,53 @@
         <td>$50$</td>
         <td>$\text{nucleotides}\cdot\text{s}^{-1}$</td>
         <td>Average transcription rate</td>
-        <td>Bionumbers</td>
+        <td>Bionumbers<sup>[a]</sup></td>
       </tr>
       <tr>
         <td>$\ce{k_\text{translation}}$</td>
         <td>$15$</td>
         <td>$\text{amino acids}\cdot\text{s}^{-1}$</td>
         <td>Average translation rate</td>
-        <td>Bionumbers</td>
+        <td>Bionumbers<sup>[a]</sup></td>
       </tr>
     </tbody>
   </table>
-
-
-  <h3>Implementation</h3>
-  <figure>
-    <img src="../../assets/Modeling/T-Lund-implementation.svg" alt="Full implementation">
-    <figcaption>Figure x: Reaction diagram</figcaption>
-  </figure>
-
+  <br>
+  <h3>Description</h3>
+  <p>
+    To determine the <i>lac</i> repressor monomer transcription rate, one needs the cell volume $V = 8\cdot 10^{-16}$ and the copy number $\text{C}_\text{P} = 40$. This yields the operator concentration $\text{O}_{T} = \frac{\text{C}_\text{P}}{\text{N}_\text{A}\text{V}} = 80.3$ nM
+    $$\text{k}_\text{MR} = 0.23 \text{nM}\cdot\text{min}^{-1}$$
+    $$\text{k} = 0.23 \cdot 80.3 = 18.36 \text{min}^{-1}$$
+  </p>
+  <p>
+    The transcription rate is on average 50 nucleotides per second (stochastic processes in cell biology, cell biology by numbers).
+    <br>
+    The translation rate is on average 15 amino acids per second (<a href="http://book.bionumbers.org/what-is-faster-transcription-or-translation/">Cell Biology By numbers</a>).
+    <br>
+    The average lifetime of mRNA is assumed to be 5 min (<a href="http://book.bionumbers.org/how-fast-do-rnas-and-proteins-degrade/">Cell biology by numbers</a>).
+    <br>
+    transcription: 50 nucleotides/sec = 3000 nucleotides/min
+    translation: 15 amino acids/sec = 900 amino acids/min
+    <br>
+    NahR: 300 amino acids -> 900 nucleotides -> mRNA: 0.3 min^-1. protein: 0.33 min^-1
+    <br>
+    GFP10-link-ERa-link-GFP11: 606 amino acids -> 1818 nucleotides -> mRNA 0.606 min^-1 -> 0.673 min^-1
+    <br>
+    Maturation time sfGFP 6min <a href="http://book.bionumbers.org/what-is-the-maturation-time-for-fluorescent-proteins/">ref</a>
+    <br>
+    Half-life sgGFP: 28 min - 119 min for R-MCherry GFP. We assume a half-life of 120 min for our sfGFP. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4713137/pdf/360.pdf">link</a>.
+    <br>
+    Half lifes for common fluorescent proteins has been shown to range over one to two hours [<a href="http://bionumbers.hms.harvard.edu/search.aspx?log=y&task=searchbytrmorg&trm=half-life+gfp+Bacteria+Escherichia+coli">bionumbers</a>]. We take a value of 120 minutes.
+    -> $\lambda_\text{G} = \log{(2)}/120 \text{min}^{-1}$
+    <br>
+    For the estrogen receptor alpha, the half-life varies from 2 to 24 hours in human (link). We assume a half-life of 6 hours.
+    <br>
+    The folding times for the proteins are estimated as directly proportional to the sequence length via the relation $N^{1/2} = \log(\tau)$, where N is the chain length and $\tau$ is the folding time in microseconds. [källa].
+    <br>
+    For membrane diffusion rates estimated from the permeability $p$, we estimate the rate constants as $\text{k} = p\frac{A}{V}$.
+    <br>
+    The NahR rate constants were obtained by fitting our system of equations to induction ratios taken from literature [link], <b>assuming</b> an expression of 100 nM at base level and a steady state after 4 hours.
+  </p>
 
   <h3>References</h3>
   <p>[1] http://www.merckmillipore.com/SE/en/product/pETDuet%E2%84%A2-1-DNA---Novagen,EMD_BIO-71146#documentation</p>

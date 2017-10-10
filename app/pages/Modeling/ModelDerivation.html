@@ -1,6 +1,7 @@
 {{Lund}}
 <html>
-</div> <!-- iGEM stuff-->
+</div>
+<!-- iGEM stuff-->
 
 <script type="text/javascript">
   $('#navbar').addClass('navbar-transparent');
@@ -14,141 +15,154 @@
 
 <section id="modeling">
   <div class="container">
-  <nav class="navbar navbar-default navbar-static-top nav nav-pills" style="background-color:white">
-    <li><a href="/Team:Lund/Model.html">Results</a></li>
-    <li class="active"><a href="/Team:Lund/Modeling/ModelDerivation.html">Model derivation</a></li>
-    <li><a href="/Team:Lund/Modeling/ParameterEstimation.html">Parameter estimation</a></li>
-    <li><a href="/Team:Lund/Modeling/Implementation.html">Implementation</a></li>
-  </nav>
-  <h3>Overview</h3>
-  <p>In this section we provide a derivation of our model. We present the reasoning behind every reaction and the corresponding assumptions. We start by modeling the regulation of the pETDuet-1 plasmid which consists of one gene coding for the lac repressor and two lac regulated genes which constitute the respective pathway in our AND-logic. The biomolecular network is then presented for each pathway followed by the final GFP complementation.</p>
+    <nav class="navbar navbar-default navbar-static-top nav nav-pills" style="background-color:white">
+      <li><a href="/Team:Lund/Model.html">Results</a></li>
+      <li class="active"><a href="/Team:Lund/Modeling/ModelDerivation.html">Model derivation</a></li>
+      <li><a href="/Team:Lund/Modeling/ParameterEstimation.html">Parameter estimation</a></li>
+      <li><a href="/Team:Lund/Modeling/Implementation.html">Implementation</a></li>
+    </nav>
+    <h3>Overview</h3>
+    <p>In this section we provide a derivation of our model. We present the reasoning behind the reactions and the corresponding assumptions. We start by modeling the regulation of the pETDuet-1 plasmid which consists of one gene coding for the lac repressor
+      and two lac regulated genes which constitute the respective pathway in our AND-logic. The biomolecular network is then presented for each pathway followed by the final GFP complementation.</p>
 
-  <p>The pETDuet-1 is a plasmid vector designed for the co-expression of two target genes. It has a copy number of 40 and is a T7 promoter expression vector. Each cloning site is preceded by a T7 RNAP promoter, a <i>lac</i> operator and ribosome binding site. In addition, the vector carries the <i>lacI</i> gene for the constituitive expression of the <i>lac</i> repressor. An illustration is shown in figure 1. The target genes to be expressed, $\ce{A}$ and $\ce{B}$ are regulated by two <i>lac</i> operons denoted $\ce{OA}$ and $\ce{OB}$. A constituitive promoter expressed the <i>lacI</i> gene which in turn represses $\ce{OA}$ and $\ce{OB}$, inactivating the epresion of $\ce{A}$ and $\ce{B}$. The addition of an inducer represses the repressor LacI, which in turn activates the previously repressed operons. This pathway enables a very simple genetic switch which can be utilied to control gene expression by the addition of an inducer.</p>
+    <p>The pETDuet-1 is a plasmid vector designed for the co-expression of two target genes. It has a copy number of 40 and is a T7 promoter expression vector. Each cloning site is preceded by a T7 RNAP promoter, a <i>lac</i> operator and ribosome binding
+      site. In addition, the vector carries the <i>lacI</i> gene for the constituitive expression of the <i>lac</i> repressor. An illustration is shown in figure 1. The target genes to be expressed, $\ce{A}$ and $\ce{B}$ are regulated by two <i>lac</i>      operons denoted $\ce{OA}$ and $\ce{OB}$. A constituitive promoter expresses the <i>lacI</i> gene which in turn represses $\ce{OA}$ and $\ce{OB}$, inactivating the expression of $\ce{A}$ and $\ce{B}$. The addition of an inducer represses the repressor LacI, which in turn activates the previously repressed operons. This pathway enables a very simple genetic switch which can be utilied to control gene expression by the addition of an inducer.</p>
 
-  <figure style="text-align:center">
-    <img src="../../assets/Modeling/T-Lund-lacoperon_sbol.png" alt="Reaction scheme">
-    <figcaption><i>The important parts in the pETDuet-1 plasmid. The system consists of a constitutive promoter expressing lacI which in turn represses the lac operons OA and OB. The repressor is in turn repressed by an inducer. The ribosome binding sites located downstream of the promoters are denoted rbs.</i></figcaption>
-  </figure>
+    <figure style="text-align:center">
+      <img src="../../assets/Modeling/T-Lund-lacoperon_sbol.png" alt="Reaction scheme">
+      <figcaption><i>Figure 1: The important parts in the pETDuet-1 plasmid. The system consists of a constitutive promoter expressing lacI which in turn represses the lac operons OA and OB. The repressor is in turn repressed by an inducer. The ribosome binding sites located downstream of the promoters are denoted rbs.</i></figcaption>
+    </figure>
 
-  <p>In this section we provide a derivation of our model. We present the reasoning behind every reaction and the corresponding assumptions. We start by modeling the regulation of the pETDuet-1 plasmid which consists of one gene coding for the <i>lac</i> repressor and two <i>lac</i> regulated genes which constitute the respective pathway in our AND-logic. The biomolecular network is then presented for each pathway followed by the final GFP complementation. The entire casette is illustrated in figure 1. The pathway starts with an ITPG induction to yield NahR and the Estrogen Receptor-&alpha; Ligand Binding Domain with linker bound gfp10 and gfp11 fragments. As salicylate is added it binds to the NahR to start the expression of the first gfp1-9 fragment. Simulatenously, an estrogen analog binds to the Estrogen Receptor-&alpha; LBD which causes a conformational change to bring the complementary gfp fragments gfp10 and gfp11 to come into close proximity. This situation allows for the gfp1-9 fragment to complement with gfp10 and gfp11 and cause fluorescence.</p>
+    <br>
+    <p>The entire casette is illustrated in figure 1. The pathway starts with an ITPG induction to yield NahR and the Estrogen Receptor-&alpha; Ligand Binding Domain with linker bound gfp10 and gfp11 fragments. As salicylate is added it binds to the NahR
+      to start the expression of the first gfp1-9 fragment. Simulatenously, an estrogen analog binds to the Estrogen Receptor-&alpha; LBD which causes a conformational change to bring the complementary gfp fragments gfp10 and gfp11 to come into close
+      proximity. This situation allows for the gfp1-9 fragment to complement with gfp10 and gfp11 and cause fluorescence.</p>
 
-  <figure style="text-align:center">
-    <img src="../../assets/Modeling/network1.png" alt="Reaction scheme">
-    <figcaption><i>Figure 2: Reaction scheme.</i></figcaption>
-  </figure>
+    <figure style="text-align:center">
+      <img src="../../assets/Modeling/network1.png" alt="Reaction scheme">
+      <figcaption><i>Figure 2: Reaction scheme.</i></figcaption>
+    </figure>
 
-  <h3><i>lac</i> regulation</h3>
-  <p>
+    <h3><i>lac</i> regulation</h3>
+    <p>
+      The model of the <i>lac</i> regulation is based on the work of M. Stamatakis and N. V. Mantzaris [2] who used mass action and stochastic kinetic models to study the autoregulation and bistability of the <i>lac</i> operon. Here we apply their model on our
+      pETDuet-1 plasmid. We modify it to fit for the two <i>lac</i> operators sharing the resources from one <i>lacI</i> gene. A list of the species is found in table 1.
+    </p>
+    <p>
+      Starting with the transcriptional pathway of the <i>lac</i> repressor monomer $\ce{R}$, the transcription of it's mRNA $\ce{M_R}$ is modeled as a first order reaction from the <i>lacI</i> gene $\ce{O_R}$. The following translation of $\ce{R}$ is
+      proportional to $\ce{M_R}$ and thus also of first order. Subsequently, the monomer $\ce{R}$ dimerizes into the active LacI repressor $R_2$.
+    </p>
+    <p>
+      $$\ce{O_R ->[k_\text{MR}] O_R + R}\tag{1}$$
+      $$\ce{M_R ->[k_\text{R}] M_R + R}\tag{2}$$
+      $$\ce{2R <-->[k_\text{2R}][k_\text{-2R}] R_2}\tag{3}$$
+    </p>
+    <p>
+      Following, $\ce{R_2}$ is able to interact with the <i>lac</i> operons denoted $\ce{O_N}$ and $\ce{O_E}$, regulating the expression NahR and ER-&alpha;-LBD respectively, to yield the corresponding repressed states $\ce{R_2O_N}$ and $\ce{R_2O_E}$. This is modeled as two equilibriums were the repressed operons can dissociate back into the repressor and free operon.
+    </p>
+    <p>
+      $$\ce{R_2 + O_N <-->[k_r][k_{-r}] R_2O_N}\tag{4}$$
+      $$\ce{R_2 + O_E <-->[k_r][k_{-r}] R_2O_E}\tag{5}$$
+    </p>
+    <p>
+      The induction of the repressed state proceeds via an addition of inducer $\ce{I}$ with the repressor. This is modeled as a third order reaction where the entities of I binds to $\ce{R_2}$. The reaction can take place between both free and operator bound repressors.
+    </p>
+    <p>
+      $$\ce{2I + R_2 <-->[k_{dr1}][k_{-dr1}] I_2R_2}\tag{6}$$
+      $$\ce{2I + R_2O_N <-->[k_{dr2}][k_{-dr2}] I_2R_2 + O_N}\tag{7}$$
+      $$\ce{2I + R_2O_E <-->[k_{dr2}][k_{-dr2}] I_2R_2 + O_E}\tag{8}$$
+    </p>
+    <p>
+      The inducer $\ce{I}$ is distinguished from the extracellular inducer $\ce{I_{ex}}$ and the fluxes are modeled as free diffusion.
+    </p>
+    <p>
+      $$\ce{I_{ex} <-->[k_{dI}][k_{dI}] I}\tag{9}$$
+    </p>
+    <p>
+      The transcriptions and translations are modeled as catalytic first order reaction. the mRNA:s are denoted $M_N$ and $M_E$ for NahR and ER-&alpha; LBD respectively. We do not choose to take into account for leakage transcription as it is considered a second order effect. The transcripts for NahR and ER-&alpha;-LBD are denoted $\ce{M_N}$ and $\ce{M_E}$ respectively. They code for the corresponding unfolded proteins $\ce{uN}$ and $\ce{uE}$ which then folds into the functioning form $\ce{N}$ and $\ce{E}$.
+    </p>
+    <p>
+      $$\ce{O_N ->[k_\text{MN}] O_N + M_N}\tag{10}$$
+      $$\ce{O_E ->[k_\text{ME}] O_E + M_E}\tag{11}$$
+      $$\ce{M_N ->[k_\text{N}] M_N + \text{u}N}\tag{12}$$
+      $$\ce{M_E ->[k_\text{E}] M_E + \text{u}E}\tag{13}$$
+      $$\ce{\text{u}N ->[k_\text{fN}] N}\tag{14}$$
+      $$\ce{\text{u}E ->[k_\text{fE}] E}\tag{15}$$
+    </p>
+    <p>
+      All degradations are modeled as first order reactions. It is assumed that all mRNA:s and proteins degrade with the exception of the operator bound repressor. Note that it is also assumed that the inducer does not decompose.
+    </p>
+    <p>
+      $$\ce{M_R ->[\lambda_\text{MR}] \phi}\tag{16}$$
+      $$\ce{M_N ->[\lambda_\text{MN}] \phi}\tag{17}$$
+      $$\ce{M_E ->[\lambda_\text{ME}] \phi}\tag{18}$$
+      $$\ce{R ->[\lambda_\text{R}] \phi}\tag{19}$$
+      $$\ce{R_2 ->[\lambda_{\text{R}_2}] \phi}\tag{20}$$
+      $$\ce{\text{u}N ->[\lambda_\text{N}] \phi}\tag{21}$$
+      $$\ce{N ->[\lambda_\text{N}] \phi}\tag{22}$$
+      $$\ce{\text{u}E ->[\lambda_\text{E}] \phi}\tag{23}$$
+      $$\ce{E ->[\lambda_\text{E}] \phi}\tag{24}$$
+      $$\ce{I_2R_2 ->[\lambda_{\text{I}_2\text{R}_2}] 2I}\tag{25}$$
+    </p>
 
-  </p>
-
-
-
-  <p>Om modellen: vi modellerar pETDuet-1 med två lac operons, en gen som kodar repressorn samt två vägar som genererar gfp1-9 och er-alphalbd för slutgiltig komplementation. MOdellen för lac operonet har vi tagit från en artikel och vi presenterar endast modellen kort. För mer info hänvisar vi därför läsaren till originalartikeln. Resten bygger på proportionalitetsantaganden baserat på kontemporär litteratur.</p>
-  <p><b>[Bild på systemet]</b> </p>
-  <h3>Modeling lac operon</h3>
-  <p>asjkdhaskd</p>
-  <h3>Modeling NahR</h3>
-  <p>It has been shown that NahR binds to the Psal promoter as a transcription factor regardless of the presence of salicylate [1989]. The binding affinity has been thought to be unaffected by the salicylate [1989], but recent in-vitro experiments with surface plasmon resonance spectroscopy indicate that salicylate actually has an inhibiting effect on the binding to Psal [SPR]. There has also been indications that NahR binds as a tetramer to the promoter [1990], but recent findings has shown that it binds sequentially the promoter to then undergo miltimerization on site [SPR]. The degree of multimerization is to our knowledge not known and there are indications that the pSal promoter can have up to eight bound monomers [SPR]. </p>
-  <p>
-    Regardless, as a first order approximation (and due to the numerical ill-posedness that comes with higher order systems) we choose to model both the binding of the NahR to pSal as a first order equilibrium sa well as the subsequent binding of salicylate to the NahR-Psal complex. The resulting Salicylate-Nahr-Psal complex then starts transcibing the gfp1-9 transcript. The wholer esults in a Michaelis-Menten like system:
-    $$\ce{N + P <--> NP}$$
-    $$\ce{NP + S <--> SNP}$$
-    $$\ce{SNP -> SNP + M_G}$$
-  </p>
-  <p>The following reactions .... </p>
-
-  <h3>Modeling hER</h3>
-  <p>
-    The human estrogen receptor ER-&alpha; is modeled using simple reaction schemes. The binding of the estrogen antagonist $\ce{E}$ onto the estrogen receptor alpha ligand binding domain $\ce{ER}$ is modeled as a second order reaction where the active estrogen receptor state $\ce{\text{a}ER}$ is formed. The active state can decompose into $\ce{E}$ and $\ce{ER}$, but since the equilibrium constant is strongly shifted towards the binding formation (see parameter estimation), we model it as an irreversible reaction.
-    $$\ce{ER + E ->[k_{ae}] \text{a}ER}$$
-  </p>
-  <p>
-    The entry of the antagonist $\ce{E}$ is modeled by assuming an extracellular unit $\ce{E_\text{ex}}$ which diffuses over the cell membrane.
-    $$\ce{E_\text{ex} <-->[k] E}$$
-    It is assumed later that the amount of $\ce{E_\text{ex}}$ is constant and is thus set as a boundary condition.
-  </p>
-  <p>
-    The degradations are all of first order.
-    $$\ce{ER -> \phi}$$
-    $$\ce{E -> \phi}$$
-  </p>
-  <h3>Modeling the complementation</h3>
-  <p>
-    djfgdI  g
-  </p>
-  <h3>Determinstic equations</h3>
-  <p>ajsfasf</p>
-
-  <div class="column half_size">
-      <h3>Model derivation</h3>
+    <h3>NahR</h3>
+    <p>
+      It has been shown that NahR binds to the Psal promoter as a transcription factor regardless of the presence of salicylate [1989]. The binding affinity has previously been thought to base unaffected
+      of salicylate, but recent in vitro studies with surface plasmon resonance indicate that it in fact has an inhibinting impact on the binding to Psal [SPR]. There has also been indications that NahR binds as a tetramer to the promoter [1990].
+      However, recent studies has shown that NahR actually binds sequentially as a monomer to the promoter and then undergoes a multimerization on site [SPR]. The degree of multimerization is to our knowledge ambiguous as immobilized Psal has
+      had up to eight bound monomers. In addition, we have not been able to find the salicylate binding mechanisms to the Psal-NahR complex. We do thus not know wether one salicylate has to binds to each NahR before transcription can occur or
+      wether the activity is increased gradually with each intermediately bound solute. Neither do we know how the transcriptional activity changes with each intermediate NahR monomer bound to Psal. Assuming all intermediate steps exist and contribute
+      to the transcription, the model would quickly increase in size and complexity, yielding a big parameter space. To be able to model this correctly, there is a need of a big amount of data as the amount of data increases exponentially with
+      each extra parameter. As we only have a sparse amount of data, we choose to model the pathway in two steps, where the NahR, $\ce{N}$, binds to Psal in a second order reaction. Consequently, one salicylate binds to the complex to allow for
+      transcription. We get the following set of reactions where ... denotes ...
+      <br>
+      <b>Testa skriva något i stil med "One could image modeling the pathway as a series of reactions where with each extra nahr bound monomer a new equilibrium can occur where several salicylates bind, yielding different degrees of transcriptions."</b>I
       <p>
-        This section presents the derivation of the model. We use a simplified model
-        of the <i>lac</i> operon where we dont take into account of the expression of
-        <i>lac</i> repressor or cytoplasmic free repressors (mer...) This was done to keep
-        the model simple due to the lack of experimental data. It that the amount of data needed
-        increases exponentially with the amount of parameters used in a system, also called
-        curse of dimensionality ... yada yada yada.
+      $$\ce{N + P\text{sal} <-->[k_1][k_2] NP\text{sal}}\tag{8}$$
+      $$\ce{S + NPsal <-->[k_1][k_2] SNPsal}\tag{9}$$
+      $$\ce{SNPsal ->[k] SNPsal + M_\text{G}}\tag{10}$$
+      $$\ce{M_\text{G} ->[k] M_\text{G} + \text{u}G}\tag{11}$$
+      $$\ce{\text{u}G ->[] G}\tag{14}$$
       </p>
-
       <p>
-        A mechanistic scheme of the model is illustrated in figure x (gör chemdrawbild) and a list
-        of the model species is shown in table 1. Initially,
-        it is assumed that the two operons, $\ce{O_\text{N}}$ and $\ce{O_\text{E}}$, which control the
-        expression of NahR and ER-$\alpha$ exist exclusively in their repressed forms, $\ce{RO_\text{N}}$
-        and $\ce{RO_\text{E}}$, where $\ce{R}$ is the <i>lac</i> repressor. Through the addition of an inducer,
-        $\ce{I}$, the operons are induced to allow for expression. It has been shown that two inducers
-        are required to induce an peron [19 i lac].
-
-        $$\ce{2 I + RO_\text{N} <-->[k_1][k_2] RI_2 + O_\text{N}}\tag{1}$$
-        $$\ce{2 I + RO_\text{E} <-->[k_1][k_2] RI_2 + O_\text{E}}\tag{2}$$
-
-        Thereafter, $\ce{O_\text{N}}$ and $\ce{O_\text{E}}$ are transcribed to yield $\ce{M_\text{N}}$ and $\ce{M_\text{E}}$ which
-        are translated into NahR, $\ce{N}$ and the estrogen receptor alpha ligand binding domain, $\ce{E}$.
-        Both reactions are assumed to be self catalyzed and first order.
-
-        $$\ce{O_\text{N} ->[k] O_\text{N} + M_\text{N}}\tag{3}$$
-        $$\ce{O_\text{E} ->[k] O_\text{E} + M_\text{E}}\tag{4}$$
-
-        $$\ce{M_\text{N} ->[k] M_\text{N} + N}\tag{5}$$
-        $$\ce{M_\text{E} ->[k] M_\text{E} + E}\tag{6}$$
-
-        It has been shown that the ligand binding of estrogen analogs, $\ce{Es}$, to $\ce{E}$ are of first order
-        and that the consequent active ligand binding receptor complex, $\ce{aE}$, self dissociates in a first
-        order reaction [kinetic analysis er$\alpha$]. We assume that the linkers and the gfp fragments coupled
-        to the ligand binding domain do not alter the association kinetics.
-
-        $$\ce{E + Es <-->[k_\text{a}][k_\text{d}] \text{a}E}\tag{7}$$
-
-        It has been shown that NahR binds to the Psal promoter as a transcription factor regardless of the presence
-        of salicylate [1989]. The binding affinity has previously been thought to base unaffected
-        of salicylate, but recent in vitro studies with surface plasmon resonance indicate that
-        it in fact has an inhibinting impact on the binding to Psal [SPR]. There has also been indications
-        that NahR binds as a tetramer to the promoter [1990]. However, recent studies has shown
-        that NahR actually binds sequentially as a monomer to the promoter and then undergoes a multimerization
-        on site [SPR]. The degree of multimerization is to our knowledge ambiguous as immobilized
-        Psal has had up to eight bound monomers. In addition, we have not been able to find the salicylate
-        binding mechanisms to the Psal-NahR complex. We do thus not know wether one salicylate has to binds to
-        each NahR before transcription can occur or wether the activity is increased gradually
-        with each intermediately bound solute. Neither do we know how the transcriptional activity
-        changes with each intermediate NahR monomer bound to Psal. Assuming all intermediate steps exist
-        and contribute to the transcription, the model would quickly increase in size and complexity, yielding a
-        big parameter space. To be able to model this correctly, there is a need of a big amount of data
-        as the amount of data increases exponentially with each extra parameter.
-        As we only have a sparse amount of data, we choose to model the pathway in two steps, where the NahR, $\ce{N}$,
-        binds to Psal in a second order reaction. Consequently, one salicylate binds to the complex to
-        allow for transcription.
-
-        <b>Testa skriva något i stil med "One could image modeling the pathway as a series of reactions where with each extra nahr bound monomer a new equilibrium can occur where several salicylates bind, yielding different degrees of transcriptions."</b>I
-
-        $$\ce{N + P\text{sal} <-->[k_1][k_2] NP\text{sal}}\tag{8}$$
-        $$\ce{S + NPsal <-->[k_1][k_2] SNPsal}\tag{9}$$
-        $$\ce{SNPsal ->[k] SNPsal + M_\text{G}}\tag{10}$$
-        $$\ce{M_\text{G} ->[k] M_\text{G} + G}\tag{11}$$
-
-
-        </p>
-
+        In addition, we distinguish intracellular salicylate $\ce{S}$ from extracellular salicylate $\ce{S_\text{ex}}$ by free difussion.
+      </p>
+      <p>
+          $$\ce{S_\text{ex} <-->[k_{dS}][k_{dS}] S}\tag{1000}$$
+      </p>
+      <p>
+        Degradations:
+      </p>
+      <p>
+        $$\ce{M_G ->[] \phi}\tag{20}$$
+        $$\ce{\text{u}G ->[] \phi}\tag{20}$$
+        $$\ce{G ->[] \phi}\tag{21}$$
+      </p>
+      <h3>hER</h3>
+    <p>
+      The human estrogen receptor ER-&alpha; is modeled using simple reaction schemes. The binding of the estrogen antagonist $\ce{E}$ onto the estrogen receptor alpha ligand binding domain $\ce{ER}$ is modeled as a second order reaction where the active estrogen
+      receptor state $\ce{\text{a}ER}$ is formed. The active state can decompose into $\ce{E}$ and $\ce{ER}$, but since the equilibrium constant is strongly shifted towards the binding formation (see parameter estimation), we model it as an irreversible
+      reaction.
+    </p>
+    <p>
+      $$\ce{E + Es ->[k_{ae}] EE\text{s}}$$
+    </p>
+    <p>
+      The entry of the antagonist $\ce{E}$ is modeled by assuming an extracellular unit $\ce{E_\text{ex}}$ which diffuses over the cell membrane. $$\ce{E\text{s}_\text{ex}
+      <-->[k] Es}$$ It is assumed later that the amount of $\ce{E_\text{ex}}$ is constant and is thus set as a boundary condition.
+    </p>
+    <p>
+      The degradations are all of first order. $$\ce{E -> \phi}$$ $$\ce{EE\text{s} -> \phi}$$
+    </p>
+    <p>Om modellen: vi modellerar pETDuet-1 med två lac operons, en gen som kodar repressorn samt två vägar som genererar gfp1-9 och er-alphalbd för slutgiltig komplementation. MOdellen för lac operonet har vi tagit från en artikel och vi presenterar endast
+      modellen kort. För mer info hänvisar vi därför läsaren till originalartikeln. Resten bygger på proportionalitetsantaganden baserat på kontemporär litteratur.</p>
+    <p><b>[Bild på systemet]</b> </p>
+    <h3>Tripartite GFP Complementation</h3>
+    <p> Bimolecular complementation.</p>
+    <p>
+        $$\ce{G + EE\text{s} -> GFP}$$
+        $$\ce{GFP -> \phi}$$
+    </p>
       <table class="table">
         <caption>Table 1: List of species</caption>
         <thead>
@@ -225,15 +239,10 @@
 
     <div class="clear"></div>
 
-    <div class="column half_size">
-      <h3>Determinstic equations</h3>
-    </div>
-
-    <div class="clear"></div>
-
 
   </div>
-</div>
+  </div>
 </section>
+
 </html>
 {{Lund/footer}}

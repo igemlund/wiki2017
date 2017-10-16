@@ -53,7 +53,7 @@
 
     <h3><i>lac</i> regulation</h3>
 
-    <p>The system starts with an IPTG induction of two <i>lac</i> operators. In our model we have chosen to model this in a greater detail than the
+    <p>The system starts with an IPTG induction of two <i>lac</i> operators. We choose to model this in a greater detail than the
     standard Michaelis-Menten scheme as we now have two operators repressed by one <i>lacI</i> gene. We have thus chosen to include the repressor dynamics
     with the operators but chosen an intermediate path  where we dont take into account of leak transcription or other regulating effects. The activity of
     the operators is thus entirely determined by the amount of repressor and inducer. Here we provide a relatively coarse description of the derivation. For
@@ -62,25 +62,56 @@
 
     <p>Starting with the transcriptional pathway of the <i>lac</i> repressor monomer $\ce{R}$, the transcription of it's mRNA $\ce{M_R}$ is modeled as a
     first order reaction from the <i>lacI</i> gene $\ce{O_R}$. The following translation of $\ce{R}$ is proportional to $\ce{M_R}$ and thus also of first
-    order. Subsequently, the monomer $\ce{R}$ dimerizes into the active LacI repressor $\ce{R_2}$. </p> <p> $$\ce{O_R ->[k_\text{MR}] O_R + R}\tag{1}$$
-    $$\ce{M_R ->[k_\text{R}] M_R + R}\tag{2}$$ $$\ce{2R <-->[k_\text{2R}][k_\text{-2R}] R_2}\tag{3}$$ </p> <p> Following, $\ce{R_2}$ is able to interact
+    order. Subsequently, the monomer $\ce{R}$ dimerizes into the active LacI repressor $\ce{R_2}$. </p>
+
+    <p> $$\ce{O_R ->[k_\text{MR}] O_R + R}\tag{1}$$
+        $$\ce{M_R ->[k_\text{R}] M_R + R}\tag{2}$$
+        $$\ce{2R <-->[k_\text{2R}][k_\text{-2R}] R_2}\tag{3}$$ </p>
+
+    <p> Following, $\ce{R_2}$ is able to interact
     with the <i>lac</i> operators denoted $\ce{O_N}$ and $\ce{O_E}$, regulating the expression NahR and ER-&alpha;-LBD respectively, to yield the
     corresponding repressed states $\ce{R_2O_N}$ and $\ce{R_2O_E}$. This is modeled as two equilibriums were the repressed operator can dissociate back
-    into the repressor and free operator. </p> <p> $$\ce{R_2 + O_N <-->[k_r][k_{-r}] R_2O_N}\tag{4}$$ $$\ce{R_2 + O_E <-->[k_r][k_{-r}] R_2O_E}\tag{5}$$
-    </p> <p> The induction of the repressed state proceeds via an addition of inducer $\ce{I}$ with the repressor. This is modeled as a third order
-    reaction where the entities of I binds to $\ce{R_2}$. The reaction can take place between both free and operator bound repressors. </p> <p> $$\ce{2I +
-    R_2 <-->[k_{dr1}][k_{-dr1}] I_2R_2}\tag{6}$$ $$\ce{2I + R_2O_N <-->[k_{dr2}][k_{-dr2}] I_2R_2 + O_N}\tag{7}$$ $$\ce{2I + R_2O_E
-    <-->[k_{dr2}][k_{-dr2}] I_2R_2 + O_E}\tag{8}$$ </p> <p> The inducer $\ce{I}$ is distinguished from the extracellular inducer $\ce{I_{ex}}$ and the
-    fluxes are modeled as free diffusion. </p> <p> $$\ce{I_{ex} <-->[k_{dI}][k_{dI}] I}\tag{9}$$ </p> <p> The transcriptions and translations are modeled
+    into the repressor and free operator. Note that the reaction rates are equal for both equilibriums as we assume that the operon dynamics is independent of the protein to be expressed. </p>
+
+    <p> $$\ce{R_2 + O_N <-->[k_r][k_{-r}] R_2O_N}\tag{4}$$
+        $$\ce{R_2 + O_E <-->[k_r][k_{-r}] R_2O_E}\tag{5}$$
+    </p>
+
+    <p> The induction of the repressed state proceeds via an addition of inducer $\ce{I}$ with the repressor. This is modeled as a third order
+    reaction where the entities of I binds to $\ce{R_2}$. The reaction can take place between both free and operator bound repressors. </p>
+
+    <p> $$\ce{2I + R_2 <-->[k_{dr1}][k_{-dr1}] I_2R_2}\tag{6}$$
+        $$\ce{2I + R_2O_N <-->[k_{dr2}][k_{-dr2}] I_2R_2 + O_N}\tag{7}$$
+        $$\ce{2I + R_2O_E <-->[k_{dr2}][k_{-dr2}] I_2R_2 + O_E}\tag{8}$$
+    </p>
+
+    <p> The inducer $\ce{I}$ is distinguished from the extracellular inducer $\ce{I_{ex}}$ and the
+    fluxes are modeled as free diffusion. </p>
+
+    <p> $$\ce{I_{ex} <-->[k_{dI}][k_{dI}] I}\tag{9}$$ </p>
+
+    <p> The transcriptions and translations are modeled
     as catalytic first order reaction. the mRNA:s are denoted $\ce{M_N}$ and $\ce{M_E}$ for NahR and ER-&alpha; LBD respectively. We do not choose to take
     into account for leakage transcription as it is considered a second order effect. The transcripts for NahR and ER-&alpha;-LBD are denoted $\ce{M_N}$
-    and $\ce{M_E}$ respectively. They code for the corresponding proteins $\ce{N}$ and $\ce{E}$.</p> <p> $$\ce{O_N ->[k_\text{MN}] O_N + M_N}\tag{10}$$
-    $$\ce{O_E ->[k_\text{ME}] O_E + M_E}\tag{11}$$ $$\ce{M_N ->[k_\text{N}] M_N + N}\tag{12}$$ $$\ce{M_E ->[k_\text{E}] M_E + E}\tag{13}$$ </p> <p> All
+    and $\ce{M_E}$ respectively. They code for the corresponding proteins $\ce{N}$ and $\ce{E}$.</p>
+
+    <p> $$\ce{O_N ->[k_\text{MN}] O_N + M_N}\tag{10}$$
+    $$\ce{O_E ->[k_\text{ME}] O_E + M_E}\tag{11}$$ $$\ce{M_N ->[k_\text{N}] M_N + N}\tag{12}$$ $$\ce{M_E ->[k_\text{E}] M_E + E}\tag{13}$$ </p>
+
+    <p> All
     degradations are modeled as first order reactions. It is assumed that all mRNA:s and proteins degrade with the exception of the operator bound
-    repressor. Note that it is also assumed that the inducer does not decompose. </p> <p> $$\ce{M_R ->[\lambda_\text{MR}] \phi}\tag{16}$$ $$\ce{M_N
-    ->[\lambda_\text{MN}] \phi}\tag{17}$$ $$\ce{M_E ->[\lambda_\text{ME}] \phi}\tag{18}$$ $$\ce{R ->[\lambda_\text{R}] \phi}\tag{19}$$ $$\ce{R_2
-    ->[\lambda_{\text{R}_2}] \phi}\tag{20}$$ $$\ce{N ->[\lambda_\text{N}] \phi}\tag{22}$$  $$\ce{E ->[\lambda_\text{E}] \phi}\tag{24}$$ $$\ce{I_2R_2
-    ->[\lambda_{\text{I}_2\text{R}_2}] 2I}\tag{25}$$ </p>
+    repressor. Note that it is also assumed that the inducer does not decompose. </p>
+
+    <p> $$\ce{M_R ->[\lambda_\text{MR}] \phi}\tag{16}$$
+        $$\ce{M_N ->[\lambda_\text{MN}] \phi}\tag{17}$$
+        $$\ce{M_E ->[\lambda_\text{ME}] \phi}\tag{18}$$
+        $$\ce{R ->[\lambda_\text{R}] \phi}\tag{19}$$
+        $$\ce{R_2 ->[\lambda_{\text{R}_2}] \phi}\tag{20}$$
+        $$\ce{N ->[\lambda_\text{N}] \phi}\tag{22}$$
+        $$\ce{E ->[\lambda_\text{E}] \phi}\tag{24}$$
+        $$\ce{I_2R_2 ->[\lambda_{\text{I}_2\text{R}_2}] 2I}\tag{25}$$
+    </p>
+
 
     <h3>NahR</h3>
     <p> It has been shown that NahR binds to the Psal promoter as a transcription factor regardless of the presence of salicylate
@@ -88,18 +119,28 @@
     resonance indicate that it in fact has an inhibinting impact on the binding to Psal [SPR]. There has also been indications that NahR binds as a
     tetramer to the promoter [1990]. However, recent studies has shown that NahR actually binds sequentially as a monomer to the promoter and then
     undergoes a multimerization on site [SPR]. The degree of multimerization is to our knowledge not known as immobilized Psal has had up to eight
-    bound monomers. In addition, we have not been able to find the salicylate binding mechanisms to the Psal-NahR complex. We do thus not know wether
+    bound monomers. However, it has been shown that under low concentrations (< 0.42 &micro;M), it binds as a monomer [SPR].
+    n addition, we have not been able to find the salicylate binding mechanisms to the Psal-NahR complex. We do thus not know wether
     one salicylate has to binds to each NahR before transcription can occur or wether the activity is increased gradually with each intermediately
-    bound solute. Neither do we know how the change in transcriptional activity with each intermediate NahR monomer bound to Psal. Assuming all
-    intermediate steps exist and contribute to the transcription, the model would quickly increase in size and complexity, yielding a big parameter
-    space. To be able to model this correctly, there is a need of a big amount of data as the amount of data increases exponentially with each extra
-    parameter. As we only have a sparse amount of data, we choose to model the pathway in two steps, where the NahR, $\ce{N}$, binds to Psal in a
-    second order reaction. Consequently, one salicylate binds to the complex to allow for transcription. We get the following set of reactions where ...
-    denotes ... <br> <b>Testa skriva något i stil med "One could image modeling the pathway as a series of reactions where with each extra nahr bound
-    monomer a new equilibrium can occur where several salicylates bind, yielding different degrees of transcriptions."</b>
-    <p> $$\ce{N + P\text{sal}
-    <-->[k_\text{aNP}][k_\text{dNP}] NP\text{sal}}\tag{26}$$ $$\ce{S + NPsal <-->[k_\text{aSNP}][k_\text{dSNP}] SNPsal}\tag{27}$$ $$\ce{SNPsal ->[k_\text{MG}] SNPsal + M_\text{G}}\tag{28}$$
-    $$\ce{M_\text{G} ->[k_\text{G}] M_\text{G} + \text{u}G}\tag{29}$$ $$\ce{\text{u}G ->[k_\text{mG}] G}\tag{30}$$ </p>
+    bound solute. Neither do we know how the change in transcriptional activity with each intermediate NahR monomer bound to Psal.
+
+    Assuming all intermediate steps exist and contribute to the transcription, the model would quickly increase in size and complexity, yielding a large set of equations with a big parameter
+    space. As the amount of data needed to estimate a model increases exponentially with the number of parameters, we choose to model the pathway in two steps, where the NahR, $\ce{N}$, binds to Psal in a
+    second order reaction followed by one salicylate which binds to the complex to allow for transcription. We get the following set of reactions where $\text{Psal}$ is the promoter, $\ce{S}$ salicylate and $\text{NPsal}$ and $\text{SNPsal}$ the corresponding complexes.
+
+    <p>
+      $$\ce{N + P\text{sal} <-->[k_\text{aNP}][k_\text{dNP}] NP\text{sal}}\tag{26}$$
+      $$\ce{S + NPsal <-->[k_\text{aSNP}][k_\text{dSNP}] SNPsal}\tag{27}$$
+    </p>
+
+    <p>
+      Once the the promoter is activated, the transciption of the fragment GFP1-9, $\text{G}$, can start. This is followed by a translation which yields an immature GFP, $\text{uGFP}$, followed by a maturation to yield GFP1-9, $\text{G}$.
+    </p<
+    <p>
+      $$\ce{SNPsal ->[k_\text{MG}] SNPsal + M_\text{G}}\tag{28}$$
+      $$\ce{M_\text{G} ->[k_\text{G}] M_\text{G} + \text{u}G}\tag{29}$$
+      $$\ce{\text{u}G ->[k_\text{mG}] G}\tag{30}$$
+    </p>
 
     <p> In addition, we distinguish intracellular
     salicylate $\ce{S}$ from extracellular salicylate $\ce{S_\text{ex}}$ by free difussion. </p> <p> $$\ce{S_\text{ex} <-->[k_{dS}][k_{dS}]
@@ -108,21 +149,26 @@
     </p>
 
     <h3>hER</h3>
-    <p> The human estrogen receptor ER-&alpha; is modeled using simple reaction schemes. The binding of the estrogen antagonist
+    <p>The binding of the estrogen antagonist
     $\ce{E}$ onto the estrogen receptor alpha ligand binding domain $\ce{ER}$ is modeled as a second order reaction where the active estrogen receptor
     state $\ce{\text{a}ER}$ is formed. The active state can decompose into $\ce{E}$ and $\ce{ER}$, but since the equilibrium constant is strongly
-    shifted towards the binding formation (see parameter estimation), we model it as an irreversible reaction. </p>
+    shifted towards the binding formation (see <a href="/Team:Lund/Modeling/ParameterEstimation.html">parameter estimation</a>), we model it as an irreversible reaction. </p>
     <p> $$\ce{E + Es ->[k_{aEEs}] EE\text{s}}\tag{35}$$ </p>
     <p> The entry of the antagonist $\ce{E}$ is modeled by assuming an extracellular unit $\ce{E_\text{ex}}$ which diffuses over
-    the cell membrane. $$\ce{E\text{s}_\text{ex} <-->[dEs][dEs] Es}\tag{36}$$ It is assumed later that the amount of $\ce{E_\text{ex}}$ is constant and is thus set
-    as a boundary condition. </p> <p> The degradations are all of first order. $$\ce{E ->[\lambda_E] \phi}\tag{37}$$ $$\ce{EE\text{s} ->[\lambda_E] \phi}\tag{38}$$ </p> <p>Om modellen: vi
-    modellerar pETDuet-1 med två lac operons, en gen som kodar repressorn samt två vägar som genererar gfp1-9 och er-alphalbd för slutgiltig
-    komplementation. MOdellen för lac operonet har vi tagit från en artikel och vi presenterar endast modellen kort. För mer info hänvisar vi därför
-    läsaren till originalartikeln. Resten bygger på proportionalitetsantaganden baserat på kontemporär litteratur.</p> <p><b>[Bild på systemet]</b>
+    the cell membrane. </p>
+
+    <p>
+    $$\ce{E\text{s}_\text{ex} <-->[k_\text{dEs}][k_\text{dEs}] Es}\tag{36}$$
+  </p>
+
+    <p> The degradations are all of first order.<p>
+
+    <p>
+    $$\ce{E ->[\lambda_E] \phi}\tag{37}$$ $$\ce{EE\text{s} ->[\lambda_E] \phi}\tag{38}$$
     </p>
 
-    <h3>Tripartite GFP association</h3>
-    <p>Tripartite assocation</p>
+      <h3>Tripartite GFP association</h3>
+    <p>The final GFP tripartite assocation is assumed to proceed as a direct bimolecular complementation. However, it can be argued that the GFP10 and GFP11 fragments must first reestablish the hairpin loop before the complementation can occur or that the reaction happens in two steps...</p>
     <p>$$\ce{G + EE\text{s} -> GFP}\tag{39}$$ $$\ce{GFP -> \phi}\tag{40}$$</p>
 
     <table class="table">

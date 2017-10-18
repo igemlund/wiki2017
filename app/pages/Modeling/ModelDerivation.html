@@ -23,9 +23,10 @@
     </nav>
 
     <p>In this section we provide a derivation of our model. We present the reasoning behind the reactions and the corresponding assumptions. We start
-    by modeling the regulation of the pETDuet-1 plasmid which consists of one gene coding for the <i>lac</i> repressor and two <i>lac</i> regulated genes which
-    constitute the respective pathway in our AND-logic. The biomolecular network is then presented for each pathway followed by a final GFP
-    complementation.</p>
+    by modeling the regulation of the pETDuet-1 plasmid which consists of one gene coding for the <i>lac</i> repressor and two <i>lac</i> regulated
+    genes which constitute the respective pathway in our AND-logic. The biomolecular network is then presented for each pathway followed by the final
+    GFP complementation. At the end, a determinstic scheme representing the system in terms of ordinary differential equations is presented. This set
+    of equations is later implemented in MATLAB to simulate the proposed biochemical network.</p>
 
     <h3>Overview</h3>
 
@@ -292,11 +293,52 @@
     </table>
 
     <h3>Determinstic equations</h3>
-    <p>
-      Here we present the determinstic equations that govern the dynamics proposed. It is assumed that all reactions follow mass action kinetics. It
-      is assumed that there is no net growth on the cell and that the cell is chemically homogeneous and well stirred. By balancing the masses, we
-      obtain the following set of differential equations.
+
+    <p> For the sake of completeness, we here present a determinstic representation of the network in terms of ordinary differential equations. It is
+      assumed that all reactions follow mass action kinetics. It is assumed that there is no cellular net growth and that each cell is chemically
+      homogeneous and well stirred. In addition, we assume that the cells do not affect their environment so the concentrations of all extracellular
+      species can be considered as constant boundary conditions.
+      <br>
+      <br>
+      By balancing the masses, we get the following set of differential equations.
+
+      $$\frac{dO_R}{dt} = 0$$
+      $$\frac{dM_R}{dt} = k_{MR}O_R - \lambda_{MR}M_R$$
+      $$\frac{dR}{dt} = k_{R}M_R - 2k_{2R}R^2 + 2k_{-2R}R_2 - \lambda_RR $$
+      $$\frac{dR_2}{dt} = k_{2R}R^2 - k_{-2R}R_2 + k_{} $$
+      $$\frac{O_N}{dt} = $$
+      $$\frac{O_E}{dt} = $$
+      $$\frac{R_2O_N}{dt} = $$
+      $$\frac{R_2O_E}{dt} = $$
+      $$\frac{I_ex}{dt} = $$
+      $$\frac{I}{dt} = $$
+      $$\frac{I_2R_2}{dt} = $$
+      $$\frac{M_N}{dt} = $$
+      $$\frac{M_E}{dt} = $$
+      $$\frac{N}{dt} = $$
+      $$\frac{E}{dt} = $$
+      $$\frac{Psal}{dt} = $$
+      $$\frac{NPsal}{dt} = $$
+      $$\frac{SNPsal}{dt} = $$
+      $$\frac{S}{dt} = $$
+      $$\frac{S_ex}{dt} = $$
+      $$\frac{M_G}{dt} = $$
+      $$\frac{uG}{dt} = $$
+      $$\frac{G}{dt} = $$
+      $$\frac{EEs}{dt} = $$
+      $$\frac{Es}{dt} = $$
+      $$\frac{Es_ex}{dt} = $$
+      $$\frac{GFP}{dt} = $$
+      where
+
+
+
     </p>
+
+    <p>
+      $$$$
+    </p>
+
   </div>
 </section>
 </html> {{Lund/footer}}

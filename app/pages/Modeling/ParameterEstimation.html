@@ -14,12 +14,14 @@
 
 <section id="modeling">
   <div class="container">
-  <nav class="navbar navbar-default navbar-static-top nav nav-pills" style="background-color:white">
-    <li><a href="/Team:Lund/Model.html">Results</a></li>
-    <li><a href="/Team:Lund/Modeling/ModelDerivation.html">Model derivation</a></li>
-    <li class="active"><a href="/Team:Lund/Modeling/ParameterEstimation.html">Parameter estimation</a></li>
-    <li><a href="/Team:Lund/Modeling/Implementation.html">Implementation</a></li>
-  </nav>
+    <div id="modelnav">
+      <nav class="navbar navbar-default navbar-static-top nav nav-pills" style="background-color:white">
+        <li><a href="/Team:Lund/Model.html">Results</a></li>
+        <li><a href="/Team:Lund/Modeling/ModelDerivation.html">Model derivation</a></li>
+        <li class="active"><a href="/Team:Lund/Modeling/ParameterEstimation.html">Parameter estimation</a></li>
+        <li><a href="/Team:Lund/Modeling/Implementation.html">Implementation</a></li>
+      </nav>
+    </div>
   <h3>Overview</h3>
   <p>In this section we provide the parameters used in the model. Table 1 yields an overview for all parameters with a
   corresponding reference to the literature and comment in the description section.</p>
@@ -201,14 +203,14 @@
       </tr>
       <tr>
         <td>$\ce{k_\text{aSNP}}$</td>
-        <td>$3.16 \cdot 10^{-4}$</td>
+        <td>$1.19 \cdot 10^{-4}$</td>
         <td>$\text{nM}^{-1}\text{min}^{-1}$</td>
         <td>Salicylate-[NahR-Psal] association rate constant</td>
         <td>Estimated<sup>g)</sup></td>
       </tr>
       <tr>
         <td>$\ce{k_\text{dSNP}}$</td>
-        <td>$14.4 \cdot 10^{-3}$</td>
+        <td>$6.38 \cdot 10^{-3}$</td>
         <td>$\text{min}^{-1}$</td>
         <td>Salicylate-[NahR-Psal] dissociation rate constant</td>
         <td>Estimated<sup>g)</sup></td>
@@ -299,35 +301,35 @@
       </tr>
       <tr>
         <td>$\ce{\lambda_\text{N}}$</td>
-        <td>$0.0056$</td>
+        <td>$0.00578$</td>
         <td>$\text{min}^{-1}$</td>
         <td>NahR degradation rate constant</td>
         <td>Assumed<sup>l)</sup></td>
       </tr>
       <tr>
         <td>$\ce{\lambda_\text{E}}$</td>
-        <td>$0.0056$</td>
+        <td>$0.00578$</td>
         <td>$\text{min}^{-1}$</td>
         <td>Estrogen receptor LBD degradation rate constant</td>
         <td>[9]<sup>m)</sup></td>
       </tr>
       <tr>
         <td>$\ce{\lambda_\text{EEs}}$</td>
-        <td>$0.321$</td>
+        <td>$0.00578$</td>
         <td>$\text{min}^{-1}$</td>
-        <td>EE sdegradation rate constant</td>
+        <td>EEs degradation rate constant</td>
         <td>[9]<sup>m)</sup></td>
       </tr>
       <tr>
         <td>$\ce{\lambda_\text{G}}$</td>
-        <td>$0.321$</td>
+        <td>$0.329$</td>
         <td>$\text{min}^{-1}$</td>
         <td>GFP1-9 degradation rate constant</td>
         <td>Estimated<sup>g)</sup></td>
       </tr>
       <tr>
         <td>$\ce{\lambda_\text{GFP}}$</td>
-        <td>$0.321$</td>
+        <td>$0.329$</td>
         <td>$\text{min}^{-1}$</td>
         <td>GFP degradation rate constant</td>
         <td>Estimated<sup>g)</sup></td>
@@ -348,25 +350,65 @@
     yields $\ce{k_\text{ME}=1.5}$ min<sup>-1</sup>. The GFP1-9 transcript has approximately 200 amino acids which yields $\ce{k_\text{MG}=4.5}$
     min<sup>-1</sup>. </p>
 
-  <p>d) Maturation times can range from a couple of minutes up to an hour for GFPs in <i>E. coli</i> [3]. We chose a maturation time of 6 min for GFP1-9.</p>
+  <p>d) Maturation times can range from a couple of minutes up to an hour for GFPs in <i>E. coli</i> [3]. We chose a maturation time of 6 min.</p>
 
   <p>e) The rate constants were taken for 17&beta;-estradiol.</p>
 
-  <p>f) </p>
+  <p>f) The NahR-Psal association and dissociation rates were taken as $k_\text{aNP} = 4.7 \cdot 10^{-3}$ nM<sup>-1</sup>min<sup>-1</sup> and
+    $k_\text{dNP}=11.46$ min<sup>-1</sup> after unit conversions.</p>
 
-  <p>g) A dose-response scheme for the salicylate inducible promoter was taken from the iGEM parts registry documentation page (see figure 13). In the
+  <p>g) A dose-response scheme for the salicylate inducible promoter was taken from the <a href="http://parts.igem.org/Part:BBa_J61051">iGEM parts registry documentation page</a> (see figure 13</a>). In the
     experimental setup, eight doses of salicylate were added every 30 minutes, activating the expression of a GFP. The response was measured as an
-    induction ratio of the fluorescence with respect to the uninduced state. Figure 1 illustrates the dose-response curve. In the setup we assume an
-    induction base level of 100 nM which corresponds to approximately 100 proteins per cell at the uninduced state. 
+    induction ratio of the fluorescence with respect to the fluorescence at the uninduced state. Figure 1 illustrates the dose-response curve.
+
+    <figure style="text-align:center"> <img src="../../assets/Modeling/T--Lund-dose_response.svg" alt="Reaction scheme"> <figcaption> <i>Figure 1:
+    Dose response scheme for the NahR system taken from the <a href="http://parts.igem.org/Part:BBa_J61051">iGEM parts registry documentation
+    page</a>. The data points are represented as red dots linearly interpolated with black lines.</i> </figcaption> </figure> <br>
+
+    Implementing the entire system with all parameters except for $\lambda_\text{G}$, $\text{k}_\text{aSNP}$ and $\text{k}_\text{dSNP}$ (see <a href="">Model
+    derivation</a> for the equations and <a href="">Implementation</a> for implementation details), we fit the model to the dose-response scheme to obtain the parameters. In the setup we assume an induction base
+    level of 100 nM which corresponds to approximately 100 proteins per cell at the uninduced state. We further assume that a maximal induction ratio
+    is obtained at a dose of 0.001 M salicylate.
+
+    Doses of salicylate were added every 30 min and the parameters were fit as follows: we defined a penalty function $f(\theta)$ corresponding to the
+    root mean square difference between the models output of folded GFP1-9 and the corresponding response data. The parameter $\theta$ is a vector with
+    the parameters $k_\text{aSNP}$, $k_\text{dSNP}$ and $\lambda_\text{G}$ as elements. The objective is then to minimize the penalty $f(\theta)$ under
+    the stated conditions. This was done in MATLAB using <i>lsqnonlin</i> which is a nonlinear least squares solver which uses the Levenberg-Marquardt
+    algorithm. Figure 2 shows the resulting fit and one can see that the model manages to catch the structure from the dose-response data. The resulting
+    parameters were estimated as $\text{k}_\text{aSNP} = 1.19 \cdot 10^{-4}$ nm<sup>-1</sup>min<sup>-1</sup>, $\text{k}_\text{dSNP} =
+    6.38 \cdot 10^{-3}$ min<sup>-1</sup> and $\lambda_\text{G} = 0.329$ min<sup>-1</sup>.
+
+    <figure style="text-align:center"> <img src="../../assets/Modeling/T--Lund-estimate.svg" alt="Reaction scheme">
+      <figcaption>
+        <i>Figure 2: Fitting the model to the dose response scheme for the NahR system taken from the <a href="http://parts.igem.org/Part:BBa_J61051">iGEM parts registry documentation
+          page</a>. One sees that the model manages to capture the sigmoidal appeareance, indicating a satisfying reaction scheme.</i>
+      </figcaption>
+    </figure>
+    <br>
+
+    Regarding the validity of this estimation, it might seem ambiguous due to the ansatz of 100 nM induction base level. However, at the maximal
+    induction level, this yields an expression of approximately 9000 nM of protein per cell. Assuming a molecular weight of 30kDa (a GFP has about 27
+    kDa) and a cell concentration of $2 \cdot 10^9$ cells per millilitre for an overnight culture [3], this would correspond to a yield of $4.32 \cdot
+    10^{-7}$ grams per millilitre. This is a reasonable yield and should be expected from an expression system. In addition,, the GFP degradation
+    constant is reasonable as half-lifes in <i>E. coli</i> can range from a couple of minutes to hours [Bionumbers]. In our case, our rate constant is
+    converted into the half-life $t_{1/2} = 2.11$ minutes using the relation $k = ln(2) / t_{1/2}$, indicating a reasonable esimate. We assume this
+    half-life to be the same for both the unfolded GFP1-9, GFP1-9 and the complemented GFP.
+
+    <br><br>
+
+    To conclude, the <i>ad hoc</i> proposition of
+    100 nM base induction level seem reasonable as it yields plausible expression levels. In addition, the estimated degradation rate of the GFP
+    agrees with the literature. Finally, the model managed to fit the sigmoidal shape indicating that the reaction scheme proposed describe the system
+    well.
   </p>
 
-  <p>h) In a paper from 2013, a tripartite split GFP-association was studied by complementing GFP1-9 with GFP10-SR-GFP11 (SR = sulfite reductase)
-    fusion protein [6]. The construct was studied <i>in vitro</i> under equimolar amounts of GFP1-9 and GFP10-SR-GFP11 to yield a time-intensity
-    fluorescence plot. We chose to estimate the association and dissociation rate parameters from the experiments carried out. Since the reactions were
-    carried out <i>in vitro</i>, we assume that the time frame in which the measurement was carried out (12 hours)  is too short for the proteins to
-    decompose. In addition, we assume that once a GFP has been associated, it cannot dissociate back into it's respective fragments (this is reasonable
-    as one does not expect a GFP under mild conditions to spontaneously dissociate into three parts). Also assuming that no side reactions occur and
-    that everything that can react eventually reacts, one can derive the following relation (see appendix) for the concentration $c(t)$ of the
+  <p>h) In a paper from 2013, a tripartite split GFP-association was studied by complementing GFP1-9 with GFP10-SR-GFP11 (SR = sulfite reductase) fusion
+    protein [6]. The construct was studied <i>in vitro</i> under equimolar amounts of GFP1-9 and GFP10-SR-GFP11 to yield a time-intensity fluorescence
+    plot. We chose to estimate the association and dissociation rate parameters from the experiments carried out. Since the reactions were carried out
+    <i>in vitro</i>, we assume that the time frame in which the measurement was carried out (12 hours)  is too short for the proteins to decompose. In
+    addition, we assume that once a GFP has been associated, it cannot dissociate back into it's respective fragments (this is reasonable as one does not
+    expect a GFP under mild conditions to spontaneously dissociate into three parts). Also assuming that no side reactions occur and that everything that
+    can react eventually reacts, one can derive the following relation (see <a href="#mathstuff">appendix</a>) for the concentration $c(t)$ of the
     complemented protein,
 
     $$c(t) = \begin{cases} G_0  - \frac{G_0}{1 + G_0kt}, & \mbox{if } G_0=E_0 \\
@@ -393,57 +435,70 @@
 
   <p>m)  The half-life for the estrogen receptor ligand binding domain in mammalian cells has been shown to be more than 3 hours in the unbound state
      and 1-3 hours for the ligand bound state. Usually, protein lifetimes in <i>E. coli</i> cells vary a lot and in the absence of information and
-     experimental data we chose a life time of 3 hours for both the ligand bound and unbound state.</p>
-
-
-
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-
-
-
-
-  <p>h)  Half lifes for common fluorescent proteins has been shown to range over one to two hours [7]. We choose a half-life of 120 min, yielding the rate constant $\lambda = \log(2)/120$ min<sup>-1</sup>.
-
-  <p>i)  The half-life for the estrogen receptor ligand binding domain in mammalian cells has been shown to be more than 3 hours in the unbound state
-     and 1-3 hours for the ligand bound state. Usually, protein lifetimes in <i>E. coli</i> cells vary a lot and in the absence of information and
-     experimental results we chose a life time of 3 hours for both the ligand bound and unbound state.</p>
-
-  <p>j)  In the bionumbers database, half-lifes for varieties of GFP in <i>E. coli</i> range from a couple of minutes to hours. We choose a half-life of two hours, which yields $ce{\lambda_\text{GFP} = 0.0058}$ [Bionumbers]. This is assumed to be the same for both the GFP1-9 fragment as well as for the ER-&alpha; bound protein.</p>
+     experimental data we chose a life time of 2 hours for both the ligand bound and unbound state.</p>
 
 
   <h3>Initial values</h3>
-  <p>From the obtained parameters, the initial values for the systems can be calculates as .. -> Operator content framför allt.
 
-  <h3>Math stuff</h3>
-    $$\ce{a + b ->[k] c}$$
-    $$\ce{a ->[\lambda_1] \phi}$$
-    $$\ce{b ->[\lambda_2] \phi}$$
-    $$\ce{c ->[\lambda_3] \phi}$$
-  where $\text{a}$ is the GFP1-9 fragment and $\text{b}$ the GFP10-linker-GFP11 fragment. The product $\text{c}$ is then the recomplemented GFP. Since the reactions were carried out in vitro, we assume that no degradation occur, that is $\lambda_i = 0$. By balancing the masses we get the following equations:
-    $$\frac{dc}{dt} = kab$$
-    $$\frac{db}{dt} = -kab$$
-    $$\frac{da}{dt} = -kab$$
-  These equations can be reduced into one by noticing that $\frac{dc}{dt} + \frac{db}{dt} = 0$ and $\frac{dc}{dt} + \frac{da}{dt} = 0$. We see that the sum of c and b, and c and a is constant. These relations can be solved to yield
-    $$b = b_0 - c$$
-    $$a = a_0 - c$$
-    $$\frac{dc}{dt} = k(a_0-c)(b_0-c) = ka_0b_0 - (a_0 + b_0)c + c^2$$
-  Here, $a_0$ and $b_0$ are the initial concentrations of $a$ and $b$. This is a separable differential equation which can be solved by separating the time and concentration terms. One can show (see appendix) that the solution is
-  $$c(t) = \begin{cases} a_0  - \frac{a_0}{1 + a_0kt}, & \mbox{if } a_0=b_0 \\
-  \frac{a_0b_0 - a_0b_0e^{k(a_0-b_0)t}}{b_0 - a_0e^{k(a_0-b_0)t}}, & \mbox{if } a_0\ne b_0 \end{cases}$$
+  <p> As the solutions to first order ordinary differential equations are not uniquely quantified unless proper initial
+    conditions is provided, these must be specified prior to solving the system. For our system we have chosen to set the concentrations of all species
+    to zero except for the gene content which is set at 83.2 nM. This can be calculated by the relation $c =
+    \frac{\text{C}_\text{P}}{\text{N}_\text{A}V}$ where $\text{N}_\text{A}$ is Avogadros number, $\text{C}_\text{P}$ the copy number and $V$ the cell
+    volume. The latter two parameters can be found in table 1.
 
-  In figure xx of the article, it is shown for the optimal GFP fragments that steady state is reached after approximately five hours. Assuming that, that value s 95 % of the asymptotic concentration and that all species will react, we can calculate the parameter $k$ through the following. In the experiment they had equimolar concentrations (3.5 &micro;M) of GFP1-9 and GFP10-SR-GFP11 (SR = sulfite reductase). This yeilds
-  $a_0 = b_0$:
-  $$0.95a_0  = a_0 - \frac{a_0}{1+a_0kt_{0.95}}$$
-  $\Longrightarrow k = 1.8\cdot 10^{-5}$
+    <br><br>
+    In the case of dosing with IPTG, salicylate and estrogen, these are added at suitable time points. To solve this problem one usually starts from an
+    initial condition and evolves the system up until the addition of the species. At that point, one can start a new simulation using the state obtained
+    from the last time point combined with the added amount of species. This can then be repeated for most dosing schemes. However,
+    MATLAB handles those details automatically and one has to only specify the dosing scheme.
+  </p>
 
+  <h3 id="mathstuff">Math stuff</h3>
+  <p>
 
+    To derive relation (1) we start by setting up the differential equations. We have that two species $a$ and $b$ can react irreversibly to yield
+    $c$. We get the following reactions:
+
+    $$\ce{a + b ->[k] c}\tag{3}$$
+    $$\ce{a ->[\lambda_1] \phi}\tag{4}$$
+    $$\ce{b ->[\lambda_2] \phi}\tag{5}$$
+    $$\ce{c ->[\lambda_3] \phi}\tag{6}$$
+
+    where $\text{a}$ corresponds to the GFP1-9 fragment and $\text{b}$ to GFP10-SR-GFP11. The product $\text{c}$ is the associated GFP. Since the
+    reactions were carried out in vitro, we assumed that no degradation occur, i.e $\lambda_i = 0$. By balancing the masses we get the following
+    equations:
+
+    $$\frac{dc}{dt} = -\frac{db}{dt} = -\frac{da}{dt} =  kab\tag{7}$$
+
+    These can be reduced into one by noticing that $\frac{dc}{dt} + \frac{db}{dt} = 0$ and $\frac{dc}{dt} + \frac{da}{dt} = 0$. We see that
+    the sum of $c$ and $b$, and $c$ and $a$ is constant. These relations can be solved to yield
+
+    $$b = b_0 - c\tag{8}$$
+    $$a = a_0 - c\tag{9}$$
+    $$\frac{dc}{dt} = k(a_0-c)(b_0-c)\tag{10}$$
+
+    Here, $a_0$ and $b_0$ are the initial concentrations of $a$ and $b$. This is a separable differential equation which can be solved by separating the
+    time and concentration terms. There are two cases, either $a_0 = b_0$ or $a_0 \neq b_0$. Starting with the former case, one gets
+
+    $$\frac{dc}{dt} = k(a_0-c)^2\tag{11}$$
+
+    which can be separated and solved via the following operations:
+
+    $$\frac{dc}{k(a_0-c)^2} = dt\tag{12}$$
+    $$\int_{0}^{c} \frac{dx}{k(a_0-x)^2} = \int_{0}^{t}dx\tag{13}$$
+    $$\frac{1}{k}(\frac{1}{a_0-c}-\frac{1}{a_0}) = t\tag{14}$$
+    $$c(t) = a_0 - \frac{a_0}{a_0kt+1}\tag{15}$$
+
+    where we have set $c(0)=0$. Similarly, one can solve the case $a_0=b_0$ by e.g. separating the varibles, partial fraction decompose the expression
+    and solving the integrals. One then yields:
+
+    $$c(t) = \frac{a_0b_0 - a_0b_0e^{k(a_0-b_0)t}}{b_0 - a_0e^{k(a_0-b_0)t}}\tag{16}$$
+
+    The entire solution to the problem is then:
+
+    $$c(t) = \begin{cases} a_0  - \frac{a_0}{1 + a_0kt}, & \mbox{if } a_0=b_0 \\
+    \frac{a_0b_0 - a_0b_0e^{k(a_0-b_0)t}}{b_0 - a_0e^{k(a_0-b_0)t}}, & \mbox{if } a_0\ne b_0 \end{cases}\tag{17}$$
+  </p>
   <h3>References</h3>
   <p>[1] Merck Millipore pETDuet-1 docuementation. <a href="http://www.merckmillipore.com/SE/en/product/pETDuet%E2%84%A2-1-DNA---Novagen,EMD_BIO-71146#documentation">Link here</a></p>
   <p>[2] Michaeil Stamatakis and Nikos V. Mantzaris. "Comparision of Determinstic and Stochastic Models of the <i>lac</i> Operon Genetic Network". Biophysical Journal Volume 96. Feb 2009 887-906</p>

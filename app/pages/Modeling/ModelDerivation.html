@@ -15,12 +15,14 @@
 
 <section id="modeling">
   <div class="container">
-    <nav class="navbar navbar-default navbar-static-top nav nav-pills" style="background-color:white">
-      <li><a href="/Team:Lund/Model.html">Results</a></li>
-      <li class="active"><a href="/Team:Lund/Modeling/ModelDerivation.html">Model derivation</a></li>
-      <li><a href="/Team:Lund/Modeling/ParameterEstimation.html">Parameter estimation</a></li>
-      <li><a href="/Team:Lund/Modeling/Implementation.html">Implementation</a></li>
-    </nav>
+    <div id="modelnav">
+      <nav class="navbar navbar-default navbar-static-top nav nav-pills" style="background-color:white">
+        <li><a href="/Team:Lund/Model.html">Results</a></li>
+        <li class="active"><a href="/Team:Lund/Modeling/ModelDerivation.html">Model derivation</a></li>
+        <li><a href="/Team:Lund/Modeling/ParameterEstimation.html">Parameter estimation</a></li>
+        <li><a href="/Team:Lund/Modeling/Implementation.html">Implementation</a></li>
+      </nav>
+    </div>
 
     <p>In this section we provide a derivation of our model. We present the reasoning behind the reactions and the corresponding assumptions. We start
     by modeling the regulation of the pETDuet-1 plasmid which consists of one gene coding for the <i>lac</i> repressor and two <i>lac</i> regulated
@@ -305,30 +307,30 @@
       $$\frac{dO_R}{dt} = 0$$
       $$\frac{dM_R}{dt} = k_{MR}O_R - \lambda_{MR}M_R$$
       $$\frac{dR}{dt} = k_{R}M_R - 2k_{2R}R^2 + 2k_{-2R}R_2 - \lambda_RR $$
-      $$\frac{dR_2}{dt} = k_{2R}R^2 - k_{-2R}R_2 + k_{} $$
-      $$\frac{O_N}{dt} = $$
-      $$\frac{O_E}{dt} = $$
-      $$\frac{R_2O_N}{dt} = $$
-      $$\frac{R_2O_E}{dt} = $$
-      $$\frac{I_ex}{dt} = $$
-      $$\frac{I}{dt} = $$
-      $$\frac{I_2R_2}{dt} = $$
-      $$\frac{M_N}{dt} = $$
-      $$\frac{M_E}{dt} = $$
-      $$\frac{N}{dt} = $$
-      $$\frac{E}{dt} = $$
-      $$\frac{Psal}{dt} = $$
-      $$\frac{NPsal}{dt} = $$
-      $$\frac{SNPsal}{dt} = $$
-      $$\frac{S}{dt} = $$
-      $$\frac{S_ex}{dt} = $$
-      $$\frac{M_G}{dt} = $$
-      $$\frac{uG}{dt} = $$
-      $$\frac{G}{dt} = $$
-      $$\frac{EEs}{dt} = $$
-      $$\frac{Es}{dt} = $$
-      $$\frac{Es_ex}{dt} = $$
-      $$\frac{GFP}{dt} = $$
+      $$\frac{dR_2}{dt} = $$
+      $$\frac{dO_N}{dt} = $$
+      $$\frac{dO_E}{dt} = $$
+      $$\frac{dR_2O_N}{dt} = $$
+      $$\frac{dR_2O_E}{dt} = $$
+      $$\frac{dI_{ex}}{dt} = $$
+      $$\frac{dI}{dt} = $$
+      $$\frac{dI_2R_2}{dt} = $$
+      $$\frac{dM_N}{dt} = $$
+      $$\frac{dM_E}{dt} = $$
+      $$\frac{dN}{dt} = $$
+      $$\frac{dE}{dt} = $$
+      $$\frac{dPsal}{dt} = $$
+      $$\frac{dNPsal}{dt} = $$
+      $$\frac{dSNPsal}{dt} = $$
+      $$\frac{dS}{dt} = $$
+      $$\frac{dS_{ex}}{dt} = $$
+      $$\frac{dM_G}{dt} = $$
+      $$\frac{duG}{dt} = $$
+      $$\frac{dG}{dt} = $$
+      $$\frac{dEEs}{dt} = $$
+      $$\frac{dEs}{dt} = $$
+      $$\frac{dEs_ex}{dt} = $$
+      $$\frac{dGFP}{dt} = $$
       where
 
 

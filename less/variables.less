@@ -11,6 +11,7 @@
 @navbar-logo-height: 48px;
 @navbar-logo-padding-vertical: 16px;
 @igem-menu-height: 18px;
+@avatar-size: 10rem;
 
 // == Bootstrap overrides
 @gray-darker:            #272727;
@@ -18,6 +19,9 @@
 @gray:                   #535A5A;
 @gray-light:             #8C9696;
 @gray-lighter:           #EAEAEA;
+
+@well-bg:                     @gray-white;
+@well-border:                 darken(@well-bg, 7%);
 
 @brand-primary: @blue;
 @brand-success: @green;
@@ -59,3 +63,6 @@
 @grid-float-breakpoint:     @screen-md-min;
 //** Point at which the navbar begins collapsing.
 @grid-float-breakpoint-max: (@grid-float-breakpoint - 1);
+
+
+@navbar-offset: (@navbar-height + 1px + @navbar-margin-bottom);

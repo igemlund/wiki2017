@@ -2,13 +2,9 @@
   padding-top: @common-padding;
   padding-bottom: @common-padding;
 
-  section.container {
+  .container {
     padding-top: @common-padding;
     padding-bottom: @common-padding;
-
-    h1, h2, h3, h4, h5, h6 {
-      color: @green;
-    }
   }
 }
 
@@ -32,4 +28,14 @@ ul.reference-list {
   margin: 0;
   list-style-type: none;
   list-style-image: none;
+}
+
+.avatar {
+  text-align: center;
+  img {
+    border-radius: 50%;
+    width: @avatar-size;
+    height: @avatar-size;
+    margin-bottom: 2rem;
+  }
 }

@@ -1,0 +1,47 @@
+.description-landing {
+  .display-section;
+
+  @background-image: 'http://2017.igem.org/wiki/images/b/b4/T--Lund--Description.jpg';
+  background: linear-gradient(
+    to left,
+    fade(#000, 30%),
+    fade(#000, 30%)
+    ), url(@background-image);
+  background-position: center;
+  background-size: cover;
+  height: 24rem;
+}
+
+#description-page {
+  p {
+    text-align: justify;
+  }
+
+  q {
+    font-style: inherit;
+    font-family: inherit;
+    font-weight: 500;
+    vertical-align: super;
+    font-size: smaller;
+    color: @blue;
+    &:before, &:after {
+      content: "";
+    }
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+  #references {
+    margin: 0;
+    list-style-type: none;
+
+    li {
+      margin: 0.5rem 0;
+      b {
+        font-weight: 500;
+      }
+    }
+  }
+}

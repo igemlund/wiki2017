@@ -1,9 +1,11 @@
 // Used to style the default igem content
 .igem-content {
-  &:extend(.container);
-
-  h1, h2, h3, h4, h5, h6 {
-    color: @green;
+  margin-bottom: 2rem;
+  &:before {
+    display: block;
+    background-color: @green;
+    height: @navbar-height;
+    content: " ";
   }
 
   img {
@@ -11,12 +13,18 @@
   }
 
   .column {
+    &:extend(.container);
     padding: 1rem 0;
   }
 
   .judges-will-not-evaluate {
     border: 4px dashed @green;
-    padding: 0px 16px;
+    padding: 16px;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    h3 {
+      margin-top: 0;
+    }
   }
 
   p {

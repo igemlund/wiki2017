@@ -1,18 +1,29 @@
 // Used to style the default igem content
 .igem-content {
-  &:extend(.container);
+  &:before {
+    display: block;
+    background-color: @green;
+    height: @navbar-height;
+    content: " ";
+  }
 
   img {
     max-width: 100%;
   }
 
   .column {
+    &:extend(.container);
     padding: 1rem 0;
   }
 
   .judges-will-not-evaluate {
     border: 4px dashed @green;
-    padding: 0px 16px;
+    padding: 16px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    h3 {
+      margin-top: 0;
+    }
   }
 
   p {

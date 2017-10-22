@@ -1,0 +1,42 @@
+.text-layout {
+  p {
+    text-align: justify;
+  }
+
+  q {
+    font-style: inherit;
+    font-family: inherit;
+    font-weight: 500;
+    vertical-align: super;
+    font-size: smaller;
+    color: @blue;
+    &:before, &:after {
+      content: "";
+    }
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+  .references {
+    margin: 0;
+    list-style-type: none;
+
+    li {
+      margin: 0.5rem 0;
+      b {
+        font-weight: 500;
+      }
+    }
+  }
+
+  figcaption {
+    margin: 4px 0 2rem;
+    font-size: @font-size-small;
+    font-style: italic;
+    &:before {
+      content: "Figure: ";
+    }
+  }
+}

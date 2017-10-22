@@ -24,23 +24,57 @@
   </div>
 
   <h3>Overview</h3>
-  <p>In this section we provide the parameters used in the model. Table 1 yields an overview for all parameters with a
-  corresponding reference to either the literature or explanation in the following section.</p>
+
+  <p>Numerical reliability and repdroducibility is a crucial part of research. Thus, in this section we provide the implementation details of how we
+  constructed and solved the model.  </p>
 
   <h3>Programming environment</h3>
 
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-    esse cillum dolore eu fugiat nulla
-    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <p> The entire system was implemented in MATLAB (2017a, The Mathworks Inc.) using the SimBiology<super>&copy;</super> app which provides a block diagram environment for a
+  model-based design implementation of biochemical networks. By using drag and drop features, species and reactions are placed in an editor and
+  connected to yield a model based representation of the system. The representation then generates code which constitutes to the differential
+  equations (or transitions in the case of stochastic modeling) which can be used for simulations. The SimBiology app thus  provides an efficient way
+  to build biochemical network models and automatically generate differential equations without the need to manually balance
+  reaction fluxes which otherwise can be highly error prone.</p>
 
-  <h3>Simulation parameters</h3>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-  veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-  esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-  laborum.
-  </p>
+  <p><i>Figure 1</i> illustrates our model implemented in the graphical user interface. The diagram consists of  blue boxes, yellow nodes and arrows
+  interconnecting the components. The boxes represent the interacting species and the nodes the corresponding reactions. Lines pointing from a specie
+  into a node represents a reactant and lines pointing out from a node to a specie represents a product. Dashed lines indicate that the reactant is not
+  consumed under the reaction.</p>
 
+  <p>The illustrated system can be subdivided into five parts. The first part (a) illustrates the <i>lacI</i> dynamics which expresses the <i>lac</i>
+  repressor. In (b), the IPTG induction of the repressed genes represented by their operons ON and OE is shown. These operons regulate the epression
+  of GFP1-9 and GFP10-ER-GFP11 respectively. The NahR pathway is marked by (c) and shows the binding to NahR to the <i>Psal</i> promoter followed by
+  the subsequent transcriptional activation by salicylate to yield GFP1-9. In (d), GFP10-ER-GFP11 is translated and activates by the addition of
+  estrogen. In the final part (e), the GFP association occurs, yielding a fully restored chromophore.</p>
+
+  <figure style="text-align:center"> <img src="../../assets/Modeling/T--Lund-model.svg" alt="Reaction scheme" style="width:100%;height:auto"> <figcaption> <i>Figure 1: Illustration
+  of the SimBiology&copy; implementation of our system. The networks can be considered as five parts (a)-(e) governing the dynamics of separate
+  components. Those include the expression of the <i>lac</i> repressor, <i>lac</i> regulation, NahR and GFP10-ER-GFP11 pathway and final GFP
+  association respectively.</i> </figcaption> </figure>
+
+  <h3>Implementation details</h3>
+
+  <h5>Choice of ODE solver</h5>
+
+
+  <p> Since we had parameters differencing with several orders of magnitude, numerical stiffness was expected and a stiff ordinary differential
+  equation (ODE) solver had to be used. For this we choose MATLABs solver <i>ODE23t</i> (MATLAB 2017a, The Mathworks Inc.) as it was found to have the
+  fastest performance on our system among the other solvers in the MATLAB ecosystem. This solver is commonly used to solve moderately stiff ODEs and
+  uses a variant of the classical trapezoidal rule. </p>
+
+  <h5>Choice of optimization algorithm</h5>
+
+  <p> For doing parameter estimation, several optimization algorithms were tried such as <i>FMINSEARCH</i> (MATLAB 2017a, The Matworks Inc.),
+  <i>LSQNONLIN</i> (MATLAB 2017a, The Matworks Inc.) and <i>PARTICLESWARM</i> (MATLAB 2017a, The Matworks Inc.). The function <i>LSQNONLIN</i> was
+  chosen as it seemed to perform best. The solver is commonly used to solve nonlinear least square problems and uses the Levenberg-Marquart algorithm.
+  All optimizations were run using standard configurations. </p>
+
+  <h5>Simulation parameters</h5>
+
+  <p> To ensure numerically reliable solutions, all simulations were carried out using an absolute error tolerance of 10<sup>-7</sup> and a relative
+  error tolerance of 10<sup>-7</sup> and carefully inspected to keep off spurious solution. In addition, several after each succelful run, the
+  solution was tested against other ODE solvers such as <i>ODE15s</i> (MATLAB 2017a, The Mathworks Inc.) to ensure a reliability. </p>
 
   </div>
 </section>

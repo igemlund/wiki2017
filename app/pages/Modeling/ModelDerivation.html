@@ -24,10 +24,19 @@
       </nav>
     </div>
 
-    <p>In this section we provide a derivation of our model. We present the reasoning behind the reactions and the corresponding assumptions. We start
-    by modeling the regulation of the pETDuet-1 plasmid which consists of one gene coding for the <i>lac</i> repressor and two <i>lac</i> regulated
-    genes which constitute the respective pathway in our AND-logic. The biomolecular network is then presented for each pathway followed by the final
-    GFP complementation. At the end, a determinstic scheme representing the system in terms of ordinary differential equations is presented.</p>
+    <h3>Introduction</h3>
+
+    <p> In this section we derive a model for the bacterial biosensor based on a system of ordinary differential equations. We choose to
+    model one single cell deterministic and consider the dynamics of larger cell populations the same as the dynamics of a single cell, but scaled
+    to the population size. This is reasonable although stochastic effects are present at the cellular level if one assumes that each cell is
+    independent. The choice of modeling can then be justified by the law of large numbers. If there is a large number of identical and independent
+    random variables (in this case cells), their average behaviour tend to converge to an expected behaviour. In our case, the expected behaviour is
+    obtained fom the determenistic scheme and it can be interpreted as the randomness being canceled out for large populations.</p>
+
+    <p>In addition, we present our reasoning behind the reactions and the corresponding assumptions. We start by modeling the regulation of the
+    pETDuet-1 plasmid which consists of one gene coding for the <i>lac</i> repressor and two <i>lac</i> regulated genes which constitute the
+    respective pathway in our AND-logic. The biomolecular network is then presented for each pathway followed by the final GFP complementation. At the
+    end, a determinstic scheme representing the system in terms of ordinary differential equations is presented.</p>
 
     <h3>Overview</h3>
 
@@ -37,8 +46,8 @@
     binds to the Psal promoter located downstreams of <i>nahR</i> and activates transcription of <i>gfp1-9</i> under the presence of salicylate, which
     serves as the first input into the gate. The GFP10-ER-GFP11 fusion protein can undergo a conformational change which brings the GFP10 and GFP11
     fragments into close proximity to allow for complementation with GFP1-9 in presence of estrogen, the second input. The complementation yields a
-    fully restored chromophore which can be detected by e.g fluorometric methods. See the <a href="">design section</a> for more information.
-    <b>Behöver någon sammanfattande bild av systemet</b>
+    fully restored chromophore which can be detected by e.g fluorometric methods. The system can be summarized by <i>figure 1</i>. See the <a href="">design
+    section</a> for more information. <b>Behöver någon sammanfattande bild av systemet</b>
 
     <figure style="text-align:center"> <img src="../../assets/Modeling/T-Lund-lacoperon_sbol.png" alt="Reaction scheme"> <figcaption><i>Figure 1: The
     important parts in the pETDuet-1 plasmid. The system consists of a constitutive promoter expressing lacI which in turn represses the lac operons
@@ -52,9 +61,8 @@
     <p>The system starts with an IPTG induction of two <i>lac</i> operators. We choose to model this in a greater detail than the standard
     Michaelis-Menten scheme as we now have two operators being repressed by one <i>lacI</i> gene. We have thus chosen to include the repressor
     dynamics with the operators but also chosen an intermediate pathway where we dont take into account of leak transcription or other second order
-    effects. Here we provide a relatively coarse description of the derivation. For a more detailed description of the subsystem we refer to M.
-    Stamatakis and N. V. Mantzaris who used mass action and stochastic kinetic models to study the autoregulation and bistability of the <i>lac</i>
-    operon [2].
+    effects. Here we provide a relatively coarse description of the derivation based on a study by M. Stamatakis and N. V. Mantzaris who used mass
+    action and stochastic kinetic models to study the autoregulation and bistability of the <i>lac</i> operon [2].
 
     <p>Starting with the transcriptional pathway of the <i>lac</i> repressor, the <i>lacI</i> gene $\ce{O_R}$ which codes for the dimeric monomer
     $\ce{R}$ is first transcribed to yield the mRNA $\ce{M_R}$. The transcript is then translated into the protein $R$ which dimerises into the repressor $R_2$ in a

@@ -1,6 +1,41 @@
 {{Lund}}
 <html>
 
+<script type="text/javascript" src="/Team:Lund/scripts/pv?action=raw&ctype=text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+  var options = {
+    width: 360,
+    height: 240,
+    antialias: true,
+    quality : 'medium'
+  };
+
+  var viewer1 = pv.Viewer(document.getElementById('viewer-NahR'), options);
+  // Public url: http://2017.igem.org/wiki/images/2/27/T--Lund--NahR.txt
+  pv.io.fetchPdb('/assets/T--Lund--NahR.txt', function(structure) {
+    if (structure) {
+      mol.assignHelixSheet(structure); // See https://github.com/biasmv/pv/issues/169
+      viewer1.cartoon('NahR', structure, { color: pv.color.ssSuccession() });
+      viewer1.fitTo(structure);
+      viewer1.spin(true);
+    }
+    // viewer1.fitParent()
+  });
+
+  var viewer2 = pv.Viewer(document.getElementById('viewer-hER'), options);
+  // Public url: http://2017.igem.org/wiki/images/8/84/T--Lund--hER.txt
+  pv.io.fetchPdb('/assets/T--Lund--hER.txt', function(structure) {
+    if (structure) {
+      viewer2.cartoon('hER', structure, { color: pv.color.ssSuccession() });
+      viewer2.centerOn(structure);
+      viewer2.fitTo(structure);
+      viewer2.spin(true);
+    }
+  });
+});
+</script>
+
 <header class="design-header">
   <div class="container">
     <h1 class="display">Design</h1>
@@ -37,7 +72,7 @@
         </figure>
 
         <figure>
-          <img class="img-responsive" src="http://via.placeholder.com/600x400" alt="3D protein structure">
+          <div id="viewer-NahR"></div>
           <figcaption>Figure: 3D structure of the NahR, a transcriptional regulator spanning 306 amino acids. The protein structure is organized as follows; the N-terminal consists of a highly conserved DNA-binding helix-turn-helix motif. The DNA association is furthermore dependent on a multimerization site located along the C-terminal. Through iterative mutagenesis, the ligand-binding pocket has been determined to lie close to equidistantly between the termini [17].</figcaption>
         </figure>
       </div>
@@ -53,7 +88,7 @@
       </div>
       <div class="col-sm-6 col-lg-4">
         <figure>
-          <img class="img-responsive" src="http://via.placeholder.com/600x400" alt="3D structure of estrogen ligand binding domain">
+          <div id="viewer-hER"></div>
           <figcaption>Figure: 3D structure of the human estrogen alpha ligand-binding domain (in complex with estradiol), a domain found in the transcriptional transactivator hER-α spanning 300 amino acids. The ligand-binding domain consists of a deep and promiscuous ligand-binding pocket consisting of a three-layered anti-parallel α-helical sandwich motif. Upon recognition of a ligand, helix H12 will change conformation in accordance with the nature of the ligand; antagonists will displace the helix and bring the two termini close to one another whereas agonists will induce helix H12 to transverse the protein and stabilize over the pocket [26].</figcaption>
         </figure>
 

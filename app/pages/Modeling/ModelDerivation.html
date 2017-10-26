@@ -31,7 +31,7 @@
     to the population size. This is reasonable although stochastic effects are present at the cellular level if one assumes that each cell is
     independent. The choice of modeling can then be justified by the law of large numbers. If there is a large number of identical and independent
     random variables (in this case cells), their average behaviour tend to converge to an expected behaviour. In our case, the expected behaviour is
-    obtained fom the determenistic scheme and it can be interpreted as the randomness being canceled out for large populations.</p>
+    obtained fom the determenistic scheme and it can be interpreted as the randomness being canceled out by the mean of a large populations.</p>
 
     <p>In addition, we present our reasoning behind the reactions and the corresponding assumptions. We start by modeling the regulation of the
     pETDuet-1 plasmid which consists of one gene coding for the <i>lac</i> repressor and two <i>lac</i> regulated genes which constitute the
@@ -68,7 +68,7 @@
     $\ce{R}$ is first transcribed to yield the mRNA $\ce{M_R}$. The transcript is then translated into the protein $R$ which dimerises into the repressor $R_2$ in a
     reversible reaction.
 
-    <p> $$\ce{O_R ->[k_\text{MR}] O_R + R}\tag{1}$$
+    <p> $$\ce{O_R ->[k_\text{MR}] O_R + M_R}\tag{1}$$
         $$\ce{M_R ->[k_\text{R}] M_R + R}\tag{2}$$
         $$\ce{2R <-->[k_\text{2R}][k_\text{-2R}] R_2}\tag{3}$$ </p>
 
@@ -105,14 +105,14 @@
     degradations are modeled as first order reactions. It is assumed that all mRNA:s and proteins degrade with the exception of the operator bound
     repressor. Note that it is also assumed that the inducer does not decompose. </p>
 
-    <p> $$\ce{M_R ->[\lambda_\text{MR}] \phi}\tag{16}$$
-        $$\ce{M_N ->[\lambda_\text{MN}] \phi}\tag{17}$$
-        $$\ce{M_E ->[\lambda_\text{ME}] \phi}\tag{18}$$
-        $$\ce{R ->[\lambda_\text{R}] \phi}\tag{19}$$
-        $$\ce{R_2 ->[\lambda_{\text{R}_2}] \phi}\tag{20}$$
-        $$\ce{N ->[\lambda_\text{N}] \phi}\tag{22}$$
-        $$\ce{E ->[\lambda_\text{E}] \phi}\tag{24}$$
-        $$\ce{I_2R_2 ->[\lambda_{\text{I}_2\text{R}_2}] 2I}\tag{25}$$
+    <p> $$\ce{M_R ->[\lambda_\text{MR}] \phi}\tag{14}$$
+        $$\ce{M_N ->[\lambda_\text{MN}] \phi}\tag{15}$$
+        $$\ce{M_E ->[\lambda_\text{ME}] \phi}\tag{16}$$
+        $$\ce{R ->[\lambda_\text{R}] \phi}\tag{17}$$
+        $$\ce{R_2 ->[\lambda_{\text{R}_2}] \phi}\tag{18}$$
+        $$\ce{N ->[\lambda_\text{N}] \phi}\tag{19}$$
+        $$\ce{E ->[\lambda_\text{E}] \phi}\tag{20}$$
+        $$\ce{I_2R_2 ->[\lambda_{\text{I}_2\text{R}_2}] 2I}\tag{21}$$
     </p>
 
 
@@ -131,36 +131,36 @@
 
     <p> The reactions proceed by NahR binding to Psal followed by salicylate binding to the NahR-Psal complex in two reversible second order
     reactions, allowing subsequent transcription of GFP1-9. Thus, we have chosen to not take into account of the effect of salicylate on the binding
-    of NahR to Psal. Furthermore, we have not taken into account of the binding stoichiometries or possible transcriptionally active intermediates and instead
-    estimated the reactions as being of second order between fully active and inactive states. Worth noting is that despite these assumptions, the
-    model manages to fit experimental dose-response data obtained from the iGEM parts registry page, see the <a href="">parameter estimation</a> page.
-    By denoting the promoter as $\ce{\text{Psal}}$, salicylate as $\ce{S}$ and the induced promoter $\ce{\text{SNPsal}}$, we get the following set of
-    reactions: </p>
+    of NahR to Psal. Furthermore, we have not taken into account of the binding stoichiometries or possible transcriptionally active intermediates and
+    instead estimated the reactions as being of second order between fully active and inactive states. Worth noting is that despite these assumptions,
+    the model manages to fit experimental dose-response data obtained from the iGEM parts registry page, see the <a href="">parameter estimation</a>
+    page. The assumptions thus seem sufficient for a high level description. By denoting the promoter as $\ce{\text{Psal}}$, salicylate as $\ce{S}$
+    and the induced promoter $\ce{\text{SNPsal}}$, we get the following set of reactions: </p>
 
     <p>
-      $$\ce{N + P\text{sal} <-->[k_\text{aNP}][k_\text{dNP}] NP\text{sal}}\tag{26}$$
-      $$\ce{S + NPsal <-->[k_\text{aSNP}][k_\text{dSNP}] SNPsal}\tag{27}$$
+      $$\ce{N + P\text{sal} <-->[k_\text{aNP}][k_\text{dNP}] NP\text{sal}}\tag{22}$$
+      $$\ce{S + NPsal <-->[k_\text{aSNP}][k_\text{dSNP}] SNPsal}\tag{23}$$
     </p>
 
     <p> Once the the promoter is induced, the transciption of the GFP1-9 fragment denoted as $\text{G}$ can start. This is followed by a translation
     which yields the GFP1-9 fragment </p<
 
     <p>
-      $$\ce{SNPsal ->[k_\text{MG}] SNPsal + M_\text{G}}\tag{28}$$
-      $$\ce{M_\text{G} ->[k_\text{G}] M_\text{G} + G}\tag{29}$$
+      $$\ce{SNPsal ->[k_\text{MG}] SNPsal + M_\text{G}}\tag{24}$$
+      $$\ce{M_\text{G} ->[k_\text{G}] M_\text{G} + G}\tag{25}$$
     </p>
 
     <p>
       In addition, we distinguish intracellular salicylate from extracellular and model the flux as free difussion over the cell membrane. </p>
     <p>
-      $$\ce{S_\text{ex} <-->[k_{dS}][k_{dS}]S}\tag{31}$$
+      $$\ce{S_\text{ex} <-->[k_{dS}][k_{dS}]S}\tag{26}$$
     </p>
 
     <p> All degradations are of first order and we assume that salicylate does not decompose. </p>
 
     <p>
-      $$\ce{M_G ->[\lambda_\text{MG}] \phi}\tag{32}$$
-      $$\ce{G ->[\lambda_\text{G}] \phi}\tag{34}$$
+      $$\ce{M_G ->[\lambda_\text{MG}] \phi}\tag{27}$$
+      $$\ce{G ->[\lambda_\text{G}] \phi}\tag{28}$$
     </p>
 
     <h3>GFP10-ER-GFP11</h3>
@@ -169,15 +169,15 @@
     protein is generated. By denoting estrogen as $\ce{Es}$ and the ligand bound protein $\ce{EEs}$, we get the following reaction:</p>
 
     <p>
-      $$\ce{E + Es ->[k_{aEEs}] EE\text{s}}\tag{35}$$
+      $$\ce{E + Es <-->[k_{aEEs}][k_{dEEs}] EE\text{s}}\tag{29}$$
     </p>
 
     <p> We distinguish intracellular estrogen from extracellular and model the flux as free diffusion over the cell membrane. In addition, the ligand
     bound estrogen receptor fusion protein degrades in a first order reaction (note that we already defined the degradation for $\ce{E}$).</p>
 
     <p>
-      $$\ce{E\text{s} <-->[k_\text{dEs}][k_\text{dEs}] E\text{s}_\text{ex}}\tag{36}$$
-      $$\ce{EE\text{s} ->[\lambda_E] \phi}\tag{37}$$
+      $$\ce{E\text{s} <-->[k_\text{dEs}][k_\text{dEs}] E\text{s}_\text{ex}}\tag{30}$$
+      $$\ce{EE\text{s} ->[\lambda_E] \phi}\tag{31}$$
     </p>
 
     <h3>GFP association</h3>
@@ -186,11 +186,12 @@
     establishing a hairpin loop prior to complementing with GFP1-9. Another mechanism would be that one of the estrogen receptor bound fragments first
     binds to GFP1-9 followed by an association of the second receptor bound fragment. Nevertheless, we choose to model the association as a direct
     bimolecular complementation. This is justified by the simple parameter estimation of the association and dissociation rate constants that was made
-    possible due to the simple kinetic expression, see the <a href="">parameter estimation</a> section for more details.</p>
+    possible due to the simple kinetic expression, see the <a href="">parameter estimation</a> section for more details. We thus have the GFP1-9 and
+    active GFP10-ER-GFP11 associating to yield a restored GFP denoted as $\ce{GFP}$. As before, the protein decomposes in a first order reaction.</p>
 
     <p>
-      $$\ce{G + EE\text{s} <-->[k_\text{aGFP}][k_\text{dGFP}] GFP}\tag{38}$$
-      $$\ce{GFP ->[\lambda_\text{GFP}] \phi}\tag{39}$$
+      $$\ce{G + EE\text{s} <-->[k_\text{aGFP}][k_\text{dGFP}] GFP}\tag{32}$$
+      $$\ce{GFP ->[\lambda_\text{GFP}] \phi}\tag{33}$$
     </p>
 
     <table class="table">
@@ -314,41 +315,86 @@
     <p> For the sake of completeness, we here present a determinstic representation of the network in terms of ordinary differential equations. It is
       assumed that all reactions follow mass action kinetics. It is assumed that there is no cellular net growth and that each cell is chemically
       homogeneous and well stirred. In addition, we assume that the cells do not affect their environment so the concentrations of all extracellular
-      species can be considered as constant boundary conditions.
-      <br>
-      <br>
+      species can be considered as constant boundary conditions. The reaction rates of (39) are then given by
+      $$v_1 = k_{MR}O_R \tag{34}$$
+      $$v_2 = k_RM_R\tag{35}$$
+      $$v_{3,f} = k_{2R}R^2 \tag{36}$$
+      $$v_{3,r} = k_{-2R}R_2 \tag{37}$$
+      $$v_{4,f} = k_rR_2\cdot O_N \tag{38}$$
+      $$v_{4,r} = k_{-r}R_2O_N\tag{39}$$
+      $$v_{5,f} = k_rR_2\cdot O_E\tag{40}$$
+      $$v_{5,r} = k_{-r}R_2O_E\tag{41}$$
+      $$v_{6,f} = k_{dr1}I^2\cdot R_2\tag{42}$$
+      $$v_{6,r} = k_{-dr1}I_2R_2\tag{43}$$
+      $$v_{7,f} = k_{dr2}I^2\cdot R_2O_N\tag{44}$$
+      $$v_{7,r} = k_{-dr2}I_2R_2 \cdot O_N\tag{45}$$
+      $$v_{8,f} = k_{dr2}I^2\cdot R_2O_E\tag{46}$$
+      $$v_{8,r} = k_{-dr2}I_2R_2 \cdot O_E\tag{47}$$
+      $$v_{9,f} = k_{dI}I_{ex}\tag{48}$$
+      $$v_{9,r} = k_{dI}I\tag{49}$$
+      $$v_{10} = k_{MN}O_N\tag{50}$$
+      $$v_{11} = k_{ME}O_E\tag{51}$$
+      $$v_{12} = k_{N}M_N\tag{52}$$
+      $$v_{13} = k_{E}M_E\tag{53}$$
+      $$v_{14} = \lambda_{MR}M_R\tag{54}$$
+      $$v_{15} = \lambda_{MN}M_N\tag{55}$$
+      $$v_{16} = \lambda_{ME}M_E\tag{56}$$
+      $$v_{17} = \lambda_{R}R\tag{57}$$
+      $$v_{18} = \lambda_{R_2}R_2\tag{58}$$
+      $$v_{19} = \lambda_{N}N\tag{59}$$
+      $$v_{20} = \lambda_{E}E\tag{60}$$
+      $$v_{21} = \lambda_{I_2R_2}I_2R_2 \tag{61}$$
+      $$v_{22,f} = k_{aNP}N\cdot Psal\tag{62}$$
+      $$v_{22,r} = k_{dNP}NPsal\tag{63}$$
+      $$v_{23,f} = k_{aSNP}S\cdot NPsal\tag{64}$$
+      $$v_{23,r} = k_{dSNP}SNPsal\tag{65}$$
+      $$v_{24} = k_{MG}SNPsal\tag{66}$$
+      $$v_{25} = k_{G}M_G\tag{67}$$
+      $$v_{26,f} = k_{dS}S_{ex}\tag{68}$$
+      $$v_{26,r} = k_{dS}S\tag{69}$$
+      $$v_{27} = \lambda_{MG}M_G\tag{70}$$
+      $$v_{28} = \lambda_GG\tag{71}$$
+      $$v_{29,f} = k_{aEEs}E\cdot Es\tag{72}$$
+      $$v_{29,r} = k_{aEEs}EEs\tag{74}$$
+      $$v_{30,f} = k_{dEs}Es\tag{75}$$
+      $$v_{30,r} = k_{dEs}Es_{ex}\tag{75}$$
+      $$v_{31} = \lambda_EEEs\tag{76}$$
+      $$v_{32,f} = k_{aGFP}G\cdot EEs\tag{77}$$
+      $$v_{32,r} = k_{dGFP}GFP\tag{78}$$
+      $$v_{33} = \lambda_{GFP}GFP\tag{79}$$
+
+    </p>
+
+
+    <p>
       By balancing the masses, we get the following set of differential equations.
 
-      $$\frac{dO_R}{dt} = 0$$
-      $$\frac{dM_R}{dt} = k_{MR}O_R - \lambda_{MR}M_R$$
-      $$\frac{dR}{dt} = k_{R}M_R - 2k_{2R}R^2 + 2k_{-2R}R_2 - \lambda_RR $$
-      $$\frac{dR_2}{dt} = $$
-      $$\frac{dO_N}{dt} = $$
-      $$\frac{dO_E}{dt} = $$
-      $$\frac{dR_2O_N}{dt} = $$
-      $$\frac{dR_2O_E}{dt} = $$
-      $$\frac{dI_{ex}}{dt} = $$
-      $$\frac{dI}{dt} = $$
-      $$\frac{dI_2R_2}{dt} = $$
-      $$\frac{dM_N}{dt} = $$
-      $$\frac{dM_E}{dt} = $$
-      $$\frac{dN}{dt} = $$
-      $$\frac{dE}{dt} = $$
-      $$\frac{dPsal}{dt} = $$
-      $$\frac{dNPsal}{dt} = $$
-      $$\frac{dSNPsal}{dt} = $$
-      $$\frac{dS}{dt} = $$
-      $$\frac{dS_{ex}}{dt} = $$
-      $$\frac{dM_G}{dt} = $$
-      $$\frac{duG}{dt} = $$
-      $$\frac{dG}{dt} = $$
-      $$\frac{dEEs}{dt} = $$
-      $$\frac{dEs}{dt} = $$
-      $$\frac{dEs_ex}{dt} = $$
-      $$\frac{dGFP}{dt} = $$
-      where
-
-
+      $$\frac{dO_R}{dt} = 0 \tag{80}$$
+      $$\frac{dM_R}{dt} = v_1 - v_{14} \tag{81}$$
+      $$\frac{dR}{dt} = v_2 - 2v_{3,f} + 2v_{3,r} - v_{17} \tag{82}$$
+      $$\frac{dR_2}{dt} = v_{3,f} - v_{3,r}  - v_{4,f} + v_{4,r} - v_{5,f} + v_{5,r} - v_{6,f} + v_{6,r} - v_{18} \tag{83}$$
+      $$\frac{dO_N}{dt} = -v_{4,f} + v_{4,r} + v_{7,f} - v_{7,r} \tag{84}$$
+      $$\frac{dO_E}{dt} = -v_{5,f} + v_{5,r} + v_{8,f} - v_{8,r} \tag{85}$$
+      $$\frac{dR_2O_N}{dt} = v_{4,f} - v_{4,r} - v_{7,f} + v_{7,r} \tag{86}$$
+      $$\frac{dR_2O_E}{dt} = v_{5,f} - v_{5,r} - v_{8,f} + v_{8,r} \tag{87}$$
+      $$\frac{dI_{ex}}{dt} = 0 \tag{88}$$
+      $$\frac{dI}{dt} = v_{9,f} - v_{9,r} + 2v_{21} \tag{89}$$
+      $$\frac{dI_2R_2}{dt} = v_{6,f} - v_{6,r} + v_{7,f} - v_{7,r}  + v_{8,f} - v_{8,r} - v_{21} \tag{90}$$
+      $$\frac{dM_N}{dt} = v_{10} - v_{15} \tag{91}$$
+      $$\frac{dM_E}{dt} = v_{11} - v_{16} \tag{92}$$
+      $$\frac{dN}{dt} = v_{12} - v_{19} - v_{22,f} + v_{22,r} \tag{93}$$
+      $$\frac{dE}{dt} = v_{13} - v_{20} - v_{29,f} + v_{29,r} \tag{94} $$
+      $$\frac{dPsal}{dt} = -v_{22,f} + v_{22,r} \tag{95}$$
+      $$\frac{dNPsal}{dt} = v_{22,f} - v_{22,r} - v_{23,f} + v_{23,r} \tag{96}$$
+      $$\frac{dSNPsal}{dt} = v_{23,f} - v_{23,r} \tag{97}$$
+      $$\frac{dS}{dt} = -v_{23,f} + v_{23,r} + v_{26,f} - v_{26,r} \tag{98}$$
+      $$\frac{dS_{ex}}{dt} = 0 \tag{99}$$
+      $$\frac{dM_G}{dt} = v_{24} - v_{27} \tag{100}$$
+      $$\frac{dG}{dt} = v_{25} - v_{28} - v_{32,f} + v_{32,r} \tag{101}$$
+      $$\frac{dEEs}{dt} = v_{29,f} - v_{29,r} - v_{31} - v_{32,f} + v_{32,r} \tag{102}$$
+      $$\frac{dEs}{dt} = - v_{29,f} + v_{29,r} - v_{30,f} + v_{30,r} \tag{103}$$
+      $$\frac{dEs_ex}{dt} = 0 \tag{104}$$
+      $$\frac{dGFP}{dt} = v_{32,f} - v_{32,r} - v_{33} \tag{105} $$
 
     </p>
 
@@ -358,7 +404,7 @@
     <h3>
       References
     </h3>
-    <p>[5] Park, H., Lim, W. and Shin, H. (2005). In vitro binding of purified NahR regulatory protein with promoter Psal. Biochimica et Biophysica Acta (BBA) - General Subjects, 1725(2), pp.247-255.</p>
+    <p>[1] Park, H., Lim, W. and Shin, H. (2005). In vitro binding of purified NahR regulatory protein with promoter Psal. Biochimica et Biophysica Acta (BBA) - General Subjects, 1725(2), pp.247-255.</p>
 
 
   </div>

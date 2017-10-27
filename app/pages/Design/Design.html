@@ -1,0 +1,90 @@
+{{Lund}}
+<html>
+
+<header class="design-header">
+  <div class="container">
+    <h1 class="display">Design</h1>
+  </div>
+</header>
+
+<div class="container">
+  <ul class="nav nav-pills nav-auto-stacked">
+    <li role="presentation"><a href="/Team:Lund/Design">Overview</a></li>
+    <li role="presentation"><a href="/Team:Lund/Design/Theory">Theory</a></li>
+    <li role="presentation" class="active"><a href="/Team:Lund/Design/Design">Design</a></li>
+    <li role="presentation"><a href="/Team:Lund/Design/Circuit">Circuit</a></li>
+    <li role="presentation"><a href="/Team:Lund/Design/Experiments">Experiments</a></li>
+    <li role="presentation"><a href="/Team:Lund/Design/References">References</a></li>
+  </ul>
+</div>
+
+<div class="content-wrapper under-nav text-layout">
+  <div class="container">
+
+    <h3>Project Design</h3>
+    <div class="row">
+      <div class="col-sm-8">
+        <p>A novel biosensor for the detection of microplastics was realized using a top-down black-box approach. Microplastics was identified as the target input and a reporter protein was designated as the output. Due to their unreactive nature and varied composition, microplastics were quickly deemed a difficult set of molecules to identify using biological sensing elements, calling for an indirect method of identification if tools of synthetic biology were to be utilized. As discussed in the project description, successfully developing such a device would offer a rapid and cost-effective solution in contrast to the arduous filtration processes that are used today.</p>
+        <figure>
+          <img class="img-responsive" src="http://via.placeholder.com/800x400" alt="Black box model 1">
+          <figcaption>Figure 1: Black box model (elements: Microplastics à BOX (Host) à Reported)</figcaption>
+        </figure>
+
+        <p>Expanding on the groundwork put forward by the UCL ’12 iGEM team, establishing the presence of molecules associated with water-bound microplastics was determined to be a viable approach [9]. Two molecules were identified as being commonly associated with microplastics – plasticizers and organic pollutants. They are both lipophilic compound, allowing trans-membrane diffusion and subsequent intracellular recognition. <em>Escherichia coli </em>was chosen as a functional chassis for the biosensor; not only due to its compatibility with previously developed parts and devices but also as facilitated transmembrane transport of phthalates and organic pollutants has been reported through the FadL and subsequent FadD channels [31] [32].</p>
+        <figure>
+          <img class="img-responsive" src="http://via.placeholder.com/800x400" alt="Black box model 2">
+          <figcaption>Figure 2: Black box model (elements: Phthalates + OP à Box (E. coli) à reporter)</figcaption>
+        </figure>
+
+        <p>Analysis of the homology between the two nominated compounds and natural ligands to existing sensory elements generated two transcriptional regulators – nahR with affinity for the most common moieties found in organic pollutants and the human estrogen receptor alpha with noted antagonistic interaction with plasticizers [9] [23]. Both <em>nahR</em> and <em>hER-α</em> serve as transactivators in presence of respective co-factors [15] [26]. Both the full-length hER-α and truncated versions have been successfully transformed into <em>E. coli</em> with adequate expression rates, even if the former has shown toxicity at higher expression rates, and nahR has been utilized as an inducible transcriptional factor in multiple iGEM projects [9] [33] [34] [35] [36] [37].</p>
+        <figure>
+          <img class="img-responsive" src="http://via.placeholder.com/800x400" alt="Black box model 3">
+          <figcaption>Figure 3: Black box model (elements: Phthalates + OP à BOX (E. coli, ER-a + nahR) à reporter)</figcaption>
+        </figure>
+
+        <p>To increase the selectivity of the sensor and thus the accuracy of the output readings, the input signals corresponding to the sensing of phthalates and organic pollutants must transform according to that of a logic AND-gate. That is to say, the reporter will only be measureable in the instance that phthalates and organic pollutants are present in the sample. In an attempt to counteract the potential toxicity of introducing and expressing the full-length <em>hER-α</em> in <em>E. coli</em>, the truncated version hER-α LBD was finalized as the phthalate-sensing element to be applied in a complementation assay through domain insertion, in accordance with previous prosperous <em>hER-α </em>biosensor studies as noted in the <em>theory </em>section [28] [29] [30].</p>
+        <figure>
+          <img class="img-responsive" src="http://via.placeholder.com/800x400" alt="Black box model 4">
+          <figcaption>Figure 4: Black box model (elements: Phthalates + OP à BOX (E. coli, (ER-a LBD + nahR)=AND gate à reporter)</figcaption>
+        </figure>
+
+        <p>Employing the conformational change of the hER-α LBD in a <em>genetic</em> AND-gate can be achieved through a plethora of different approaches. However, in each instance a fusion protein needs to be constructed that capitalizes on the ligand-induced convergence of the termini. Furthermore, rather than connecting the <em>nahR</em> and the <em>hER-α LBD</em> in series in the circuit architecture, implementing their expression concurrently would decrease the reporter synthesis response time. These conditions were met using a tripartite split GFP-protein. Two GFP gene residues, corresponding to beta-sheet 10 and 11 of the GFP beta barrel motif, were attached to each respective side of the <em>hER-α LBD</em> with appropriate linkers. The remaining GFP, <em>GFP1-9</em>, was put downstreams <em>Psal</em> – under regulation of nahR. <em>Cabantous</em> <em>et al</em>. iteratively mined the optimal split sites of the GFP for spontaneous self-assembly upon association [38]. Thus, upon expression of the <em>GFP10- hER-α LBD-GFP11</em> and <em>GFP1-9</em>, and subsequent antagonistic ligand interaction with the hER-α LBD, self-assembly of the chromophore ought to occur. Similar results have been reported with a two-split GFP hER-α LBD fusion protein [29] [39]. The added benefit of utilizing a tripartite split GFP with smaller GFP-tags affixed to the hER-α LBD is that somewhat equidistantly split proteins have generally shown either high levels of aggregation or high background noise [29].</p>
+        <figure>
+          <img class="img-responsive" src="http://via.placeholder.com/800x400" alt="Black box model 5">
+          <figcaption>Figure 5: <p>A model of the hER-α LBD without an associated ligand. The 3D protein structure was drawn using the PyMOL software. There is no obvious steric hindrance between the N- and the C-terminal with a total distance of approximately 22 Å.</p></figcaption>
+        </figure>
+
+        <p>To alleviate the host of constant expression of the heterologous proteins, both <em>nahR</em> and the <em>GFP10- hER-α LBD-GFP11</em> were put downstreams <em>lac o</em> with the <em>lac</em> repressor <em>lacI</em> constitutively expressed. Thus, the system remains repressed until addition of a molecule inducing an allosteric shift and subsequent disassociation of the repressor [40].</p>
+        <figure>
+          <img class="img-responsive" src="http://via.placeholder.com/800x400" alt="Black box model 6">
+          <figcaption>Figure 6: Black box model Black box model (elements: everything.)</figcaption>
+        </figure>
+
+      </div>
+      <div class="col-sm-4">
+      </div>
+    </div>
+
+    <h4>Design of fusion protein linkers</h4>
+    <div class="row">
+      <div class="col-sm-8">
+        <p>The choice of linkers was evaluated using the open-source software PyMOL. Crystal structures of the human estrogen receptor alpha were acquired at the NCBI gene bank [41] [42]. The sequence of ligand-free hER-α LBD and antagonist-hER-α LBD complex were analyzed and the distance between the two termini was measured using the PyMOL <em>wizard</em> tool. The former measured a total distance of approximately 45 Å with clear steric hindrance while the latter approximately 22 Å with limited to no steric hindrance. Thus, only linkers longer than 11 Å were considered adequate candidates. Ultimately, XXX linkers were chosen due to YYY.</p>
+
+        <figure>
+          <img class="img-responsive" src="http://via.placeholder.com/800x400" alt="eralbd-noligand_43A_sterichinder.png">
+          <figcaption>Figure 7: A model of the hER-α LBD without an associated ligand. The 3D protein structure was drawn using the PyMOL software. As depicted, there is a clear steric hindrance between the N- and the C-terminal with a total distance of approximately 43 Å.</figcaption>
+        </figure>
+        <figure>
+          <img class="img-responsive" src="http://via.placeholder.com/800x400" alt="eralbd-antagonist_20A.png">
+          <figcaption>Figure 8: A model of the hER-α LBD without an associated ligand. The 3D protein structure was drawn using the PyMOL software. There is no obvious steric hindrance between the N- and the C-terminal with a total distance of approximately 22 Å.</figcaption>
+        </figure>
+      </div>
+      <div class="col-sm-4">
+      </div>
+    </div>
+
+  </div>
+</div>  
+
+</html>
+{{Lund/footer}}

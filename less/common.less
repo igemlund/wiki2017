@@ -2,6 +2,10 @@
   padding-top: @common-padding;
   padding-bottom: @common-padding;
 
+  &.under-nav {
+    padding-top: 0;
+  }
+
   .container {
     padding-top: @common-padding;
     padding-bottom: @common-padding;
@@ -28,4 +32,20 @@ ul.reference-list {
   margin: 0;
   list-style-type: none;
   list-style-image: none;
+}
+
+.avatar {
+  text-align: center;
+  img {
+    border-radius: 50%;
+    width: @avatar-size;
+    height: @avatar-size;
+    margin-bottom: 2rem;
+  }
+}
+
+.nav.nav-auto-stacked {
+  @media (max-width: @screen-sm) {
+    .nav-stacked;
+  }
 }

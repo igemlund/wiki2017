@@ -1,5 +1,15 @@
 .navbar {
   font-weight: 300;
+  position: absolute;
+  width: 100%;
+
+  @media (min-width: @grid-float-breakpoint) {
+    background-color: transparent;
+  }
+
+  .navbar-nav > li > .dropdown-menu {
+    border-radius: @border-radius-base;
+  }
 }
 
 .navbar-brand {
@@ -11,12 +21,10 @@
   }
 }
 
-.navbar-transparent {
-  @media (min-width: @grid-float-breakpoint) {
-    background-color: transparent;
-  }
+.navbar-no-margin {
+  margin-bottom: 0;
+}
 
-  .navbar-nav > li > .dropdown-menu {
-    border-radius: @border-radius-base;
-  }
+.navbar-gray {
+  background-color: @gray;
 }

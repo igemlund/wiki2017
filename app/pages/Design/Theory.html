@@ -1,0 +1,107 @@
+{{Lund}}
+<html>
+
+<script type="text/javascript" src="/Team:Lund/scripts/pv?action=raw&ctype=text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+  var options = {
+    width: 360,
+    height: 240,
+    antialias: true,
+    quality : 'medium'
+  };
+
+  var viewer1 = pv.Viewer(document.getElementById('viewer-NahR'), options);
+  // Public url: http://2017.igem.org/wiki/images/2/27/T--Lund--NahR.txt
+  pv.io.fetchPdb('/assets/T--Lund--NahR.txt', function(structure) {
+    if (structure) {
+      mol.assignHelixSheet(structure); // See https://github.com/biasmv/pv/issues/169
+      viewer1.cartoon('NahR', structure, { color: pv.color.ssSuccession() });
+      viewer1.fitTo(structure);
+      viewer1.spin(true);
+    }
+    // viewer1.fitParent()
+  });
+
+  var viewer2 = pv.Viewer(document.getElementById('viewer-hER'), options);
+  // Public url: http://2017.igem.org/wiki/images/8/84/T--Lund--hER.txt
+  pv.io.fetchPdb('/assets/T--Lund--hER.txt', function(structure) {
+    if (structure) {
+      viewer2.cartoon('hER', structure, { color: pv.color.ssSuccession() });
+      viewer2.centerOn(structure);
+      viewer2.fitTo(structure);
+      viewer2.spin(true);
+    }
+  });
+});
+</script>
+
+<header class="design-header">
+  <div class="container">
+    <h1 class="display">Design</h1>
+  </div>
+</header>
+
+<div class="container">
+  <ul class="nav nav-pills nav-auto-stacked">
+    <li role="presentation"><a href="/Team:Lund/Design">Overview</a></li>
+    <li role="presentation" class="active"><a href="/Team:Lund/Design/Theory">Theory</a></li>
+    <li role="presentation"><a href="/Team:Lund/Design/Design">Design</a></li>
+    <li role="presentation"><a href="/Team:Lund/Design/Circuit">Circuit</a></li>
+    <li role="presentation"><a href="/Team:Lund/Design/Experiments">Experiments</a></li>
+    <li role="presentation"><a href="/Team:Lund/Design/References">References</a></li>
+  </ul>
+</div>
+
+<div class="content-wrapper under-nav text-layout">
+  <div class="container">
+
+    <h3>Theory</h3>
+    <h4>Sensing organic pollutants</h4>
+    <div class="row">
+      <div class="col-sm-6">
+        <p>Persistent organic pollutants are harmful organic compounds of anthropogenic origins that have been and in some cases still are utilized as industry chemicals and pesticides. Due to their ecotoxicity and their propensity of bioaccumulation, the United Nations Environment Programme (UNEP) adopted and implemented proposed regulation of these chemicals as put forward by the Stockholm Convention on Persistent Organic Pollutants in 2001 [10]. As of 2017, 181 countries have ratified the convention [11]. While there is no explicit organic backbone, most organic pollutants share certain characteristics. They have one or more cyclical ring structures, most often of the aromatic nature, they are highly lipophilic and they are to a varied extent halogenated [12]. Consequently, there are different moieties that can be exploited when searching for homologues that act as natural ligands to gene regulatory elements. The 2012 UCL iGEM team successfully determined and utilized the homology between the nahR inducing ligand salicylate and the aromatic backbone found in most organic pollutants [9].</p>
+        <p>The <em>nahR</em> gene encodes a Lys-R type transcription regulator found in the naphthalene degrading operon of the NAH7 plasmid of various <em>Pseudomas</em> [13]. As with all Lys-R type regulators, nahR has a conserved N-terminal DNA-binding helix-turn-helix motif and a C-terminal co-inducer-binding domain [14]. The catabolic genes are organized in two operons, <em>fig. 1</em>, <em>nah</em> (<em>nah A-F) </em>and <em>sal</em> (<em>sal G-M</em>) that encode enzymes for metabolism of naphthalene to salicylate and salicylate to the TCA-intermediates pyruvate and acetaldehyde respectively [13]. NahR regulates the expression of both <em>sal </em>and <em>nah</em> through binding 60 bp upstreams each respective promoter, <em>Psal </em>and<em> Pnah</em>, and is constitutively expressed upstreams <em>nah-G</em> [15]<em>.</em> It binds regardless of the presence of the inducer salicylate. However, the transcriptional induction rate is approximately 20 times higher upon association with salicylate, as this induces a conformational change in the DNA-nahR complex that relieves DNA-bending at the site and subsequently allows better DNA-RNAP interaction [16]. The conformational change springs form an additional interaction between the nahR and the DNA 35 bp upstreams the RNAP binding site [15].</p>
+        <p>There lies some uncertainty in the exact configuration of the DNA-nahR association. Some reports suggest that nahR binds as a monomer, while other research indicates multimerization at the binding site. Moreover, it remains unknown whether the binding is cooperative or not [15]. For further elaboration on the issue, see <em>Modeling</em>.</p>
+      </div>
+      <div class="col-sm-6 col-lg-4">
+
+        <figure>
+          <img class="img-responsive" src="http://via.placeholder.com/600x400" alt="Gene structure">
+          <figcaption>Figure: Schematic representation of the organization of the upper and lower degradation pathway of naphthalene found in the Nah7 plasmid of <em>Pseudomas</em>. Both pathways are under regulation of the constitutively expressed regulator nahR [16.5].</figcaption>
+        </figure>
+
+        <figure>
+          <div id="viewer-NahR"></div>
+          <figcaption>Figure: 3D structure of the NahR, a transcriptional regulator spanning 306 amino acids. The protein structure is organized as follows; the N-terminal consists of a highly conserved DNA-binding helix-turn-helix motif. The DNA association is furthermore dependent on a multimerization site located along the C-terminal. Through iterative mutagenesis, the ligand-binding pocket has been determined to lie close to equidistantly between the termini [17].</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <h4>Sensing plasticizers</h4>
+    <div class="row">
+      <div class="col-sm-6">
+        <p>Plasticizers are very common additives that are found in most commercial plastic products. They provide the polymers with durability, elasticity and flexibility, offering increased malleability and strength [18]. The plasticizer action on the polymeric material has generally thought to be lubrication between the polymeric chains, but recent thermodynamic simulations have shown that the situation might be more complex [19]. The most predominant class of polymers used today is that of low-weight phthalate esters (PEs), in particular DEHP (bis-2-ethylhexyl phthalate) [18]. While PEs offer a cost-effective solution to maintaining flexibility, there is cause for concern as it is not bound to the plastic and will readily leech into the environment. Multiple sources have reported severe adverse effects in vertebrates; among other things, toxic action on the human endocrine system has been noted [20] [21] [22] [23] [24]. In particular, low-weight PEs have demonstrated some antagonistic affinity for the ligand-binding domain of the human estrogen-alpha receptor (hER-&alpha;) [22] [23], making it a viable candidate for detecting plasticizers.</p>
+        <p>The estrogen receptor is a member of the intracellular receptor family and exists in two different forms, hER-&alpha; and hER-&beta;, with significant overlapping sequence homology. Each receptor share a common architecture consisting of five domains; the n-terminal <em>A/B</em> region able to regulate gene transcription in absence of a ligand, the <em>C</em>-domain able to bind to a designated response element and a hinge region <em>D</em> (DBD), connecting the C-domain and the ligand binding domain (LBD) <em>E</em> [25]. The mechanism of gene transactivation by the estrogen receptor has been studied in detail through analysis of the ligand-induced conformational change of the LBD. The LBD has a similar organization to that of the other nuclear receptor LBDs, with a three-layered anti-parallel &alpha;-helical sandwich motif, for a total of 11 &alpha;-helices (H1-11) with one additional anti-parallel &beta;-sheet flanking the arrangement (S1-2). The central core, located between the two outer helical layers, constitutes a wedge-shaped molecular scaffold to bind the ligand [26]. Upon interaction between the binding site and a ligand, a sizeable conformational change occurs at the C-terminal helix H12 to modify the action at the DNA-interface. An agonistic ligand spatially displaces H12 to fit snugly over the cavity whereas an antagonistic ligand prevents such confirmation and instead forces the helix to reposition through a 130&deg; degree rotation toward the N-terminus [26][27].</p>
+        <p>Such displacement of H12 has been utilized in complementation assays as a <em>molecular switch</em>. Complementation of a split protein fused to each respective side of a truncated hER-&alpha; LBD is made possible upon antagonist association with the binding site as the termini are subsequently brought in close proximity to one another [28] [29] [30].</p>
+
+      </div>
+      <div class="col-sm-6 col-lg-4">
+        <figure>
+          <div id="viewer-hER"></div>
+          <figcaption>Figure: 3D structure of the human estrogen alpha ligand-binding domain (in complex with estradiol), a domain found in the transcriptional transactivator hER-α spanning 300 amino acids. The ligand-binding domain consists of a deep and promiscuous ligand-binding pocket consisting of a three-layered anti-parallel α-helical sandwich motif. Upon recognition of a ligand, helix H12 will change conformation in accordance with the nature of the ligand; antagonists will displace the helix and bring the two termini close to one another whereas agonists will induce helix H12 to transverse the protein and stabilize over the pocket [26].</figcaption>
+        </figure>
+
+        <figure>
+          <img class="img-responsive" src="http://via.placeholder.com/600x400" alt="Complementation of split protein">
+          <figcaption>Figure: The hER-a ligand binding has been implemented and utilized successfully in complementation assays through capitalizing on the conformational change upon ligand recognition. [30.5]</figcaption>
+        </figure>
+
+      </div>
+    </div>
+
+  </div>
+</div>  
+
+</html>
+{{Lund/footer}}

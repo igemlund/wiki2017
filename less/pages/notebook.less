@@ -1,15 +1,31 @@
-#notebook {
-  font-size: 125%;
-}
-
 .notebook-landing {
   .display-section;
 
-  @background-image: '/assets/Notebook/T--Lund--Notebook-Header.jpg';
+  @background-image: 'http://2017.igem.org/wiki/images/d/da/T--Lund--Notebook.jpg';
   background: linear-gradient(
     to left,
-    fade(@gray, 70%),
-    fade(@gray, 7 0%)
+    fade(#000, 50%),
+    fade(#000, 50%)
     ), url(@background-image);
   background-position: bottom;
+  background-size: cover;
+}
+
+.notebook {
+  background-color: @gray-white;
+
+  .card {
+    padding: 1rem;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background-color: #fff;
+    border-radius: 4px;
+
+    .date {
+      font-size: @font-size-small;
+      color: @gray-light;
+      font-weight: 500;
+    }
+
+    margin-bottom: 30px;
+  }
 }

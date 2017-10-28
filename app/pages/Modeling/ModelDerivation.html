@@ -26,30 +26,31 @@
   <div class="container">
     <h3>Introduction</h3>
 
-    <p> In this section we derive a model for the bacterial biosensor based on a system of ordinary differential equations. We choose to
+    <p> In this section we derive a model for the whole cell biosensor based on a system of ordinary differential equations. We choose to
     model one single cell deterministic and consider the dynamics of larger cell populations the same as the dynamics of a single cell, but scaled
     to the population size. This is reasonable although stochastic effects are present at the cellular level if one assumes that each cell is
     independent. The choice of modeling can then be justified by the law of large numbers. If there is a large number of identical and independent
     random variables (in this case cells), their average behaviour tend to converge to an expected behaviour. In our case, the expected behaviour is
-    obtained fom the determenistic scheme and it can be interpreted as the randomness being canceled out by the mean of a large populations.</p>
+    obtained fom the deterministic scheme and it can be interpreted as the randomness being canceled out by the mean of a large populations.</p>
 
     <p>In addition, we present our reasoning behind the reactions and the corresponding assumptions. We start by modeling the regulation of the
     pETDuet-1 plasmid which consists of one gene coding for the <i>lac</i> repressor and two <i>lac</i> regulated genes which constitute the
     respective pathway in our AND-logic. The biomolecular network is then presented for each pathway followed by the final GFP complementation. At the
-    end, a determinstic scheme representing the system in terms of ordinary differential equations is presented.</p>
+    end, a deterministic scheme representing the system in terms of ordinary differential equations is presented along with the associated assumptions
+    and boundary conditions.</p>
 
     <h3>Overview</h3>
 
     <p>The pETDuet-1 plasmid is a vector designed for the coexpression of two recombinant genes. It has a low copy number with one <i>lac</i> operator
     preceding each gene and a corresponding gene which constituitively expresses the <i>lac</i> repressor. For our system, the proteins NahR and
     GFP10-ER-GFP11 are expressed, corresponding to the respective pathways in the AND-logic. The former protein, NahR, is a transcription factor which
-    binds to the Psal promoter located downstreams of <i>nahR</i> and activates transcription of <i>gfp1-9</i> under the presence of salicylate, which
+    binds to the <i>Psal</i> promoter located downstreams of <i>nahR</i> and activates transcription of <i>GFP1-9</i> under the presence of salicylate, which
     serves as the first input into the gate. The GFP10-ER-GFP11 fusion protein can undergo a conformational change which brings the GFP10 and GFP11
     fragments into close proximity to allow for complementation with GFP1-9 in presence of estrogen, the second input. The complementation yields a
-    fully restored chromophore which can be detected by e.g fluorometric methods. The system can be summarized by <i>figure 1</i>. See the <a href="">design
+    fully restored chromophore which can be detected by e.g fluorometric methods. The system can be summarized by <i>fig. 1</i>. See the <a href="">design
     section</a> for more information. <b>Behöver någon sammanfattande bild av systemet</b>
 
-    <figure style="text-align:center"> <img src="../../assets/Modeling/T-Lund-lacoperon_sbol.png" alt="Reaction scheme"> <figcaption><i>Figure 1: The
+    <figure style="text-align:center"> <img src="../../assets/Modeling/T-Lund-lacoperon_sbol.png" alt="Reaction scheme"> <figcaption><i>Fig. 1: The
     important parts in the pETDuet-1 plasmid. The system consists of a constitutive promoter expressing lacI which in turn represses the lac operons
     OA and OB. The repressor is in turn repressed by an inducer. The ribosome binding sites located downstream of the promoters are denoted
     rbs.</i></figcaption> </figure>
@@ -59,8 +60,8 @@
     <h3><i>lac</i> regulation</h3>
 
     <p>The system starts with an IPTG induction of two <i>lac</i> operators. We choose to model this in a greater detail than the standard
-    Michaelis-Menten scheme as we now have two operators being repressed by one <i>lacI</i> gene. We have thus chosen to include the repressor
-    dynamics with the operators but also chosen an intermediate pathway where we dont take into account of leak transcription or other second order
+    Michaelis-Menten scheme as we now have two operators being repressed by one <i>lacI</i>. We have thus chosen to include the repressor
+    dynamics with the operators but also chosen an intermediate route where we dont take into account of leak transcriptions or other second order
     effects. Here we provide a relatively coarse description of the derivation based on a study by M. Stamatakis and N. V. Mantzaris who used mass
     action and stochastic kinetic models to study the autoregulation and bistability of the <i>lac</i> operon [2].
 
@@ -75,7 +76,7 @@
     <p> The repressor can subsequently bind to the operators $\ce{O_N}$ and $\ce{O_E}$ which regulates the expression of NahR and GFP10-ER-GFP11 to
     yield the corresponding repressed operators $\ce{R_2O_N}$ and $\ce{R_2O_E}$. This is modeled as two reversible reactions where the repressed
     operator can dissociate back into the repressor and free operator. Note that the reaction rates are equal for both equilibriums as we assume that
-    the dynamics is the same for both operons. </p>
+    the dynamics is the same for both operators. </p>
 
     <p> $$\ce{R_2 + O_N <-->[k_r][k_{-r}] R_2O_N}\tag{4}$$
         $$\ce{R_2 + O_E <-->[k_r][k_{-r}] R_2O_E}\tag{5}$$
@@ -95,7 +96,7 @@
     <p> $$\ce{I_{ex} <-->[k_{dI}][k_{dI}] I}\tag{9}$$ </p>
 
     <p> The transcription and translations are modeled as catalytic first order reactions. The genes regulated by $\ce{O_N}$ and $\ce{O_E}$ yield the
-    NahR and GFP10-ER-GFP11 transcript $\ce{M_N}$ and $\ce{M_E}$ respectively. These are further translated into the respective proteins, $\ce{N}$ and $\ce{E}$.
+    NahR and GFP10-ER-GFP11 transcripts $\ce{M_N}$ and $\ce{M_E}$ respectively. These are further translated into the respective proteins, $\ce{N}$ and $\ce{E}$.
     </p>
 
     <p> $$\ce{O_N ->[k_\text{MN}] O_N + M_N}\tag{10}$$
@@ -129,12 +130,12 @@
     space. Consequently, as the amount of data needed to estimate a model increases exponentially with the amount of parameters (also known as the curse of
     dimensionality), we choose to model the regulation in two steps. </p>
 
-    <p> The reactions proceed by NahR binding to Psal followed by salicylate binding to the NahR-Psal complex in two reversible second order
-    reactions, allowing subsequent transcription of GFP1-9. Thus, we have chosen to not take into account of the effect of salicylate on the binding
-    of NahR to Psal. Furthermore, we have not taken into account of the binding stoichiometries or possible transcriptionally active intermediates and
-    instead estimated the reactions as being of second order between fully active and inactive states. Worth noting is that despite these assumptions,
+    <p> The reactions proceed by NahR binding to <i>Psal</i> followed by salicylate binding to the <i>NahR-Psal</i> complex in two reversible second order
+    reactions, allowing subsequent transcription of <i>GFP1-9</i>. Thus, we have chosen to not take into account of the effect of salicylate on the binding
+    of NahR to <i>Psal</i>. Furthermore, we have not taken into account of the binding stoichiometries or possible transcriptionally active intermediates and
+    instead estimated the reactions as being of second order between the fully active and inactive states. Worth noting is that despite these assumptions,
     the model manages to fit experimental dose-response data obtained from the iGEM parts registry page, see the <a href="">parameter estimation</a>
-    page. The assumptions thus seem sufficient for a high level description. By denoting the promoter as $\ce{\text{Psal}}$, salicylate as $\ce{S}$
+    page. Thus, the assumptions seem sufficient, at least for a high level description. By denoting the promoter as $\ce{\text{Psal}}$, salicylate as $\ce{S}$
     and the induced promoter $\ce{\text{SNPsal}}$, we get the following set of reactions: </p>
 
     <p>
@@ -142,8 +143,8 @@
       $$\ce{S + NPsal <-->[k_\text{aSNP}][k_\text{dSNP}] SNPsal}\tag{23}$$
     </p>
 
-    <p> Once the the promoter is induced, the transciption of the GFP1-9 fragment denoted as $\text{G}$ can start. This is followed by a translation
-    which yields the GFP1-9 fragment </p<
+    <p> Once the the promoter is induced, the transciption of the <i>GFP1-9</i>  denoted as $\text{M}_\text{G}$ can start. This is followed by a translation
+    which yields the GFP1-9 fragment denoted as $\text{G}$. </p<
 
     <p>
       $$\ce{SNPsal ->[k_\text{MG}] SNPsal + M_\text{G}}\tag{24}$$
@@ -312,10 +313,12 @@
 
     <h3>Determinstic equations</h3>
 
-    <p> For the sake of completeness, we here present a determinstic representation of the network in terms of ordinary differential equations. It is
-      assumed that all reactions follow mass action kinetics. It is assumed that there is no cellular net growth and that each cell is chemically
+    <p> For the sake of completeness, we present a determinstic representation of the network in terms of ordinary differential equations. It is
+      assumed that all reactions follow mass action kinetics, that there is no cellular net growth and that each cell is chemically
       homogeneous and well stirred. In addition, we assume that the cells do not affect their environment so the concentrations of all extracellular
-      species can be considered as constant boundary conditions. The reaction rates of (39) are then given by
+      species can be considered as constant boundary conditions. The reaction rates of (1)-(39) are then given by
+
+
       $$v_1 = k_{MR}O_R \tag{34}$$
       $$v_2 = k_RM_R\tag{35}$$
       $$v_{3,f} = k_{2R}R^2 \tag{36}$$
@@ -366,8 +369,8 @@
     </p>
 
 
-    <p>
-      By balancing the masses, we get the following set of differential equations.
+    <p> By balancing the masses, we get the set of differential equations (80-105). Note that the rate equations for the extracellular inducers are
+    set to zero, as they are considered as boundary conditions under the assumption that the cell does not affect it's environment.
 
       $$\frac{dO_R}{dt} = 0 \tag{80}$$
       $$\frac{dM_R}{dt} = v_1 - v_{14} \tag{81}$$

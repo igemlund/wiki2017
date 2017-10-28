@@ -24,13 +24,12 @@
 <section id="modeling">
   <div class="container">
 
-  <h3>Overview</h3>
-  <p>In this section we provide the parameters used in the model. An overview can be found in <i>table 1</i>.</p>
-  <br>
+  <h3>Overview</h3> <p>In this section we provide the parameters used in the model. The values were estimated using tabulated kinetic parameters, iGEM
+  registry data and experimental results from published literature. An overview can be found in <i>table 1</i>.</p>
 
   <h3>Parameters</h3>
   <table class="table">
-    <caption>Table 1: List of parameters.</caption>
+    <caption>Table 1: List of all parameters used in the model. For a description, see the corresponding Description section further down.</caption>
     <thead>
       <tr>
         <th>Parameter</th>
@@ -344,8 +343,6 @@
     yields $\ce{k_\text{ME}=1.5}$ min<sup>-1</sup>. The GFP1-9 transcript has approximately 200 amino acids which yields $\ce{k_\text{MG}=4.5}$
     min<sup>-1</sup>. </p>
 
-  <p>d) Maturation times ranges from a couple of minutes up to an hour for GFPs in <i>E. coli</i> [3]. We chose a maturation time of 6 min.</p>
-
   <p>e) The rate constants were taken for 17&beta;-estradiol.</p>
 
   <p>f) The NahR-Psal association and dissociation rates were taken as $k_\text{aNP} = 4.7 \cdot 10^{-3}$ nM<sup>-1</sup>min<sup>-1</sup> and
@@ -353,10 +350,10 @@
 
   <p>g) A dose-response scheme for the salicylate inducible promoter was taken from the <a href="http://parts.igem.org/Part:BBa_J61051"><i>iGEM parts
   registry documentation page</i></a>, see figure 13</a>. In the experimental setup, eight doses of salicylate were added every 30 minutes, activating
-  the expression of repressed <i>gfp</i>. The response was measured as an induction ratio of the fluorescence with respect to the fluorescence at the
-  uninduced state. Figure 1 illustrates the dose-response curve.
+  the transcription of repressed <i>GFP</i>. The response was measured as an induction ratio of the fluorescence with respect to the fluorescence at the
+  uninduced state. <i>Fig. 1</i> illustrates the dose-response curve.
 
-    <figure style="text-align:center"> <img src="../../assets/Modeling/T--Lund-dose_response.svg" alt="Reaction scheme"> <figcaption> <i>Figure 1:
+    <figure style="text-align:center"> <img src="../../assets/Modeling/T--Lund-dose_response.svg" alt="Reaction scheme"> <figcaption> <i>Fig. 1:
     Dose response scheme for the NahR system taken from the <a href="http://parts.igem.org/Part:BBa_J61051"><i>iGEM parts registry documentation
     page</i></a>. The data points are represented as red dots linearly interpolated with black lines.</i> </figcaption> </figure> <br>
 
@@ -370,13 +367,13 @@
     output of folded GFP1-9 and the corresponding response data. This function is then a measure of how good the model fits the measured data with
     respect to the three paramters $k_\text{aSNP}$, $k_\text{dSNP}$, and $k_\text{MG}$ given that all other parameters are set.  The objective is
     then to minimize the penalty $f(\theta)$ under the stated conditions. This was done in MATLAB 2017a using <i>LSQNONLIN</i> which is a nonlinear least
-    squares solver which uses the Levenberg-Marquardt algorithm. Figure 2 shows the resulting fit and one can see that the model manages to catch the
+    squares solver which uses the Levenberg-Marquardt algorithm. <i>Fig. 2</i> shows the resulting fit and one can see that the model manages to catch the
     structure from the dose-response data. The resulting parameters were estimated as $\text{k}_\text{aSNP} = 4.61 \cdot 10^{-4}$
     nm<sup>-1</sup>min<sup>-1</sup>, $\text{k}_\text{dSNP} = 3.81 \cdot 10^{-6}$ min<sup>-1</sup> and $\text{k}_\text{MG} = 0.168$ min<sup>-1</sup>.
 
     <figure style="text-align:center"> <img src="../../assets/Modeling/T--Lund-estimate2.svg" alt="Reaction scheme">
       <figcaption>
-        <i>Figure 2: Fitting the model to the dose response scheme for the NahR system taken from the <a href="http://parts.igem.org/Part:BBa_J61051"><i>iGEM parts registry documentation
+        <i>Fig. 2: Fitting the model to the dose response scheme for the NahR system taken from the <a href="http://parts.igem.org/Part:BBa_J61051"><i>iGEM parts registry documentation
           page</i></a>. As indicated by the figure, the model manages to capture the sigmoidal appeareance.</i>
       </figcaption>
     </figure>
@@ -409,7 +406,7 @@
     \frac{G_0E_0 - G_0E_0e^{k(G_0-E_0)t}}{E_0 - G_0e^{k(G_0-E_0)t}}, & \mbox{if } G_0\ne E_0 \end{cases} \tag{1}$$
 
     where $G_0$ and $E_0$ are the concentrations of GFP1-9 and GFP10-ER-GFP11 at time $t=0$. At figure 3 in the article, a steady state defined as 95 %
-    of the asymptotic concentration is reached after approximately 9 hours. As equimolar amounts of proteins were used (3.5 &micro;M), we get the expression
+    of the asymptotic concentration is reached after approximately 9 hours. As equimolar amounts of proteins were used ($G_0 = E_0 = 3.5$  &micro;M), we get the expression
 
     $$0.95G_0 = G_0  - \frac{G_0}{1 + 9G_0k}\tag{2}$$
 
@@ -443,11 +440,6 @@
     to zero except for the gene content which is set at 83.2 nM. This can be calculated by the relation $c =
     \frac{\text{C}_\text{P}}{\text{N}_\text{A}V}$ where $\text{N}_\text{A}$ is Avogadros number, $\text{C}_\text{P}$ the copy number and $V$ the cell
     volume. The latter two parameters can be found in <i>table 1</i>.
-
-    <br><br>
-    In the case of dosing with IPTG, salicylate and estrogen, these are added at suitable time points. To solve this problem one usually starts from an
-    initial condition and evolves the system up until the addition of the species. At that point, one can start a new simulation using the state obtained
-    from the last time point combined with the added amount of species.
   </p>
 
   <h3 id="mathstuff">Math stuff</h3>

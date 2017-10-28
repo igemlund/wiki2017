@@ -1,22 +1,148 @@
 {{Lund}}
 <html>
-<div class="igem-content">
+<header class="interlab-header">
+  <div class="container">
+    <h1 class="display">InterLab</h1>
+  </div>
+</header>
 
-<div class="column full_size">
-<h1>InterLab</h1>
-<h3>Bronze Medal Criterion #4</h3>
-<p><b>Standard Tracks:</b> Participate in the Interlab Measurement Study and/or improve the characterization of an existing BioBrick Part or Device and enter this information on that part's Main Page in the Registry. The part that you are characterizing must NOT be from a 2017 part number range.
-<br><br>
-For teams participating in the <a href="http://2017.igem.org/Competition/InterLab_Study">InterLab study</a>, all work must be shown on this page. 
+<div class="content-wrapper under-nav text-layout">
+  <div class="container">
 
-</p>
-</div>
+    <div class="row">
+      <div class="col-sm-8">
+        <section>
+          <h3>Introduction</h3>
+          <p>Since synthetic biology is built on engineering principles, reproducibility of the experiments and reliability of its standard parts are crucial for building predictable biological machines. This year’s InterLab study required all participants to produce comparable units for measuring the fluorescence of green fluorescence protein (GFP) following the same protocol to test the reproducibility of the experiment. Eight devices encoding GFP under three different promoters as well as two types of ribosome binding sites (RBS) were tested for their reliable gene expression in <em>Escherichia coli</em>.</p>
+        </section>
+        <section>
+          <h3>Materials and Methods</h3>
+          <ul>
+            <li>
+              Eight devices inserted in pSB1C3 provided by iGEM Headquarters:
+              <ul>
+                <li>Positive Control (<a href="http://parts.igem.org/Part:BBa_I20270" target="_blank">BBa_I20270</a>)</li>
+                <li>Negative Control (<a href="http://parts.igem.org/Part:BBa_R0040" target="_blank">BBa_R0040</a>)</li>
+                <li>Test Device 1 (<a href="http://parts.igem.org/Part:BBa_J364000" target="_blank">BBa_J364000</a>)</li>
+                <li>Test Device 2 (<a href="http://parts.igem.org/Part:BBa_J364001" target="_blank">BBa_J364001</a>)</li>
+                <li>Test Device 3 (<a href="http://parts.igem.org/Part:BBa_J364002" target="_blank">BBa_J364002</a>)</li>
+                <li>Test Device 4 (<a href="http://parts.igem.org/Part:BBa_J364003" target="_blank">BBa_J364003</a>)</li>
+                <li>Test Device 5 (<a href="http://parts.igem.org/Part:BBa_J364004" target="_blank">BBa_J364004</a>)</li>
+                <li>Test Device 6 (<a href="http://parts.igem.org/Part:BBa_J364005" target="_blank">BBa_J364005</a>)</li>
+              </ul>
+            </li>
+            <li>Expression host:<em> E. coli</em> DH5-α</li>
+            <li>Microtiter plate: 96 well plate, transparent with round base, Sarstedt </li>
+            <li>Plate reader for fluorescence measurements: Fluoroskan Ascent, Thermo Labsystems  </li>
+            <li>Plate reader for OD595 measurements: Multiskan ascent, Thermo Electron Corporation</li>
+          </ul>
 
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Test device</th>
+                <th>Promoter</th>
+                <th>Promoter strength</th>
+                <th>RBS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Negative control</td>
+                <td>TetR repressible promoter</td>
+                <td>medium</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>Positive control </td>
+                <td>J23151</td>
+                <td> </td>
+                <td>B0032</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>J23101</td>
+                <td>1791</td>
+                <td>B0034</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>J23106</td>
+                <td>1185</td>
+                <td>B0034</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>J23117</td>
+                <td>162</td>
+                <td>B0034</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>J23101</td>
+                <td>1791</td>
+                <td>J364100</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>J23106</td>
+                <td>1185</td>
+                <td>J364100</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>J23117</td>
+                <td>162</td>
+                <td>J364100</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>All constructs were received in the pSB1C3 plasmid carrying the gene for chloramphenicol resistancy.</p>
+          <p>The provided InterLab protocol was followed to perform the measurements, as well as the protocol for transformation. Colony PCR, which was not a required part of the InterLab study, was performed using published protocol.</p>
+        </section>
 
+        <section>
+          <h3>Results</h3>
 
+          <p>All raw data from measurements can be found <a href="#">here</a>. In order to quantify the fluorescence of the expressed GFP in test devices, a standard curve as in <em>fig 1</em>, using fluorescein was made. For the absorbance measurements a conversion factor was needed to convert absorbance data to standard OD595 measurements. For that purpose LUDOX-S40 was used as a single reference point.</p>
 
+          <p>The result from colony PCR showed the size of the insert was about 1200 bp for the six test devices as well as the positive control device (P), and about 400 bp for the negative control device (N). The negative control contained water instead of the colony PCR product. </p>
 
+          <div class="row">
+            <div class="col-sm-6">
+              <figure>
+                <img class="img-responsive center-block img-thumbnail" src="http://2017.igem.org/wiki/images/b/b3/T--Lund--InterLab--Fl_std_curve.svg">
+                <figcaption class="text-center">Figure 1: Standard curve with fluorescein (μM).</figcaption>
+              </figure>
+            </div>
+            <div class="col-sm-6">
+              <figure>
+                <img class="img-responsive center-block img-thumbnail" src="http://2017.igem.org/wiki/images/d/d7/T--Lund--InterLab--AGE_colony_PCR_170923.jpg">
+                <figcaption class="text-center">Figure 2: Gel image from agarose gel electrophoresis with colony PCR samples.</figcaption>
+              </figure>
+            </div>
+            <div class="col-sm-6">
+              <figure>
+                <img class="img-responsive center-block img-thumbnail" src="http://2017.igem.org/wiki/images/3/31/T--Lund--InterLab--Absorbance_plot-svg.svg">
+                <figcaption class="text-center">Figure 3: Absorbance measurements of the devices at 0h, 2h, 4h and 6h.</figcaption>
+              </figure>
+            </div>
+            <div class="col-sm-6">
+              <figure>
+                <img class="img-responsive center-block img-thumbnail" src="http://2017.igem.org/wiki/images/a/a3/T--Lund--InterLab--Fluorescence_plot.svg">
+                <figcaption class="text-center">Figure 4: Fluorescence measurements of the devices at 0h, 2h, 4h and 6h.</figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+        
+      </div>
+      <div class="col-sm-4">
+      </div>
+    </div>
 
-</div>
+  </div>
+</div>  
+
 </html>
 {{Lund/footer}}

@@ -1,0 +1,32 @@
+.hp-header {
+  .display-section;
+  .display-background('http://2017.igem.org/wiki/images/7/76/T--Lund--HP.jpg', 70%);
+}
+
+.hp {
+  .blue-box {
+    background: linear-gradient(
+    to bottom,
+    fade(#047CC0, 80%),
+    fade(#175D8D, 80%)
+    );
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    color: white;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    @media(min-width: @screen-lg-min) {
+      height: 520px;
+    }
+    p {
+      text-align: left;
+    }
+    a {
+      text-decoration: underline;
+      color: #fff;
+      &:hover {
+        color: @gray-lighter;
+      }
+    }
+  }
+}

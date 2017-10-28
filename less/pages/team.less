@@ -4,8 +4,9 @@
 
   background: linear-gradient(
     to bottom,
-    fade(#000, 0%),
-    fade(#000, 0%) 70%,
+    fade(#000, 60%),
+    fade(#000, 0%) 20%,
+    fade(#000, 0%) 50%,
     fade(#000, 100%)
     ), url(http://2017.igem.org/wiki/images/5/55/T--Lund--Team.jpg);
   background-position: center;
@@ -13,9 +14,6 @@
 
   p {
     text-align: center;
-    b {
-      color: @green;
-    }
   }
 }
 
@@ -26,29 +24,20 @@
   background-position: top right;
 
   .member {
-    @avatar-size: 10rem;
-    position: relative;
-    padding-left: @avatar-size + 1rem;
     margin: 4rem 0;
-    min-height: @avatar-size;
-    max-width: (100% * (2 / 3));
-
-    .avatar {
-      position: absolute;
-      left: 0;
-      top: 0;
-      border-radius: 50%;
-      width: @avatar-size;
-      height: @avatar-size;
-    }
 
     h3 {
+      margin-top: 0;
       color: @blue;
     }
 
     h6 {
       font-family: inherit;
       color: @gray-light;
+    }
+
+    @media (max-width: @screen-xs-max) {
+      text-align: center;
     }
   }
 }

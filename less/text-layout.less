@@ -1,0 +1,67 @@
+.text-layout {
+  p {
+    text-align: justify;
+  }
+
+  h4, .h4,
+  h5, .h5,
+  h6, .h6 {
+    margin-top: @line-height-computed;
+  }
+
+  q {
+    font-style: inherit;
+    font-family: inherit;
+    font-weight: 500;
+    vertical-align: super;
+    font-size: smaller;
+    color: @blue;
+    &:before, &:after {
+      content: "";
+    }
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+  .references {
+    margin: 0;
+    list-style-type: none;
+
+    li {
+      margin: 0.5rem 0;
+      b, strong {
+        font-weight: 700;
+      }
+    }
+  }
+
+  figcaption {
+    margin: 4px 0 2rem;
+    font-size: @font-size-small;
+    font-style: italic;
+    em {
+      font-style: normal;
+    }
+  }
+
+  dl {
+    dt {
+      font-weight: 700;
+    }
+    dd {
+      font-style: italic;
+      margin-bottom: 1rem;
+      em {
+        font-style: normal;
+      }
+    }
+    margin: 1rem 0;
+  }
+
+  .side-logo {
+    width: 240px;
+    margin: auto;
+  }
+}

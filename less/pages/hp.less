@@ -4,39 +4,20 @@
 }
 
 .hp {
-  .blue-box {
-    background: linear-gradient(
-    to bottom,
-    fade(#047CC0, 80%),
-    fade(#175D8D, 80%)
-    );
-    padding: 1rem 2rem;
-    border-radius: 4px;
-    color: white;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    @media(min-width: @screen-lg-min) {
-      height: 520px;
-    }
-    p {
-      text-align: left;
-    }
-    a {
-      text-decoration: underline;
-      color: #fff;
-      &:hover {
-        color: @gray-lighter;
-      }
-    }
-  }
-
   .card {
     .card-img {
-      background-color: @gray-lighter;
+      background: linear-gradient(
+      to bottom,
+      fade(#047CC0, 100%),
+      fade(#175D8D, 100%)
+      );
       padding: 2rem;
       img {
         height: 140px;
       }
+    }
+    .card-content {
+      min-height: 410px;
     }
   }
 }

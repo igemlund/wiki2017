@@ -76,21 +76,36 @@
     </section>
     <section>
       <h3 class="section-heading">References</h3>
-      <ol class="references">
-        <li id="ref1">
-          <b>[1]</b> Laura Paddison (2016, September 27). “Single clothes wash may release 700,000 microplastic fibres, study finds”. The Guardian. Retrieved 2017-09-01.
-        </li>
-        <li id="ref2">
-          <b>[2]</b> KIMO (2017, February 27). “Microplastic Pollution from Artificial Grass – A Field Guide”. KIMO (Kommunenes Internasjonale Miljøorganisasjon). Retrieved 2017-09-01.
-        </li>
-        <li id="ref3">
-          <b>[3]</b> GESAMP (2016). “Sources, fate and effects of microplastics in the marine environment: part two of a global assessment” (Kershaw, P.J., and Rochman, C.M., eds). (IMO/FAO/UNESCO-IOC/UNIDO/WMO/IAEA/UN/UNEP/UNDP Joint Group of Experts on the Scientific Aspects of Marine Environmental Protection). Rep. Stud. GESAMP No. 93, 220 p
-        </li>
-      </ol>
+      <button id="referencesButton" class="btn btn-default" type="button" data-toggle="collapse" data-target="#referencesCollapse" aria-expanded="false" aria-controls="referencesCollapse">
+        Show
+      </button>
+      <div class="collapse" id="referencesCollapse">
+        <ol class="references">
+          <li id="ref1">
+            [1] Laura Paddison (2016, September 27). “Single clothes wash may release 700,000 microplastic fibres, study finds”. The Guardian. Retrieved 2017-09-01.
+          </li>
+          <li id="ref2">
+            [2] KIMO (2017, February 27). “Microplastic Pollution from Artificial Grass – A Field Guide”. KIMO (Kommunenes Internasjonale Miljøorganisasjon). Retrieved 2017-09-01.
+          </li>
+          <li id="ref3">
+            [3] GESAMP (2016). “Sources, fate and effects of microplastics in the marine environment: part two of a global assessment” (Kershaw, P.J., and Rochman, C.M., eds). (IMO/FAO/UNESCO-IOC/UNIDO/WMO/IAEA/UN/UNEP/UNDP Joint Group of Experts on the Scientific Aspects of Marine Environmental Protection). Rep. Stud. GESAMP No. 93, 220 p
+          </li>
+        </ol>
+      </div>
     </section>
 
   </div>
 </div>  
+<script>
+  $(function() {
+    $('#referencesCollapse').on('shown.bs.collapse', function () {
+       $("#referencesButton").text('Hide');
+    });
 
+    $('#referencesCollapse').on('hidden.bs.collapse', function () {
+       $("#referencesButton").text('Show');
+    });
+  });
+</script>
 </html>
 {{Lund/footer}}

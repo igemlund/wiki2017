@@ -47,37 +47,50 @@
         </section>
         <section>
           <h3 class="section-heading">References</h3>
-          <ol class="references">
-
-            <li ref="ref1">
-              <b>[1]</b> UNEP (2016), ‘Marine plastic debris and microplastics – Global lessons and research to inspire action and guide policy change.’, United Nations Environment Programme, Nairobi.
-            </li>
-            <li ref="ref2">
-              <b>[2]</b> Yang, D, Shi, H, Li, J, Jabeen, K, Kolandhasamy, P, &amp; Li, L n.d., (2015)  'Microplastic Pollution in Table Salts from China', <em>Environmental Science &amp; Technology</em>, 49, 22, pp. 13622-13627
-            </li>
-            <li ref="ref3">
-              <b>[3]</b> Lachenmeier, D, Kocareva, J, Noack, D &amp; Kuballa, T., (2015), ‘Microplastic identification in German beer - an artefact of laboratory contamination?’, <em>Deutsche Lebensmittel-Rundschau: Zeitschrift für Lebensmittelkunde und Lebensmittelrecht</em>, 111, 437-440. 
-            </li>
-            <li ref="ref4">
-              <b>[4]</b> da Costa, J, Santos, P, Duarte, A, &amp; Rocha-Santos, T., (2016), '(Nano)plastics in the environment - Sources, fates and effects', <em>Science Of The Total Environment</em>, 566-567, p. 15-26.
-            </li>
-            <li ref="ref5">
-              <b>[5]</b> Svenskt Vatten (2016) ‘ Mikroplaster – källor och uppströmsarbete samt möjligheter till rening vid kommunala reningsverk’. [online] [Accessed 20 oct. 2017]. 
-            </li>
-            <li ref="ref6">
-              <b>[6]</b> Bakir, A, Rowland, S, &amp; Thompson, R., (2014), 'Transport of persistent organic pollutants by microplastics in estuarine conditions', Estuarine<em>, Coastal And Shelf Science</em>, 140, pp. 14-21.
-            </li>
-            <li ref="ref7">
-              <b>[7]</b> Tanaka, K. and Takada, H. (2016). ‘Microplastic fragments and microbeads in digestive tracts of planktivorous fish from urban coastal waters.’ <em>Scientific Reports</em>, 6(1).
-            </li>
-
-          </ol>
+          <button id="referencesButton" class="btn btn-default" type="button" data-toggle="collapse" data-target="#referencesCollapse" aria-expanded="false" aria-controls="referencesCollapse">
+            Show
+          </button>
+          <div class="collapse" id="referencesCollapse">
+            <ol class="references">
+              <li ref="ref1">
+                [1] UNEP (2016), ‘Marine plastic debris and microplastics – Global lessons and research to inspire action and guide policy change.’, United Nations Environment Programme, Nairobi.
+              </li>
+              <li ref="ref2">
+                [2] Yang, D, Shi, H, Li, J, Jabeen, K, Kolandhasamy, P, &amp; Li, L n.d., (2015)  'Microplastic Pollution in Table Salts from China', <em>Environmental Science &amp; Technology</em>, 49, 22, pp. 13622-13627
+              </li>
+              <li ref="ref3">
+                [3] Lachenmeier, D, Kocareva, J, Noack, D &amp; Kuballa, T., (2015), ‘Microplastic identification in German beer - an artefact of laboratory contamination?’, <em>Deutsche Lebensmittel-Rundschau: Zeitschrift für Lebensmittelkunde und Lebensmittelrecht</em>, 111, 437-440. 
+              </li>
+              <li ref="ref4">
+                [4] da Costa, J, Santos, P, Duarte, A, &amp; Rocha-Santos, T., (2016), '(Nano)plastics in the environment - Sources, fates and effects', <em>Science Of The Total Environment</em>, 566-567, p. 15-26.
+              </li>
+              <li ref="ref5">
+                [5] Svenskt Vatten (2016) ‘ Mikroplaster – källor och uppströmsarbete samt möjligheter till rening vid kommunala reningsverk’. [online] [Accessed 20 oct. 2017]. 
+              </li>
+              <li ref="ref6">
+                [6] Bakir, A, Rowland, S, &amp; Thompson, R., (2014), 'Transport of persistent organic pollutants by microplastics in estuarine conditions', Estuarine<em>, Coastal And Shelf Science</em>, 140, pp. 14-21.
+              </li>
+              <li ref="ref7">
+                [7] Tanaka, K. and Takada, H. (2016). ‘Microplastic fragments and microbeads in digestive tracts of planktivorous fish from urban coastal waters.’ <em>Scientific Reports</em>, 6(1).
+              </li>
+            </ol>
+          </div>
         </section>
       </div>
     </div>
 
   </div>
 </div>  
+<script>
+  $(function() {
+    $('#referencesCollapse').on('shown.bs.collapse', function () {
+       $("#referencesButton").text('Hide');
+    });
 
+    $('#referencesCollapse').on('hidden.bs.collapse', function () {
+       $("#referencesButton").text('Show');
+    });
+  });
+</script>
 </html>
 {{Lund/footer}}

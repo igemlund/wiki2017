@@ -133,12 +133,17 @@
 
         <section>
           <h3 class="section-heading">References</h3>
-          <ol class="references">
-            <li>[1] IKEA, (2011) ‘The IKEA Group approach to sustainability ‘ [online] [accessed 20 July 2017]</li>
-            <li>[2] National Research Council. 2015. <em>Public Engagement on Genetically Modified Organisms: When Science and Citizens Connect: Workshop Summary</em>. Washington, DC: The National Academies Press. https://doi.org/10.17226/21750.</li>
-            <li>[3] Marris, C. (2001). Public views on GMOs: deconstructing the myths. <em>EMBO reports</em>, 2(7), pp.545-548.</li>
-            <li>[4] McFadden, B. (2016). Examining the Gap between Science and Public Opinion about Genetically Modified Food and Global Warming. <em>PLOS ONE</em>, 11(11).</li>
-          </ol>
+          <button id="referencesButton" class="btn btn-default" type="button" data-toggle="collapse" data-target="#referencesCollapse" aria-expanded="false" aria-controls="referencesCollapse">
+            Show
+          </button>
+          <div class="collapse" id="referencesCollapse">
+            <ol class="references">
+              <li>[1] IKEA, (2011) ‘The IKEA Group approach to sustainability ‘ [online] [accessed 20 July 2017]</li>
+              <li>[2] National Research Council. 2015. <em>Public Engagement on Genetically Modified Organisms: When Science and Citizens Connect: Workshop Summary</em>. Washington, DC: The National Academies Press. https://doi.org/10.17226/21750.</li>
+              <li>[3] Marris, C. (2001). Public views on GMOs: deconstructing the myths. <em>EMBO reports</em>, 2(7), pp.545-548.</li>
+              <li>[4] McFadden, B. (2016). Examining the Gap between Science and Public Opinion about Genetically Modified Food and Global Warming. <em>PLOS ONE</em>, 11(11).</li>
+            </ol>
+          </div>
         </section>
 
       </div>
@@ -149,6 +154,16 @@
 
   </div>
 </div>  
+<script>
+  $(function() {
+    $('#referencesCollapse').on('shown.bs.collapse', function () {
+       $("#referencesButton").text('Hide');
+    });
 
+    $('#referencesCollapse').on('hidden.bs.collapse', function () {
+       $("#referencesButton").text('Show');
+    });
+  });
+</script>
 </html>
 {{Lund/footer}}

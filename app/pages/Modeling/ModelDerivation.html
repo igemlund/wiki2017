@@ -34,7 +34,7 @@
     obtained fom the deterministic scheme and it can be interpreted as the randomness being canceled out by the mean of a large populations.</p>
 
     <p>In addition, we present our reasoning behind the reactions and the corresponding assumptions. We start by modeling the regulation of the
-    pETDuet-1 plasmid which consists of one gene coding for the <i>lac</i> repressor and two <i>lac</i> regulated genes which constitute the
+    pETDuet-1 plasmid which consists of one gene encoding the <i>lac</i> repressor and two <i>lac</i> regulated genes which constitute the
     respective pathway in our AND-logic. The biomolecular network is then presented for each pathway followed by the final GFP complementation. At the
     end, a deterministic scheme representing the system in terms of ordinary differential equations is presented along with the associated assumptions
     and boundary conditions.</p>
@@ -53,16 +53,14 @@
     <figure style="text-align:center"> <img src="../../assets/Modeling/T-Lund-lacoperon_sbol.png" alt="Reaction scheme"> <figcaption><i>Fig. 1: The
     important parts in the pETDuet-1 plasmid. The system consists of a constitutive promoter expressing lacI which in turn represses the lac operons
     OA and OB. The repressor is in turn repressed by an inducer. The ribosome binding sites located downstream of the promoters are denoted
-    rbs.</i></figcaption> </figure>
-    <figure style="text-align:center"> <img src="../../assets/Modeling/network1.png" alt="Reaction scheme"> <figcaption><i>Figure 2: Reaction
-    scheme.</i></figcaption> </figure>
+    rbs.</i></figcaption></figure>
 
     <h3><i>lac</i> regulation</h3>
 
     <p>The system starts with an IPTG induction of two <i>lac</i> operators. We choose to model this in a greater detail than the standard
-    Michaelis-Menten scheme as we now have two operators being repressed by one <i>lacI</i>. We have thus chosen to include the repressor
+    Michaelis-Menten scheme as we now have two operators being repressed by one <i>lacI</i>. Thus, we have chosen to include the repressor
     dynamics with the operators but also chosen an intermediate route where we dont take into account of leak transcriptions or other second order
-    effects. Here we provide a relatively coarse description of the derivation based on a study by M. Stamatakis and N. V. Mantzaris who used mass
+    effects. Here we provide a description of the derivation based on a study by M. Stamatakis and N. V. Mantzaris who used mass
     action and stochastic kinetic models to study the autoregulation and bistability of the <i>lac</i> operon [2].
 
     <p>Starting with the transcriptional pathway of the <i>lac</i> repressor, the <i>lacI</i> gene $\ce{O_R}$ which codes for the dimeric monomer
@@ -127,8 +125,8 @@
     we do not know whether one salicylate has to bind to each NahR before transcription can occur or whether the transcription rate is cumulative.
     Neither do we know how the transcription factor affects the promoter with respect to the amount of monomers bound. Taking all the intermediate
     steps into account in the model would lead to a complicated system with many species, yielding a large set of equations with a big parameter
-    space. Consequently, as the amount of data needed to estimate a model increases exponentially with the amount of parameters (also known as the curse of
-    dimensionality), we choose to model the regulation in two steps. </p>
+    space. Consequently, as the amount of data needed to estimate a model increases exponentially with the amount of parameters, we choose to model
+    the regulation in two steps. </p>
 
     <p> The reactions proceed by NahR binding to <i>Psal</i> followed by salicylate binding to the <i>NahR-Psal</i> complex in two reversible second order
     reactions, allowing subsequent transcription of <i>GFP1-9</i>. Thus, we have chosen to not take into account of the effect of salicylate on the binding
@@ -186,9 +184,9 @@
     <p>There are many ways in which one could model the tripartite association. For example, one could imagine the GFP10 and GFP11 fragments first
     establishing a hairpin loop prior to complementing with GFP1-9. Another mechanism would be that one of the estrogen receptor bound fragments first
     binds to GFP1-9 followed by an association of the second receptor bound fragment. Nevertheless, we choose to model the association as a direct
-    bimolecular complementation. This is justified by the simple parameter estimation of the association and dissociation rate constants that was made
-    possible due to the simple kinetic expression, see the <a href="">parameter estimation</a> section for more details. We thus have the GFP1-9 and
-    active GFP10-ER-GFP11 associating to yield a restored GFP denoted as $\ce{GFP}$. As before, the protein decomposes in a first order reaction.</p>
+    bimolecular complementation as it allowed us to estimate the association and dissocation rate constants with ease due to the simple kinetic
+    expression, see the <a href="">parameter estimation</a> section for more details. We thus have the GFP1-9 and active GFP10-ER-GFP11 associating to
+    yield a restored GFP denoted as $\ce{GFP}$. As before, the protein decomposes in a first order reaction.</p>
 
     <p>
       $$\ce{G + EE\text{s} <-->[k_\text{aGFP}][k_\text{dGFP}] GFP}\tag{32}$$

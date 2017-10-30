@@ -190,7 +190,7 @@
 
 
 
-    <h5>Response time analysis</h5>
+    <h5>Response time sensitivity analysis</h5>
 
     <p> From the simulations carried out in the preceeding section, it was noted that rise times in the order of 650 min were observed for a variety
     of doses and it was seen that the time varied little with respect to the applied doses. Due to the long rise time of almost 11 hours, it would be
@@ -198,8 +198,8 @@
     choose to do global sensitivity analysis with respect to the rise time. Global sensitivity analysis is a method used to study the effect that
     large variations in the input parameters have on the output. This is slightly different from local sensitivity analysis which studies the effect
     on the output caused by small pertubtations on the input. One can view the local variant as a gradient of the output with respect to the parameter
-    space at the point in the parameter space considered, whereas the global variant gives an overall effect on the output with respect to a specified
-    domain in the parameter space [2].</p>
+    space at the point in the parameter space considered, whereas the global variant gives an overall effect on the output from each parameter with
+    respect to a specified domain in the parameter space [2].</p>
 
     <p> The parameters for the sensitivity analysis were chosen with respect to their expected effect on the rise time as well as their capability of
     being modified in the lab and are illustrated in <i>table 1</i>. We chose to investigate the transcription and translation rates for NahR, GFP1-9
@@ -207,16 +207,36 @@
     The parameter space was chosen by logarithmic sampling around the estimated values within two orders of magnitude, that is the interval with
     bounds specified by one hundred times and one hundredth times the parameters. These intervals were chosen somewhat arbitrarly based on the belief
     that it is not possible (or at least very hard) to alter the parameters more than one hundred times their original values. In total, 42 000
-    samples were generated using Saltelli's sampling scheme (see implementation). The sensitivities can be seen in <i>table 1</i>. We choose to only
-    consider the first and total order sensitivity indices and present them along with 95% confidence intervals. Here, S<sub>1</sub> denotes the first
-    order sensitivity index which is a measure of a single parameters contribution to the total variance in the output. The total sensitivity index,
-    S<sub>T</sub> is similarly a measure of a parameters contribution to the output variance, but including both the first order effect and all higher
-    interactions with other parameters. We interpret it the contribution to the output variance where interparameter dependencies are included. We
-    think it's worth mentioning that we initially had issues when sampling over the normal parameter space as it resulted in very small sensitivities
-    for all parameters. This was solved by sampling over the corresponding logarithmic parameter space.</p>
+    samples from the 13-dimensional parameter space were generated using Saltelli's sampling scheme (see implementation). The sensitivities can be
+    found in <i>table 1</i> and <i>fig. 7</i>. We chose to only consider the first and total order sensitivity indices and present them along with 95% confidence
+    intervals. Here, S<sub>1</sub> denotes the first order sensitivity index which is a measure of a single parameters contribution to the total
+    variance in the output. The total sensitivity index, S<sub>T</sub> is similarly a measure of a parameters contribution to the output variance, but
+    including both the first order effect and all higher interactions with other parameters. We interpret it the contribution to the output variance
+    where interparameter dependencies are included. We think it's worth mentioning that we initially had issues when sampling over the normal
+    parameter space as it resulted in very small sensitivities for all parameters. This was solved by sampling over the corresponding logarithmic
+    parameter space.</p>
+
+    <p> It can be seen from <i>table 1</i> and <i>fig. 7</i> that almost all first order sensitivity indices are weak. This means that most parameter in the pathway has
+    a weak individual effect on the rise time. In addition, the confidence intervals indicate that almost all first order sensitivities are
+    insignificant which implies that we cannot rule out the possibility that the parameters do not affect the output individually at all. In fact, the
+    only strong first order sensitive parameter is $\text{k}_\text{aSNP}$, which also are the only significant ones Thus, those are the only
+    parameters that strongly affects the rise time individually. However, when looking at the total sensitivity indices, it can be seen that their
+    values are higher than almost all first order indices. In addition, most of them are significant in contrast to the first orders. This indicates a
+    strong coupling in the system where parameters must co-vary in order to significantly affect the rise time of the biosensor. Clearly, this is just
+    rediscovery of the principle of the rate determining step commonly seen in chemical kinetics and we have simply found the parameter governing the
+    rise time, namely $\text{k}_\text{aSNP}$. It is worth noting that in retrospect, this result might seem highly trivial and that this can simply be
+    seen by observing $\text{k}_\text{aSNP}$ being the smallest rate constant in the network. However, when we carried out this analysis we did not
+    intuitively realize this until after analyzing the sensitivity results. In fact we expected to find some key parameters governing rise time of the
+    biosensor to optimize for rapid detection. Nevertheless, the analysis at least gave a quantitative justification of the rate determining step
+    principle. </p>
+
+
 
     <table class="table">
-      <caption>Table 1: Parameters chosen for the global sensitivity analysis</caption>
+    <caption>Table 1: Sensitivity indices for 13 parameters with respect to the rise time generated from the global sensitivity analysis. The sensitivities were
+    obtained by using the Sobol method by sampling 42000 points in the parameter space using Saltelli's sampling scheme. The parameter space used is
+    defined by the values within two orders of magnitude from each estimated parameter. S<sub>1</sub> = first order sensitivity index, S<sub>T</sub> =
+    total order sensitivity index, 95% CI = 95% confidence interval. </caption>
       <thead>
         <tr>
           <th>Parameter</th>
@@ -253,109 +273,47 @@
           <td>$0.00019$</td>
         </tr>
 
-        <tr>
-          <td>$\ce{k_\text{aNP}}$</td>
-          <td>$4.7 \cdot 10^{-3}$</td>
-          <td>$0.19$</td>
-          <td>$0.031$</td>
-          <td>$0.18$</td>
-          <td>$0.034$</td>
-        </tr>
-        <tr>
-          <td>$\ce{k_\text{dNP}}$</td>
-          <td>$11.5$</td>
-          <td>$0.029$</td>
-          <td>$0.039$</td>
-          <td>$0.22$</td>
-          <td>$0.044$</td>
-        </tr>
-        <tr>
-          <td>$\ce{k_\text{aSNP}}$</td>
-          <td>$4.61 \cdot 10^{-4}$</td>
-          <td>$0.24$</td>
-          <td>$0.070$</td>
-          <td>$0.55$</td>
-          <td>$0.067$</td>
-        </tr>
-        <tr>
-          <td>$\ce{k_\text{dSNP}}$</td>
-          <td>$3.81 \cdot 10^{-6}$</td>
-          <td>$0.0010$</td>
-          <td>$0.0027$</td>
-          <td>$0.00082$</td>
-          <td>$0.00039$</td>
-        </tr>
-        <tr>
-          <td>$\ce{k_\text{MN}}$</td>
-          <td>$3.09$</td>
-          <td>$0.0077$</td>
-          <td>$0.037$</td>
-          <td>$0.18$</td>
-          <td>$0.033$</td>
-        </tr>
-        <tr>
-          <td>$\ce{k_\text{ME}}$</td>
-          <td>$3.18$</td>
-          <td>$0.00094$</td>
-          <td>$0.019$</td>
-          <td>$0.083$</td>
-          <td>$0.026$</td>
-        </tr>
-        <tr>
-          <td>$\ce{k_\text{MG}}$</td>
-          <td>$0.168$</td>
-          <td>$0.031$</td>
-          <td>$0.036$</td>
-          <td>$0.28$</td>
-          <td>$0.055$</td>
-        </tr>
-        <tr>
-          <td>$\ce{k_\text{N}}$</td>
-          <td>$3.0$</td>
-          <td>$0.027$</td>
-          <td>$0.038$</td>
-          <td>$0.21$</td>
-          <td>$0.040$</td>
-        </tr>
-        <tr>
-          <td>$\ce{k_\text{E}}$</td>
-          <td>$2.86$</td>
-          <td>$-0.0018$</td>
-          <td>$0.019$</td>
-          <td>$0.074$</td>
-          <td>$0.022$</td>
-        </tr>
-        <tr>
-          <td>$\ce{k_\text{G}}$</td>
-          <td>$4.59$</td>
-          <td>$0.035$</td>
-          <td>$0.028$</td>
-          <td>$0.23$</td>
-          <td>$0.043$</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <p>Clearly this indicates a highly insensitive system with respect to the parameters. Although this is not uncommon in biological systems [länk],
-    we suggest the experiments to be repeated by someone else to ensure this is the actual case. </p>
+        <tr> <td>$\ce{k_\text{aNP}}$</td> <td>$4.7 \cdot 10^{-3}$</td> <td>$0.019$</td> <td>$0.031$</td> <td>$0.18$</td> <td>$0.034$</td> </tr> <tr>
+        <td>$\ce{k_\text{dNP}}$</td> <td>$11.5$</td> <td>$0.029$</td> <td>$0.039$</td> <td>$0.22$</td> <td>$0.044$</td> </tr> <tr>
+        <td>$\ce{k_\text{aSNP}}$</td> <td>$4.61 \cdot 10^{-4}$</td> <td>$0.24$</td> <td>$0.070$</td> <td>$0.55$</td> <td>$0.067$</td> </tr> <tr>
+        <td>$\ce{k_\text{dSNP}}$</td> <td>$3.81 \cdot 10^{-6}$</td> <td>$0.0010$</td> <td>$0.0027$</td> <td>$0.00082$</td> <td>$0.00039$</td> </tr>
+        <tr> <td>$\ce{k_\text{MN}}$</td> <td>$3.09$</td> <td>$0.0077$</td> <td>$0.037$</td> <td>$0.18$</td> <td>$0.033$</td> </tr> <tr>
+        <td>$\ce{k_\text{ME}}$</td> <td>$3.18$</td> <td>$0.00094$</td> <td>$0.019$</td> <td>$0.083$</td> <td>$0.026$</td> </tr> <tr>
+        <td>$\ce{k_\text{MG}}$</td> <td>$0.168$</td> <td>$0.031$</td> <td>$0.036$</td> <td>$0.28$</td> <td>$0.055$</td> </tr> <tr>
+        <td>$\ce{k_\text{N}}$</td> <td>$3.0$</td> <td>$0.027$</td> <td>$0.038$</td> <td>$0.21$</td> <td>$0.040$</td> </tr> <tr>
+        <td>$\ce{k_\text{E}}$</td> <td>$2.86$</td> <td>$-0.0018$</td> <td>$0.019$</td> <td>$0.074$</td> <td>$0.022$</td> </tr> <tr>
+        <td>$\ce{k_\text{G}}$</td> <td>$4.59$</td> <td>$0.035$</td> <td>$0.037$</td> <td>$0.23$</td> <td>$0.043$</td> </tr> </tbody> </table> <figure
+        style="text-align:center"> <img src="../../assets/Modeling/T--Lund-sensitivities.svg" alt="Reaction scheme"> <figcaption> <i>Fig. 7: Graphical
+        illustration of the sensitivities from table 1. The purple bars represent the sensitivity indices and the blue bars the corresponding 95%
+        confidence intervals. </i> </figcaption> </figure>
 
     <h5>Parameter sweeps</h5>
 
+    <p>To illustrate the effect of the sensitivite and insensitive parameters within the scanned range, we perform some sweeps over some parameters. All
+    simulations are carried out under normal conditions as explained previously, using 1 mM IPTG and 100 nM and 300 nM salicylate and estrogen
+    respectively. <i>Fig. 8</i> illustrates the results. It can be seen that ... </p>
 
-    <p>To illustrate the sensitivities we perform parameter scans and plot the parameter values with respect to the response times. a</p>
 
-    <p>Gör några parameter-sweeps där du visar hur okänslig systemet är. Gör några map k_aGFP och andra så att hastigheterna blir instantiva.</p>
-    <p> <b>Global känslighetsanalys där vi kollar på vad som påverkar responstiden samt hur man skulle kunna minska den</b> <br> <b>1. Kolla
-    känslighetsanalysen på vilka parametrar som påverkar responstiden signifikant. <br> 2. Kör parameter sweeps of visa effekten </b> <br> When using
-    the construct for practical applications, it would be of interest to reduce the rise time to allow for a rapid detection of the solutes. Figure ...
-    illustrates a global sensitivity analysis carried out on
+    <figure style="text-align:center"> <img src="../../assets/Modeling/T--Lund-risetime_parametersweep.svg" alt="Reaction scheme"> <figcaption>
+    <i>Fig. 8: Rise times for the associated GFP with respect to parameter sweeps for various rate constants. The simulations were carried out under
+    normal conditions, using 1 mM IPTG and 100 nM and 300 nM salicylate and estrogen respectively. It can be seen that the rise time is insensitive to
+    changes in parameters for all parameters except $\text{k}_\text{aSNP}$, which is the time limiting parameter. </i> </figcaption> </figure>
 
-    <br><br>
-    The long response times can be traced back to the tripartite split GFP association rate constant which was estimated at a value of 1.8e-5 nm/min.
-    Clearly, this makes the biosensor inherently slow unless optimizations at the primary structure of the protein is made to facilitate the
-    association. As such, as indicated by the sensitivity analysis in figure …. Changing the promoter strength … does not improve the response times
-    significantly. </p>
+    <h5> Practical interpretation of the sensitivities and parameter sweeps </h5>
 
+    <p> Generally, sensitivity indices can be interpreted in two ways depending on the design phase. If the purpose of the model is to recreate a real
+    system and describe it as carefully as possible, then the indices gives the parameters that are the most important to estimate accurately. This is
+    because an error on these parameters will give a larger contribution to the output than less sensitive parameters. On the other hand, if the
+    system has been constructed and the parameters are estimated to a satisfactory precision, the sensitivities gives the most important parameters to
+    modify in order to achieve a certain behaviour.</p>
+
+
+    <p>For our project, the observations on the sensitivities are important for avoiding unnecessary work in the wet lab. Since almost all parameters
+    are first order insensitive, parameter optimizations will not yield any significant effect on the performance of the biosensor. In addition, the
+    only significant first order sensitive paramter turned out to be the rate limiting step. An increase in the parameter value would thus not give any
+    lower rise time, whereas a decrease would rapidly increase it. The only possible way left to efficiently lower the rise time would then be to
+    consider higher order sensitivities. But this means modifying many parameters and such procedures would be very tiresome and thus not feasible.
+    </p>
 
     <h3>Conclusion</h3>
     <p>The model suggests that ... återkoppla till purpose och hur detta har påverkat vår design och implementering.  </p>

@@ -26,8 +26,8 @@
 
   <h3>Overview</h3>
 
-  <p>Numerical reliability and reproducibility is a crucial part of research. In this section we provide the implementation details of how we
-  constructed and solved the model.  </p>
+  <p>Numerical reliability and reproducibility is a crucial part of research. In this section we provide a detailed description of the implementation
+  of our model.</p>
 
   <h3>Programming environment</h3>
 
@@ -35,8 +35,8 @@
   model-based design implementation of biochemical networks. By using drag and drop features, species and reactions are placed in an editor and
   connected to yield a model based representation of the system. The representation then generates code which constitutes to the differential
   equations (or transitions in the case of stochastic modeling) which can be used for simulations. The SimBiology app thus  provides an efficient way
-  to build biochemical network models and automatically generate differential equations without the need to manually balance
-  reaction fluxes which otherwise can be highly error prone.</p>
+  of building biochemical network models and automatically generate differential equations without the need to manually balance
+  reaction fluxes which otherwise can be a highly error prone process.</p>
 
   <p><i>Fig. 1</i> illustrates our model implemented in the graphical user interface. The diagram consists of  blue boxes, yellow nodes and arrows
   interconnecting the components. The boxes represent the interacting species and the nodes the corresponding reactions. Lines pointing from a specie
@@ -47,7 +47,7 @@
   repressor. In (b), the IPTG induction of the repressed genes represented by their operons ON and OE is shown. These operons regulate the epression
   of GFP1-9 and GFP10-ER-GFP11 respectively. The NahR pathway is marked by (c) and shows the binding to NahR to the <i>Psal</i> promoter followed by
   the subsequent transcriptional activation by salicylate to yield GFP1-9. In (d), GFP10-ER-GFP11 is translated and activates by the addition of
-  estrogen. In the final part (e), the GFP association occurs, yielding a fully restored chromophore.</p>
+  estrogen. In the final part (e), the GFP association occurs, yielding a fully restored fluorophore.</p>
 
   <figure style="text-align:center"> <img src="../../assets/Modeling/T--Lund-model.svg" alt="Reaction scheme" style="width:100%;height:auto"> <figcaption> <i>Fig. 1: Illustration
   of the SimBiology&copy; implementation of our system. The networks can be considered as five parts (a)-(e) governing the dynamics of separate
@@ -56,25 +56,23 @@
 
   <h3>Experimental setup</h5>
   <h5>Simulations</h5>
-  <p> To make the simulations as realistic as possible, the system was run until steady state without the addition of
+  <p>To properly emulate the working conditions of the cell at the time of addition in the wet lab, the system was run until steady state without the addition of
   inducers. The steady state values were then saved and a new simulation was started using the steady state values as initial concentrations and
   adding IPTG, salicylate and estrogen to induce gene expression. The inital simulation was run with initial concentrations set to zero expect for the
-  gene content which was set at 83.2 nM for $\ce{O_N}$, $\ce{O_E}$ and $\ce{I_R}$ (see parameter section for details). This part can be consered as
-  the cell growth, in which the system is initiated. </p>
+  gene content which was set at 83.2 nM for $\ce{O_N}$, $\ce{O_E}$ and $\ce{I_R}$ (see parameter section for details).</p>
 
   <h5>Calculation of rise time and settling time</h5>
-  <p>The rise time is defined as the time it takes for a signal to go from 10% to 90% of the
-  steady state value. The settling time is defined at the time it takes for a signal to fall within 2% of the steady state value. These entities were
-  calculated using the function <i>STEPINFO</i> (MATLAB 2017a, The Mathworks Inc.).</p>
+  <p>To measure the responsiveness of the biosensor we used the rise time and settling time as
+  measures. The rise time is defined as the time it takes for a signal to go from 10% to 90% of the steady state value. The settling time is defined
+  at the time it takes for a signal to fall within 2% of the steady state value. These entities were calculated using the function <i>STEPINFO</i>
+  (MATLAB 2017a, The Mathworks Inc.). </p>
 
 
   <h5>Calculation of global sensitivities</h5> <p>The global sensitivities were calculated using the Sensitivity Analysis Library (SALib, see [1])
   using Python 3.5.3. The method used was the Sobol method which is a variance based sensitivity analysis method. This was chosen because it has been
   recommended to use variance based methods whenever the computational cost is not a problem [2]. The input parameters were chosen by logarithmically
   sampling the parameter space using Saltelli's sampling scheme. For more details, see the <a
-  href="http://salib.readthedocs.io/en/latest/_modules/SALib/sample/saltelli.html">documentation page</a>. The parameters were then saved in a text
-  file and loaded into MATLAB where the corresponding rise and settling times were calculated. The outputs were then loaded into Python and the
-  sensitivities were calculated.</p>
+  href="http://salib.readthedocs.io/en/latest/_modules/SALib/sample/saltelli.html">documentation page</a>.</p>
 
   <h3>Implementation details</h3>
 
@@ -87,16 +85,16 @@
 
   <h5>Choice of optimization algorithm</h5>
 
-  <p> For doing parameter estimation, several optimization algorithms were tried such as <i>FMINSEARCH</i> (MATLAB 2017a, The Mathworks Inc.),
-  <i>LSQNONLIN</i> (MATLAB 2017a, The Mathworks Inc.) and <i>PARTICLESWARM</i> (MATLAB 2017a, The Mathworks Inc.). The function <i>LSQNONLIN</i> was
-  chosen as it seemed to perform best. The solver is commonly used to solve nonlinear least square problems and uses the Levenberg-Marquart algorithm.
-  All optimizations were run using standard configurations. </p>
+  <p>In performing the parameter estimation, several optimization algorithms were evaluated and tried such as <i>FMINSEARCH</i> (MATLAB 2017a, The
+  Mathworks Inc.), <i>LSQNONLIN</i> (MATLAB 2017a, The Mathworks Inc.) and <i>PARTICLESWARM</i> (MATLAB 2017a, The Mathworks Inc.). The function
+  <i>LSQNONLIN</i> was chosen as it seemed to perform best. The solver is commonly used to solve nonlinear least square problems and uses the
+  Levenberg-Marquart algorithm. All optimizations were run using standard configurations. </p>
 
   <h5>Simulation parameters</h5>
 
   <p> To ensure numerically reliable solutions, all simulations were carried out using an absolute error tolerance of 10<sup>-8</sup> and carefully
-  inspected to keep off spurious solution. In addition, several after each succelful run, the solution was tested against other ODE solvers such as
-  <i>ODE15s</i> (MATLAB 2017a, The Mathworks Inc.) to ensure a reliability. </p>
+  inspected to keep off spurious solutions. In addition, several solutions were tested against other ODE solvers such as <i>ODE15s</i> (MATLAB 2017a,
+  The Mathworks Inc.) to ensure a reliability. </p>
 
   <h3>References</h3>
   <p>[1] Herman, J. and Usher, W. (2017) SALib: An open-source Python library for sensitivity analysis. Journal of Open Source Software, 2(9).</p>

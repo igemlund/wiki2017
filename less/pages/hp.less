@@ -3,7 +3,7 @@
   .display-background('http://2017.igem.org/wiki/images/7/76/T--Lund--HP.jpg', 70%);
 }
 
-.hp {
+.hp-overview {
   .card {
     .card-img {
       background: linear-gradient(
@@ -17,7 +17,22 @@
       }
     }
     .card-content {
-      min-height: 410px;
+      @media(min-width: @screen-lg-min) {
+        min-height: 410px;
+      }
+    }
+  }
+}
+
+.hp-media {
+  .card-img {
+    height: 200px;
+    background-position: center;
+    background-size: cover;
+  }
+  .card-content {
+    @media(min-width: @screen-sm-min) {
+      height: 300px;
     }
   }
 }

@@ -29,7 +29,7 @@
 
   <h3>Parameters</h3>
   <table class="table">
-    <caption>Table 1: List of all parameters used in the model. For a description, see the corresponding Description section further down.</caption>
+    <caption>Table 1: List of all parameters used in the model. For a description, see the corresponding description section further down.</caption>
     <thead>
       <tr>
         <th>Parameter</th>
@@ -333,20 +333,20 @@
   <h3>Description</h3>
   <p>a)  The rate constant is 0.23 nM/min for an operator content of 2.08 nM [2]. This yields the rate constant $\ce{k_\text{MR} = 0.11}$ min<sup>-1</sup></p>
 
-  <p>b)  The average transcription rate is 50 nucleotides per second in <i>E. coli</i> [7]. The NahR transcript has approximately 900 nucleotides which
+  <p>b)  The average transcription rate is 50 nucleotides per second in <i>E. coli</i> [3]. The NahR transcript has approximately 900 nucleotides which
     yields $\ce{k_\text{MN}=3.33}$ min<sup>-1</sup>. The GFP10-ER-GFP11 transcript has approximately 1800 nucleotides which
     yields $\ce{k_\text{ME}=1.67}$ min<sup>-1</sup>. The GFP1-9 transcript has approximately 600 nucleotides which yields $\ce{k_\text{MG} = 5}$
     min<sup>-1</sup>. </p>
 
-  <p>c)  The average translation rate is 15 amino acids per second in <i>E. coli</i> [7]. NahR has approximately 300 amino acids which
+  <p>c)  The average translation rate is 15 amino acids per second in <i>E. coli</i> [3]. NahR has approximately 300 amino acids which
     yields $\ce{k_\text{MN}=3}$ min<sup>-1</sup>. GFP10-ER-GFP11 has approximately 600 amino acids which
     yields $\ce{k_\text{ME}=1.5}$ min<sup>-1</sup>. The GFP1-9 transcript has approximately 200 amino acids which yields $\ce{k_\text{MG}=4.5}$
     min<sup>-1</sup>. </p>
 
-  <p>e) The rate constants were taken for 17&beta;-estradiol.</p>
+  <p>e) The rate constants were taken for 17&beta;-estradiol [4].</p>
 
   <p>f) The NahR-Psal association and dissociation rates were taken as $k_\text{aNP} = 4.7 \cdot 10^{-3}$ nM<sup>-1</sup>min<sup>-1</sup> and
-    $k_\text{dNP}=11.46$ min<sup>-1</sup> after unit conversions.</p>
+    $k_\text{dNP}=11.46$ min<sup>-1</sup> after unit conversions [5].</p>
 
   <p>g) A dose-response scheme for the salicylate inducible promoter was taken from the <a href="http://parts.igem.org/Part:BBa_J61051"><i>iGEM parts
   registry documentation page</i></a>, see figure 13</a>. In the experimental setup, eight doses of salicylate were added every 30 minutes, activating
@@ -407,7 +407,7 @@
     $$c(t) = \begin{cases} G_0  - \frac{G_0}{1 + G_0kt}, & \mbox{if } G_0=E_0 \\
     \frac{G_0E_0 - G_0E_0e^{k(G_0-E_0)t}}{E_0 - G_0e^{k(G_0-E_0)t}}, & \mbox{if } G_0\ne E_0 \end{cases} \tag{1}$$
 
-    where $G_0$ and $E_0$ are the concentrations of GFP1-9 and GFP10-ER-GFP11 at time $t=0$. At figure 3 in the article, a steady state defined as 95 %
+    where $G_0$ and $E_0$ are the concentrations of GFP1-9 and GFP10-SR-GFP11 at time $t=0$. At figure 3 in the article, a steady state defined as 95 %
     of the asymptotic concentration is reached after approximately 9 hours. As equimolar amounts of proteins were used in the paper ($G_0 = E_0 = 3.5$  &micro;M), we get the expression
 
     $$0.95G_0 = G_0  - \frac{G_0}{1 + 9G_0k}\tag{2}$$
@@ -416,10 +416,10 @@
 
   <p>i) The constant was estimated from the permeability $p$ using the relation $k = p A / V$ where $A$ is the surface area and $V$ the cell volume.
     We assume that the cell is spherical, yielding the constant $\ce{k_\text{dS}=0.281}$ min<sup>-1</sup> from the permeability $\ce{p=9 \cdot 10^{-8}}$
-    cm s<sup>-1</sup> [3].</p>
+    cm s<sup>-1</sup> [7].</p>
 
   <p>j) The constant was estimated from the diffusion constant $D$ using the relation $k = D/A$ where $A$ is the surface area. Assuming that the cell
-  is spherical, we obtained $\ce{k_\text{dE}=1.44}$ min<sup>-1</sup> from the diffusion constant $\ce{D=10^{7}}$ Å<sup>2</sup>/s. [4]</p>
+  is spherical, we obtained $\ce{k_\text{dE}=1.44}$ min<sup>-1</sup> from the diffusion constant $\ce{D=10^{7}}$ Å<sup>2</sup>/s. [8]</p>
 
 
   <p>k) We set the lifetime of the mRNAs to 10 min, which yields the degradation rate $\lambda=0.2$ [3].</p>

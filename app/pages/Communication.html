@@ -1,0 +1,76 @@
+{{Lund}}
+<html>
+
+<header class="hp-header">
+  <div class="container">
+    <h1 class="display">Human Practices</h1>
+  </div>
+</header>
+
+<div class="container">
+  <ul class="nav nav-pills nav-auto-stacked">
+    <li role="presentation"><a href="/Team:Lund/HP/Silver">Overview</a></li>
+    <li role="presentation"><a href="/Team:Lund/HP/Gold_Integrated">Integrated</a></li>
+    <li role="presentation"><a href="/Team:Lund/Engagement">Engagement</a></li>
+    <li role="presentation"><a href="/Team:Lund/HP/Media">Media</a></li>
+    <li role="presentation" class="active"><a href="/Team:Lund/Communication">Essay on communication (pdf)</a></li>
+  </ul>
+</div>
+
+<div class="content-wrapper under-nav text-layout hp-engagement">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-lg-8">
+
+        <section>
+          <h3 class="section-heading">Scientific communication</h3>
+          <p>
+
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+            minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+            deserunt mollit anim id est laborum.
+
+          </p>
+        </section>
+
+
+
+
+        <section>
+          <h3 class="section-heading">References</h3>
+          <button id="referencesButton" class="btn btn-default" type="button" data-toggle="collapse" data-target="#referencesCollapse" aria-expanded="false" aria-controls="referencesCollapse">
+            Show
+          </button>
+          <div class="collapse" id="referencesCollapse">
+            <ol class="references">
+              <li>[1] National Research Council. 2015. <em>Public Engagement on Genetically Modified Organisms: When Science and Citizens Connect: Workshop Summary</em>. Washington, DC: The National Academies Press. https://doi.org/10.17226/21750.</li>
+              <li>[2] Marris, C. (2001). Public views on GMOs: deconstructing the myths. <em>EMBO reports</em>, 2(7), pp.545-548.</li>
+              <li>[3] McFadden, B. (2016). Examining the Gap between Science and Public Opinion about Genetically Modified Food and Global Warming. <em>PLOS ONE</em>, 11(11).</li>
+              <li>[4] IKEA, (2011) ‘The IKEA Group approach to sustainability ‘ [online] [accessed 20 July 2017]</li>
+            </ol>
+          </div>
+        </section>
+
+      </div>
+      <div class="col-sm-2">
+      </div>
+    </div>
+
+
+  </div>
+</div>
+<script>
+  $(function() {
+    $('#referencesCollapse').on('shown.bs.collapse', function () {
+       $("#referencesButton").text('Hide');
+    });
+
+    $('#referencesCollapse').on('hidden.bs.collapse', function () {
+       $("#referencesButton").text('Show');
+    });
+  });
+</script>
+</html>
+{{Lund/footer}}

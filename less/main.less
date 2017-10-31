@@ -52,22 +52,37 @@
 @import "bootstrap/less/utilities.less";
 @import "bootstrap/less/responsive-utilities.less";
 
+
+// == Lib
+@import (less) "lib/featherlight.min.css";
+
 // == Common
+@import "mixins.less";
 @import "igem-content.less";
+@import "card.less";
 @import "navbar.less";
 @import "footer.less";
 @import "common.less";
 @import "display-section.less";
+@import "text-layout.less";
 @import "animations.less";
 
 // == Pages
 @import "pages/home.less";
 @import "pages/team.less";
+@import "pages/playground/playground.less";
 @import "pages/go-green.less";
 @import "pages/experiments.less";
 @import "pages/notebook.less";
 @import "pages/collaborations.less";
 @import "pages/description.less";
+@import "pages/design.less";
+@import "pages/hp.less";
+@import "pages/attributions.less";
+@import "pages/modeling.less";
+@import "pages/interlab.less";
+@import "pages/parts.less";
+@import "pages/safety.less";
 
 // == Core
 html {

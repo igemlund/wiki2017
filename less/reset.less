@@ -42,6 +42,14 @@ li {
 
 ul {
   list-style-image: none;
+  list-style-type: disc;
+  ul {
+    list-style-type: circle;
+  }
+  margin: 0 1em;
+  &.nav {
+    margin: 0;
+  }
 }
 
 #bodyContent a[href ^="https://"], .link-https {

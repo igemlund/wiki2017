@@ -1,0 +1,30 @@
+.parts-header {
+  .display-section;
+  .display-background('http://2017.igem.org/wiki/images/6/60/T--Lund--Parts.jpg', 70%);
+}
+
+.parts {
+  h3 {
+    margin-bottom: @line-height-computed;
+  }
+  .card {
+
+    strong {
+      font-size: @font-size-small;
+    }
+
+    .card-img {
+      background-color: @gray-lighter;
+      padding: 1rem;
+      img {
+        height: 100px;
+      }
+    }
+
+    .card-content {
+      @media(min-width: @screen-md-min) {
+        min-height: 220px;
+      }
+    }
+  }
+}

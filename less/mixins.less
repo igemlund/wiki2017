@@ -1,0 +1,9 @@
+.display-background(@background-image, @fade: 70%) {
+  background: linear-gradient(
+    to left,
+    fade(#000, @fade),
+    fade(#000, @fade)
+    ), url(@background-image);
+  background-position: center;
+  background-size: cover;
+}

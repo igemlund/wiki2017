@@ -1,7 +1,3 @@
-#notebook {
-  font-size: 125%;
-}
-
 .notebook-landing {
   .display-section;
 
@@ -13,4 +9,23 @@
     ), url(@background-image);
   background-position: bottom;
   background-size: cover;
+}
+
+.notebook {
+  background-color: @gray-white;
+
+  .card {
+    padding: 1rem;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background-color: #fff;
+    border-radius: 4px;
+
+    .date {
+      font-size: @font-size-small;
+      color: @gray-light;
+      font-weight: 500;
+    }
+
+    margin-bottom: 30px;
+  }
 }

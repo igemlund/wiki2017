@@ -1,9 +1,36 @@
 #map-container {
-  padding-top: 32px + @navbar-height;
+  padding-top: 48px + @navbar-height;
   padding-bottom: 32px;
-  background-color: @gray;
+  background: linear-gradient(
+    to bottom,
+    #047CC0,
+    #175D8D
+    );
   height: 100vh;
+
+  position: relative;
+  header {
+    color: #fff;
+    position: absolute;
+    top: @navbar-height;
+    width: 100%;
+    text-align: left;
+    h4 {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
 }
 #map {
   height: 100%;
+}
+.collaborations {
+  article {
+    h4 {
+      margin-bottom: 0.5rem;
+    }
+    p {
+      text-indent: 0;
+    }
+  }
 }

@@ -25,7 +25,7 @@
     <h3>Overview</h3>
 
     <p>In this section we present the results of our model. In the model derivation section we present the derivation with the corresponding assumptions
-    and equations. In the parameter estimation section we list the parameters used and how they were estimated. For a description of the
+    and equations and in the parameter estimation section we list the parameters used and how they were estimated. For a description of the
     implementation details, see the implementation section and for an overview of the biology, see the design section. </p>
 
     <h3>Purpose</h3>
@@ -134,11 +134,11 @@
     <h5>Sample simulations</h5>
 
     <p> <i>Fig. 4</i> illustrates four simulations showing the time evolution of the associated GFP, GFP1-9 and estrogen bound GFP10-ER-GFP11. The
-    simulations were run as usual, using salicylate and estrogen concentrations in the range 1-100 nM and 10-300 nM respectively. It can be seen that
-    the time evolutions are smooth as the species converges to steady state concentrations and that no oscillations are present. There are thus no
+    simulations were run as previously described, using salicylate and estrogen concentrations in the range 1-100 nM and 10-300 nM respectively. It can be seen that
+    the time evolutions are smooth as the species converges to steady state concentrations and that no oscillations are present. Thus, there are no
     observed undershoots or overshoots as a response to salicylate and estrogen. The rise time for the associated GFP, defined as the time it takes to
-    go from 10% to 90% of the steady state value was measured at approximately 650 min for all realisations. The settling time, defined as the time it
-    takes to fall within 2% of the steady state concentration was measured at roughly 1200 min for all simulations. </p>
+    go from 10% to 90% of the steady state value, was measured at approximately 650 min for all realisations. The settling time, defined as the time it
+    takes to fall within 2% of the steady state concentration, was measured at roughly 1200 min for all simulations. </p>
 
     <figure style="text-align:center"> <img src="../../assets/Modeling/T--Lund-many_timeplots3.svg" alt="Reaction scheme"> <figcaption> <i>Fig. 4:
     Four simulations showing the time evolution of the associated GFP (GFP), GFP1-9 (GFP1-9) and estrogen bound GFP10-ER-GFP11 (GFP10-ER-GFP11). The
@@ -175,8 +175,8 @@
 
 
     <p> The dynamics of the <i>Psal</i> promoter is illustrated in the lower part of <i>fig. 6</i>. At time zero, only <i>Psal</i> is present due to the
-    abscence of NahR and salicylate. As time progresses, NahR is expressed, forming the intermediate NahR bound promoter denoted as NPsal. This is
-    followed by salicylate simultaneously diffusing over the cell membrane and binding to NPsal. What is observed is then the <i>Psal</i> promoter
+    abscence of NahR and salicylate. As time progresses, NahR is expressed, forming the intermediate NahR bound promoter <i>NPsal</i>. This is
+    followed by salicylate simultaneously diffusing over the cell membrane and binding to <i>NPsal</i>. What is observed is then the <i>Psal</i> promoter
     slowly decreasing in concentration while <i>NPsal</i> is formed, followed by a lagged increase of the active promoter <i>SNPsal</i>. It can be
     seen that all <i>Psal</i> is converted into the active form <i>SNPsal</i> within the range of approximately 200 min. This indicates that the
     expression of GFP1-9 does not reach the maximal rate until 200 min after induction, which corresponds to almost a third of the total rise time.</p>
@@ -219,7 +219,7 @@
     <p> It can be seen from <i>table 1</i> and <i>fig. 7</i> that almost all first order sensitivity indices are weak. This means that most parameter
     in the pathway has a weak individual effect on the rise time. In addition, the confidence intervals indicate that almost all first order
     sensitivities are insignificant which implies that we cannot rule out the possibility that the parameters do not affect the output individually at
-    all. In fact, the only strong first order sensitive parameter is $\text{k}_\text{aSNP}$, which also are the only significant ones Thus, this is
+    all. In fact, the only strong first order sensitive parameter is $\text{k}_\text{aSNP}$, which also are the only significant ones. Thus, this is
     the only parameter that strongly affects the rise time individually. However, when looking at the total sensitivity indices, it can be seen that
     their values are higher than almost all first order indices. In addition, most of them are significant in contrast to the first orders. This
     indicates a strong coupling in the system where parameters must co-vary in order to significantly affect the rise time of the biosensor. Clearly,
@@ -290,16 +290,16 @@
 
     <h5>Parameter sweeps</h5>
 
-    <p>To illustrate the effect of the sensitivite and insensitive parameters within the scanned range, we performed some sweeps over some parameters.
-    All simulations are carried out under normal conditions as explained previously, using 1 mM IPTG and 100 nM and 300 nM salicylate and estrogen
+    <p>To illustrate the effect of the sensitivite and insensitive parameters within the scanned ranges, we performed sweeps over some parameters.
+    All simulations were carried out under normal conditions as explained previously, using 1 mM IPTG and 100 nM and 300 nM salicylate and estrogen
     respectively. A total of 30 realisations were computed for each parameter in a range of two orders around the estimated value. <i>Fig. 8</i>
     illustrates the results. It can be seen that the only parameter affecting the rise time strongly is $\text{k}_\text{aSNP}$ which is in line with
-    the sensitivity analysis. However, what is interesting is that tuning the parameter does not improve the rise time and the high sensitivity it has
-    on the output is that it drastically increases the rise time when lowering the value. We have thus found that $\text{k}_\text{aSNP}$ is not only
-    the rate determining parameter, but also the response time limiting parameter. It is here important to make the statement that the sensitivities
-    only yield the contribution to the total variance in the output, but does not give any information on the direction of the change. Similarly,
+    the sensitivity analysis. However, what is interesting is that tuning the parameter does not improve the rise time. In fact, the high sensitivity affects
+    the output by drastically increasing the rise time when lowering the parameter value, whereas increasing it does not impose any effect. We have thus found that $\text{k}_\text{aSNP}$ is not only
+    the rate determining parameter, but also the  time limiting parameter. It is here important to make the statement that the sensitivities
+    only give the contribution to the total variance in the output, but does not give any information on the direction of the change. Similarly,
     studying the rest of the parameters reveal that they have a relatively very small effect on the rise time, with the association rate
-    $\text{k}_\text{aGP}$ being the only one improving the rise time. </p>
+    $\text{k}_\text{aGP}$ being the only one improving the rise time in a noteworthy way. </p>
 
 
 
@@ -318,7 +318,7 @@
     unnecessary work in the wet lab. Since almost all parameters are first order insensitive, individual parameter optimizations will not yield any
     significant effect on the performance in terms of waiting times. In addition, the only significant first order sensitive paramater turned out to be
     the rate limiting step. It was seen that an increase in the parameter value would not give any improved rise time, whereas a decrease would
-    rapidly increase it. The only possible way left to efficiently lower the rise time would then be to consider higher order sensitivities. But this
+    rapidly increase it. The only possible way left to efficiently lower the rise time would then be to consider higher order interactions. But this
     means modifying many parameters simulatenously and such procedures would be very tiresome and thus not feasible in reality. The conclusion based
     on the model is thus that the biosensor, albeit very sensitive with regards to the inputs, is very slow at generating an output. The model thus
     indicates that if a sensitive biosensor is desired, this kind of system might work whereas if a quick and responsive biosensor is needed, a
@@ -355,8 +355,8 @@
 
     <h3> A note on the validity of the model</h3>
 
-    <p>With mathematical models, abstractions of real world systems can be constructed in order to infer information about interesting behaviours. A
-    lot can go wrong under such processes and it is practically impossible to catch all details in the model. This makes the process of
+    <p>With mathematical models, abstractions of real world systems can be constructed in order to infer information about reflected behaviours. A
+    lot can go wrong under such processes and it is practically impossible to include all details in the model. This makes the process of
     questioning, experimentalily validating and proposing  alternative models ever more important before final conclusions about the real world
     behaviour can be infered from the model. In this section we want to draw attention on some ambiguitities in the model presented.</p>
 
@@ -364,19 +364,20 @@
     induction ratios from a dose-response diagram of salicylate induced GFP from the registry. Here, we proposed an <i>ad hoc</i> base level of 100 nM
     GFP and assumed linearity in the in the induction ratios. Clearly, there is no reason to believe that the concentration of GFP is exactly 100 nM
     at base level, more than it seemed reasonable. However, despite this, the model managed to catch the temporal dose-response behaviour so although
-    the absolute concentrations might be off, the time scales to equilibriums should at least be within the right order.</p>
+    the absolute concentrations might be off, the time to equilibriums should at least be within the right order.</p>
 
     <p>The estimation of the association rates between GFP1-9 and GFP10-ER-GFP11, and NahR and <i>Psal</i> were based on experimental <i>in vivo</i>
     measures. There is obviously no reason to believe that the behaviour <i>in vitro</i> gives a complete description of the <i>in vivo</i> behaviour
     as intracellular conditions are usually much more complex. Nevertheless, they should still be indicative and hint towards a true behavour. Other
     parameters based on average reaction rates are only valid under the assumption that the cell is working in an "average mode". This is not always
-    true however. For example, overexpressing a protein will alter the expression rates of other proteins in the cell. In our case, we do not know the
+    true however. For example, overexpressing a protein will alter the expression rates of other proteins in the cell [3]. In our case, we do not know the
     effect that multiple genetic modules have on the total cell behaviour. Thus, the system should ideally be implemented in the wet lab and all
     parameters reestimated based on experimental observations. </p>
 
     <p>Finally, it is not obvious that the proposed network topology is the most informative one. Reactions of higher order with more side reactions
     or intermediate steps could give a better description of the behaviour. Clearly, a comparision using models with other networks topologies should
-    be made. Nevertheless, despite all of this, we believe the model at least gave us indications of the expected real world behaviours.</li>
+    be made to find the best description, balancing intricacy and accuracy. Nevertheless, despite all of this, we believe the model at least gave us
+    indications of the expected real world behaviours.</li>
 
 
 
@@ -385,7 +386,7 @@
     <h3>References</h3>
     <p>[1] Larentis, A., Nicolau, J., Esteves, G., Vareschini, D., de Almeida, F., dos Reis, M., Galler, R. and Medeiros, M. (2014). Evaluation of pre-induction temperature, cell growth at induction and IPTG concentration on the expression of a leptospiral protein in E. coli using shaking flasks and microbioreactor. BMC Research Notes, 7(1), p.671.</p>
     <p>[2] Zi, Z. (2011). Sensitivity analysis approaches applied to systems biology models. IET Systems Biology, 5(6), pp.336-346.</p>
-
+    <p>[3] Kafri, M., Metzl-Raz, E., Jona, G. and Barkai, N. (2016). The Cost of Protein Production. Cell Reports, 14(1), pp.22-31.</p>
 
   </div>
 </section>

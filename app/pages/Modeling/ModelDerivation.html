@@ -330,62 +330,74 @@
           <p> For the sake of completeness, we present a determinstic representation of the network in terms of ordinary differential equations. It is
             assumed that all reactions follow mass action kinetics, that there is no cellular net growth and that each cell is chemically
             homogeneous and well stirred. In addition, we assume that the cells do not affect their environment so the concentrations of all extracellular
-            species can be considered as constant boundary conditions. The reaction rates of (1)-(39) are then given by
+            species can be considered as constant boundary conditions. The reaction rates of (1)-(39) are then given by:
+          </p>
 
+          <p>
+            <button id="ratebutton" class="btn btn-default" type="button" data-toggle="collapse" data-target="#rates" aria-expanded="false" aria-controls="rates">
+              Show reaction rates
+            </button>
 
-            $$v_1 = k_{MR}O_R \tag{34}$$
-            $$v_2 = k_RM_R\tag{35}$$
-            $$v_{3,f} = k_{2R}R^2 \tag{36}$$
-            $$v_{3,r} = k_{-2R}R_2 \tag{37}$$
-            $$v_{4,f} = k_rR_2\cdot O_N \tag{38}$$
-            $$v_{4,r} = k_{-r}R_2O_N\tag{39}$$
-            $$v_{5,f} = k_rR_2\cdot O_E\tag{40}$$
-            $$v_{5,r} = k_{-r}R_2O_E\tag{41}$$
-            $$v_{6,f} = k_{dr1}I^2\cdot R_2\tag{42}$$
-            $$v_{6,r} = k_{-dr1}I_2R_2\tag{43}$$
-            $$v_{7,f} = k_{dr2}I^2\cdot R_2O_N\tag{44}$$
-            $$v_{7,r} = k_{-dr2}I_2R_2 \cdot O_N\tag{45}$$
-            $$v_{8,f} = k_{dr2}I^2\cdot R_2O_E\tag{46}$$
-            $$v_{8,r} = k_{-dr2}I_2R_2 \cdot O_E\tag{47}$$
-            $$v_{9,f} = k_{dI}I_{ex}\tag{48}$$
-            $$v_{9,r} = k_{dI}I\tag{49}$$
-            $$v_{10} = k_{MN}O_N\tag{50}$$
-            $$v_{11} = k_{ME}O_E\tag{51}$$
-            $$v_{12} = k_{N}M_N\tag{52}$$
-            $$v_{13} = k_{E}M_E\tag{53}$$
-            $$v_{14} = \lambda_{MR}M_R\tag{54}$$
-            $$v_{15} = \lambda_{MN}M_N\tag{55}$$
-            $$v_{16} = \lambda_{ME}M_E\tag{56}$$
-            $$v_{17} = \lambda_{R}R\tag{57}$$
-            $$v_{18} = \lambda_{R_2}R_2\tag{58}$$
-            $$v_{19} = \lambda_{N}N\tag{59}$$
-            $$v_{20} = \lambda_{E}E\tag{60}$$
-            $$v_{21} = \lambda_{I_2R_2}I_2R_2 \tag{61}$$
-            $$v_{22,f} = k_{aNP}N\cdot Psal\tag{62}$$
-            $$v_{22,r} = k_{dNP}NPsal\tag{63}$$
-            $$v_{23,f} = k_{aSNP}S\cdot NPsal\tag{64}$$
-            $$v_{23,r} = k_{dSNP}SNPsal\tag{65}$$
-            $$v_{24} = k_{MG}SNPsal\tag{66}$$
-            $$v_{25} = k_{G}M_G\tag{67}$$
-            $$v_{26,f} = k_{dS}S_{ex}\tag{68}$$
-            $$v_{26,r} = k_{dS}S\tag{69}$$
-            $$v_{27} = \lambda_{MG}M_G\tag{70}$$
-            $$v_{28} = \lambda_GG\tag{71}$$
-            $$v_{29,f} = k_{aEEs}E\cdot Es\tag{72}$$
-            $$v_{29,r} = k_{aEEs}EEs\tag{74}$$
-            $$v_{30,f} = k_{dEs}Es\tag{75}$$
-            $$v_{30,r} = k_{dEs}Es_{ex}\tag{75}$$
-            $$v_{31} = \lambda_EEEs\tag{76}$$
-            $$v_{32,f} = k_{aGFP}G\cdot EEs\tag{77}$$
-            $$v_{32,r} = k_{dGFP}GFP\tag{78}$$
-            $$v_{33} = \lambda_{GFP}GFP\tag{79}$$
+            <div class="collapse" id="rates">
+              $$v_1 = k_{MR}O_R \tag{34}$$
+              $$v_2 = k_RM_R\tag{35}$$
+              $$v_{3,f} = k_{2R}R^2 \tag{36}$$
+              $$v_{3,r} = k_{-2R}R_2 \tag{37}$$
+              $$v_{4,f} = k_rR_2\cdot O_N \tag{38}$$
+              $$v_{4,r} = k_{-r}R_2O_N\tag{39}$$
+              $$v_{5,f} = k_rR_2\cdot O_E\tag{40}$$
+              $$v_{5,r} = k_{-r}R_2O_E\tag{41}$$
+              $$v_{6,f} = k_{dr1}I^2\cdot R_2\tag{42}$$
+              $$v_{6,r} = k_{-dr1}I_2R_2\tag{43}$$
+              $$v_{7,f} = k_{dr2}I^2\cdot R_2O_N\tag{44}$$
+              $$v_{7,r} = k_{-dr2}I_2R_2 \cdot O_N\tag{45}$$
+              $$v_{8,f} = k_{dr2}I^2\cdot R_2O_E\tag{46}$$
+              $$v_{8,r} = k_{-dr2}I_2R_2 \cdot O_E\tag{47}$$
+              $$v_{9,f} = k_{dI}I_{ex}\tag{48}$$
+              $$v_{9,r} = k_{dI}I\tag{49}$$
+              $$v_{10} = k_{MN}O_N\tag{50}$$
+              $$v_{11} = k_{ME}O_E\tag{51}$$
+              $$v_{12} = k_{N}M_N\tag{52}$$
+              $$v_{13} = k_{E}M_E\tag{53}$$
+              $$v_{14} = \lambda_{MR}M_R\tag{54}$$
+              $$v_{15} = \lambda_{MN}M_N\tag{55}$$
+              $$v_{16} = \lambda_{ME}M_E\tag{56}$$
+              $$v_{17} = \lambda_{R}R\tag{57}$$
+              $$v_{18} = \lambda_{R_2}R_2\tag{58}$$
+              $$v_{19} = \lambda_{N}N\tag{59}$$
+              $$v_{20} = \lambda_{E}E\tag{60}$$
+              $$v_{21} = \lambda_{I_2R_2}I_2R_2 \tag{61}$$
+              $$v_{22,f} = k_{aNP}N\cdot Psal\tag{62}$$
+              $$v_{22,r} = k_{dNP}NPsal\tag{63}$$
+              $$v_{23,f} = k_{aSNP}S\cdot NPsal\tag{64}$$
+              $$v_{23,r} = k_{dSNP}SNPsal\tag{65}$$
+              $$v_{24} = k_{MG}SNPsal\tag{66}$$
+              $$v_{25} = k_{G}M_G\tag{67}$$
+              $$v_{26,f} = k_{dS}S_{ex}\tag{68}$$
+              $$v_{26,r} = k_{dS}S\tag{69}$$
+              $$v_{27} = \lambda_{MG}M_G\tag{70}$$
+              $$v_{28} = \lambda_GG\tag{71}$$
+              $$v_{29,f} = k_{aEEs}E\cdot Es\tag{72}$$
+              $$v_{29,r} = k_{aEEs}EEs\tag{74}$$
+              $$v_{30,f} = k_{dEs}Es\tag{75}$$
+              $$v_{30,r} = k_{dEs}Es_{ex}\tag{75}$$
+              $$v_{31} = \lambda_EEEs\tag{76}$$
+              $$v_{32,f} = k_{aGFP}G\cdot EEs\tag{77}$$
+              $$v_{32,r} = k_{dGFP}GFP\tag{78}$$
+              $$v_{33} = \lambda_{GFP}GFP\tag{79}$$
+            </div>
 
           </p>
 
 
           <p> By balancing the masses, we get the set of differential equations (80-105). Note that the rate equations for the extracellular inducers are
           set to zero, as they are considered as boundary conditions under the assumption that the cell does not affect it's environment.
-
+        </p>
+          <p>
+          <button id="odebutton" class="btn btn-default" type="button" data-toggle="collapse" data-target="#odes" aria-expanded="false" aria-controls="odes">
+            Show differential equations
+          </button>
+          <div class="collapse" id="odes">
             $$\frac{dO_R}{dt} = 0 \tag{80}$$
             $$\frac{dM_R}{dt} = v_1 - v_{14} \tag{81}$$
             $$\frac{dR}{dt} = v_2 - 2v_{3,f} + 2v_{3,r} - v_{17} \tag{82}$$
@@ -412,6 +424,7 @@
             $$\frac{dEs}{dt} = - v_{29,f} + v_{29,r} - v_{30,f} + v_{30,r} \tag{103}$$
             $$\frac{dEs_ex}{dt} = 0 \tag{104}$$
             $$\frac{dGFP}{dt} = v_{32,f} - v_{32,r} - v_{33} \tag{105} $$
+          </div>
 
           </p>
         </section>

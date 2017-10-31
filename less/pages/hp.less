@@ -2,3 +2,48 @@
   .display-section;
   .display-background('http://2017.igem.org/wiki/images/7/76/T--Lund--HP.jpg', 70%);
 }
+
+.hp-overview {
+  .card {
+    .card-img {
+      background: linear-gradient(
+      to bottom,
+      fade(#047CC0, 100%),
+      fade(#175D8D, 100%)
+      );
+      padding: 2rem;
+      img {
+        height: 140px;
+      }
+    }
+    .card-content {
+      @media(min-width: @screen-lg-min) {
+        min-height: 410px;
+      }
+    }
+  }
+}
+
+.hp-media {
+  .card-img {
+    height: 200px;
+    background-position: center;
+    background-size: cover;
+  }
+  .card-content {
+    @media(min-width: @screen-sm-min) {
+      height: 300px;
+    }
+  }
+}
+
+.hp-engagement {
+  .circles {
+    margin-bottom: 1rem;
+  }
+  .circle-text {
+    margin-top: 1rem;
+    font-weight: 700;
+    text-align: center;
+  }
+}

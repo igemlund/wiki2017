@@ -25,7 +25,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8">
-        <section>  
+        <section>
           <h3 class="section-heading">Overview</h3> <p>In this section we provide the parameters used in the model. The values were estimated using tabulated kinetic parameters, iGEM
           registry data and experimental results from published literature. An overview can be found in <i>table 1</i>.</p>
         </section>
@@ -34,7 +34,7 @@
     <div class="row">
       <div class="col-lg-12">
 
-        <section>  
+        <section>
           <h3 class="section-heading">Parameters</h3>
           <table class="table">
             <caption>Table 1: List of all parameters used in the model. For a description, see the corresponding description section further down.</caption>
@@ -342,7 +342,7 @@
     </div>
     <div class="row">
       <div class="col-lg-8">
-        <section>  
+        <section>
           <h3 class="section-heading">Description</h3>
           <p>a)  The rate constant is 0.23 nM/min for an operator content of 2.08 nM [2]. This yields the rate constant $\ce{k_\text{MR} = 0.11}$ min<sup>-1</sup></p>
 
@@ -366,7 +366,7 @@
           the transcription of repressed <i>GFP</i>. The response was measured as an induction ratio of the fluorescence with respect to the fluorescence at the
           uninduced state. <i>Fig. 1</i> illustrates the dose-response curve.</p>
 
-            <figure style="text-align:center"> <img src="../../assets/Modeling/T--Lund-dose_response.svg" alt="Reaction scheme"> <figcaption> <i>Fig. 1:
+            <figure style="text-align:center"> <img src="http://2017.igem.org/wiki/images/9/9f/T--Lund--dose_response.svg" alt="Reaction scheme"> <figcaption> <i>Fig. 1:
             Dose response scheme for the NahR system taken from the <a href="http://parts.igem.org/Part:BBa_J61051"><i>iGEM parts registry documentation
             page</i></a>. The data points are represented as red dots linearly interpolated with black lines.</i> </figcaption> </figure>
 
@@ -386,13 +386,13 @@
             structure from the dose-response data. The resulting parameters were estimated as $\text{k}_\text{aSNP} = 4.61 \cdot 10^{-4}$
             nm<sup>-1</sup>min<sup>-1</sup>, $\text{k}_\text{dSNP} = 3.81 \cdot 10^{-6}$ min<sup>-1</sup> and $\text{k}_\text{MG} = 0.168$ min<sup>-1</sup>.</p>
 
-            <figure style="text-align:center"> <img src="../../assets/Modeling/T--Lund-estimate2.svg" alt="Reaction scheme">
+            <figure style="text-align:center"> <img src="http://2017.igem.org/wiki/images/f/fd/T--Lund--estimate2.svg" alt="Reaction scheme">
               <figcaption>
                 <i>Fig. 2: Fitting the model to the dose response scheme for the NahR system taken from the <a href="http://parts.igem.org/Part:BBa_J61051"><i>iGEM parts registry documentation
                   page</i></a>. As indicated by the figure, the model manages to capture the sigmoidal appeareance.</i>
               </figcaption>
             </figure>
-            
+
             <p>Regarding the validity of this estimation, it might seem ambiguous due to the ansatz of 100 nM induction base level. However, at the maximal
             induction level, this yields an expression of approximately 9000 nM of protein per cell. Assuming a molecular weight of 30kDa (a GFP has about 27
             kDa) and a cell concentration of $2 \cdot 10^9$ cells per milliliter for an overnight culture [3], this would correspond to a yield of $0.432$
@@ -400,7 +400,7 @@
             min<sup>-1</sup> which is slightly higher than the transcription rate $\text{k}_\text{MR}$ for the <i>lac</i> repressor but lower than the ones
             estimated for NahR and GFP10-ER-GFP11. This indicates that although the exact value might not be correct as the proposed model is coarse, it is
             likely to at least lie within the right order of magnitude.</p>
-            
+
             <p>To conclude, the <i>ad hoc</i> proposition of 100 nM base induction level seem reasonable as it yields plausible expression levels. In addition,
             the estimated transcription rate of the GFP1-9 transcript conforms with the other transcription rate constants. Finally, the model managed to fit
             the sigmoidal shape indicating that the reaction scheme proposed describe the system well. </p>
@@ -443,7 +443,7 @@
 
           <p>n) The half-life of GFPs in <i>E. coli</i> range from a couple of minutes to hours [Bionumbers]. We set the half-life to 20 minutes.</p>
         </section>
-        <section>  
+        <section>
           <h3 class="section-heading">Initial values</h3>
 
           <p> As the solutions to first order ordinary differential equations are not uniquely quantified unless proper initial
@@ -453,7 +453,10 @@
             volume. The latter two parameters can be found in <i>table 1</i>.
           </p>
 
-          <h3 id="mathstuff">Math stuff</h3>
+        </section>
+
+        <section>
+          <h3 id="mathstuff" class="section-heading">Math stuff</h3>
           <p>
 
             To derive relation (1) we start by setting up the differential equations. We have that two species $a$ and $b$ can react irreversibly to yield
@@ -500,7 +503,7 @@
             \frac{a_0b_0 - a_0b_0e^{k(a_0-b_0)t}}{b_0 - a_0e^{k(a_0-b_0)t}}, & \mbox{if } a_0\ne b_0 \end{cases}\tag{17}$$
           </p>
         </section>
-        <section>  
+        <section>
           <h3 class="section-heading">References</h3>
           <p>[1] Merck Millipore pETDuet-1 docuementation. <a href="http://www.merckmillipore.com/SE/en/product/pETDuet%E2%84%A2-1-DNA---Novagen,EMD_BIO-71146#documentation">Link here</a></p>
           <p>[2] Michaeil Stamatakis and Nikos V. Mantzaris. "Comparision of Determinstic and Stochastic Models of the <i>lac</i> Operon Genetic Network". Biophysical Journal Volume 96. Feb 2009 887-906</p>

@@ -26,7 +26,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8">
-        <section> 
+        <section>
           <h3 class="section-heading">Introduction</h3>
 
           <p> In this section we derive a model for the whole cell biosensor based on a system of ordinary differential equations. We choose to
@@ -43,7 +43,7 @@
           and boundary conditions.</p>
         </section>
 
-        <section> 
+        <section>
           <h3 class="section-heading">Overview</h3>
           <p>A simplified description of the biochemical network for the implemented whole cell biosensor in the pETDuet-1 plasmid is illustrated in <i>fig. 1</i>.
             The vector has one <i>lac</i> operator regulating each T7-promoter and one corresponding <i>lacI</i> which
@@ -54,7 +54,7 @@
           proximity to allow for a subsequent association with GFP1-9. This complementation yields a fully restored chromophore
           which can be detected by fluorometric methods, consequently closing the circuit. See the <a href="">design section</a> for more information.</p>
 
-          <figure style="text-align:center"> <img class="img-responsive center-block" src="../../assets/Modeling/T--Lund-modelimage.svg" alt="Reaction scheme">
+          <figure> <img class="img-responsive center-block" src="http://2017.igem.org/wiki/images/d/d5/T--Lund--modelimage.svg" alt="Reaction scheme">
           <figcaption><i>Fig. 1: Diagram of the key biochemical reactions in the biosensor. The system starts with an induction of NahR and GFP10-ER-GFP11. In
       the presence of salicylate, NahR induces the transcription of GFP1-9. In the presence of estrogen, the GFP10-ER-GFP11 fusion protein can undergo a
       conformational change upon binding, allowing for the GFP10 and GFP11 linker bound fragments to come into close proximity. This situation allows GFP1-9
@@ -62,7 +62,7 @@
           </p>
         </section>
 
-        <section> 
+        <section>
           <h3 class="section-heading"><i>lac</i> regulation</h3>
 
           <p>The system starts with an IPTG induction of two <i>lac</i> operators. We choose to model this in a greater detail than the standard
@@ -122,7 +122,7 @@
               $$\ce{I_2R_2 ->[\lambda_{\text{I}_2\text{R}_2}] 2I}\tag{21}$$
           </p>
         </section>
-        <section> 
+        <section>
           <h3 class="section-heading">NahR</h3> <p> It has been shown that NahR binds to the <i>Psal</i> promoter as a transcription factor regardless of the presence of
           salicylate. The binding affinity has previously been thought to be unaffected of salicylate, but recent in vitro studies with surface plasmon
           resonance indicate that it in fact has a slight inhibiting effect on the binding to <i>Psal</i>. There has also been indications that NahR binds
@@ -170,7 +170,7 @@
             $$\ce{G ->[\lambda_\text{G}] \phi}\tag{28}$$
           </p>
         </section>
-        <section> 
+        <section>
           <h3 class="section-heading">GFP10-ER-GFP11</h3>
 
           <p>We assume equivalency between the kinetic mechanism of antagonistic and agonistic binding to the estrogen receptor. For sake of simplicity,
@@ -190,7 +190,7 @@
             $$\ce{EE\text{s} ->[\lambda_E] \phi}\tag{31}$$
           </p>
         </section>
-        <section> 
+        <section>
           <h3 class="section-heading">GFP association</h3>
 
           <p>There are many ways in which one could model the tripartite association. For example, one could imagine the GFP10 and GFP11 fragments first
@@ -321,7 +321,7 @@
             </tbody>
           </table>
         </section>
-        <section> 
+        <section>
           <h3 class="section-heading">Determinstic equations</h3>
 
           <p> For the sake of completeness, we present a determinstic representation of the network in terms of ordinary differential equations. It is
@@ -412,7 +412,7 @@
 
           </p>
         </section>
-        <section> 
+        <section>
           <h3 class="section-heading">
             References
           </h3>

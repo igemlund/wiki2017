@@ -1,11 +1,28 @@
 .home-landing {
-  .display-section;
+  &, * {
+    // Dont allow text select
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none
+  }
 
-  @background-image: 'http://2017.igem.org/wiki/images/f/f9/T--Lund--Ocean.jpg';
   background: linear-gradient(
-    to left,
-    fade(@green, 80%),
-    fade(@blue, 80%)
-    ), url(@background-image);
-  background-position: bottom;
+    to bottom,
+    #047CC0,
+    #175D8D
+    );
+  height: 500px;
+
+  position: relative;
+
+  .home-landing-texts {
+    position: absolute;
+    width: 100%;
+    top: 200px;
+    text-align: center;
+    color: #fff;
+  }
 }

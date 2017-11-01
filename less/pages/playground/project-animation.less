@@ -3,7 +3,10 @@
   background-color: rgba(87, 215, 133, 0);
 
   .animation-row {
-    min-height: 100vh;
+    min-height: 50vh;
+    @media(max-width: @screen-sm) {
+      border-bottom: 1px solid @gray;
+    }
   }
 
   .row {

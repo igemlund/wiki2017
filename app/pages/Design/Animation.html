@@ -1,20 +1,34 @@
 {{Lund}}
 <html>
-<div class="igem-content"></div>
-
-<h1 class="text-center">Design</h1>
 
 <script type="text/javascript" src="/Team:Lund/scripts/TweenMax?action=raw&ctype=text/javascript"></script>
 <script type="text/javascript" src="/Team:Lund/scripts/TimelineMax?action=raw&ctype=text/javascript"></script>
 <script type="text/javascript" src="/Team:Lund/scripts/ScrollMagic?action=raw&ctype=text/javascript"></script>
 <script type="text/javascript" src="/Team:Lund/scripts/ScrollMagicGSAP?action=raw&ctype=text/javascript"></script>
 
+<header class="design-header">
+  <div class="container">
+    <h1 class="display">Design</h1>
+  </div>
+</header>
+
+<div class="container">
+  <ul class="nav nav-pills nav-auto-stacked">
+    <li role="presentation"><a href="/Team:Lund/Design">Overview</a></li>
+    <li role="presentation" class="active"><a href="/Team:Lund/Design/Theory">Theory</a></li>
+    <li role="presentation"><a href="/Team:Lund/Design/Design">Project Design</a></li>
+    <li role="presentation"><a href="/Team:Lund/Design/Circuit">Circuit</a></li>
+    <li role="presentation"><a href="/Team:Lund/Design/Experiments">Experiments</a></li>
+    <li role="presentation"><a href="/Team:Lund/Design/References">References</a></li>
+  </ul>
+</div>
+
 <div id="project-animation">
   <div class="container">
 
 
     <section id="step1" class="row animation-row">
-      <div id="model1" class="col-sm-6">
+      <div id="model1" class="col-lg-4 col-sm-5">
 
         <svg width="100%" height="100%" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;"><rect id="Model1" x="0" y="0" width="512" height="512" style="fill:none;"/><g id="gfpBase"><path d="M192,224c0,-17.661 -14.339,-32 -32,-32l-64,0c-17.661,0 -32,14.339 -32,32l0,128c0,17.661 14.339,32 32,32l64,0c17.661,0 32,-14.339 32,-32l0,-128Z" style="fill:#e3ecec;"/><text x="103.272px" y="217.312px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:24px;fill:#9fa7a7;">GFP</text></g><path id="gfp1" d="M72,228c0,-2.208 -1.792,-4 -4,-4l-8,0c-2.208,0 -4,1.792 -4,4l0,120c0,2.208 1.792,4 4,4l8,0c2.208,0 4,-1.792 4,-4l0,-120Z" style="fill:#34bc6e;"/><path id="gfp2" d="M104,228c0,-2.208 -1.792,-4 -4,-4l-8,0c-2.208,0 -4,1.792 -4,4l0,120c0,2.208 1.792,4 4,4l8,0c2.208,0 4,-1.792 4,-4l0,-120Z" style="fill:#34bc6e;"/><path id="gfp3" d="M312.198,35.974c-0.571,-2.133 -2.766,-3.4 -4.899,-2.829l-7.727,2.071c-2.133,0.571 -3.4,2.767 -2.829,4.899l31.059,115.911c0.571,2.133 2.766,3.4 4.899,2.829l7.727,-2.071c2.133,-0.571 3.4,-2.767 2.829,-4.899l-31.059,-115.911Z" style="fill:#34bc6e;"/><path id="gfp4" d="M471.257,40.115c0.571,-2.132 -0.696,-4.328 -2.829,-4.899l-7.727,-2.071c-2.133,-0.571 -4.328,0.696 -4.899,2.829l-31.059,115.911c-0.571,2.132 0.696,4.328 2.829,4.899l7.727,2.071c2.133,0.571 4.328,-0.696 4.899,-2.829l31.059,-115.911Z" style="fill:#34bc6e;"/><path id="gfp5" d="M200,228c0,-2.208 -1.792,-4 -4,-4l-8,0c-2.208,0 -4,1.792 -4,4l0,120c0,2.208 1.792,4 4,4l8,0c2.208,0 4,-1.792 4,-4l0,-120Z" style="fill:#34bc6e;"/><g id="pop"><path d="M423.996,357.282c24.752,-14.291 40,-40.701 40,-69.282c0,-44.153 -35.847,-80 -80,-80c-44.153,0 -80,35.847 -80,80c0,28.581 15.248,54.991 40,69.282l40,-69.282l40,69.282Z" style="fill:#5392ff;"/><text x="334.369px" y="266.204px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:24px;fill:#1f57a4;">Receptor</text></g><path id="cable1" d="M352,224c0,0 -24.264,-21.514 -16,-72" style="fill:none;stroke:#000;stroke-width:6px;stroke-dasharray:150,600,0,0;"/><path id="cable2" d="M416,224c0,0 24.264,-21.514 16,-72" style="fill:none;stroke:#000;stroke-width:6px;stroke-dasharray:150,600,0,0;"/></svg>
 
@@ -47,7 +61,7 @@
 
           var scene = new ScrollMagic.Scene({
             triggerElement: '#step1',
-            triggerHook: 0.2,
+            triggerHook: 0.3,
           })
           .setTween(timeline)
           .addTo(controller);
@@ -56,20 +70,15 @@
         </script>
 
       </div>
-      <div id="gfp-text" class="col-sm-6">
-        <h3>Green Fluorescent Protein (GFP)</h3>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      <div id="gfp-text" class="col-lg-6">
+        <h3>>> Title goes here <<</h3>
+        <p>Superfolder green fluorescent protein (sfGFP) is being split into three parts, called GFP1-9 (the three green sticks on a grey square), GFP10 and GFP11 (latter two as the separate two green sticks). GFP1-9 is expressed in presence of persistent organic pollutant (POP) molecule. GFP10 and GFP11 are fused to the ligand binding domain of the human estrogen receptor-alpha (LBD hER-α).</p>
       </div>
     </section>
 
 
     <section id="step2" class="row animation-row">
-      <div id="model2" class="col-sm-6">
+      <div id="model2" class="col-lg-4 col-sm-5">
 
         <svg width="100%" height="100%" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;"><rect id="Model2" x="0" y="0" width="512" height="512" style="fill:none;"/><g id="gfpBase"><path d="M192.057,224c0,-17.661 -14.339,-32 -32,-32l-64,0c-17.661,0 -32,14.339 -32,32l0,128c0,17.661 14.339,32 32,32l64,0c17.661,0 32,-14.339 32,-32l0,-128Z" style="fill:#e3ecec;"/><text x="103.329px" y="217.312px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:24px;fill:#9fa7a7;">GFP</text></g><path id="gfp1" d="M72,228c0,-2.208 -1.792,-4 -4,-4l-8,0c-2.208,0 -4,1.792 -4,4l0,120c0,2.208 1.792,4 4,4l8,0c2.208,0 4,-1.792 4,-4l0,-120Z" style="fill:#34bc6e;"/><path id="gfp2" d="M104,228c0,-2.208 -1.792,-4 -4,-4l-8,0c-2.208,0 -4,1.792 -4,4l0,120c0,2.208 1.792,4 4,4l8,0c2.208,0 4,-1.792 4,-4l0,-120Z" style="fill:#34bc6e;"/><path id="gfp3" d="M376,28c0,-2.208 -1.792,-4 -4,-4l-8,0c-2.208,0 -4,1.792 -4,4l0,120c0,2.208 1.792,4 4,4l8,0c2.208,0 4,-1.792 4,-4l0,-120Z" style="fill:#34bc6e;"/><path id="gfp4" d="M408,28c0,-2.208 -1.792,-4 -4,-4l-8,0c-2.208,0 -4,1.792 -4,4l0,120c0,2.208 1.792,4 4,4l8,0c2.208,0 4,-1.792 4,-4l0,-120Z" style="fill:#34bc6e;"/><path id="gfp5" d="M200,228c0,-2.208 -1.792,-4 -4,-4l-8,0c-2.208,0 -4,1.792 -4,4l0,120c0,2.208 1.792,4 4,4l8,0c2.208,0 4,-1.792 4,-4l0,-120Z" style="fill:#34bc6e;"/><g id="pop"><path d="M423.996,357.282c24.752,-14.291 40,-40.701 40,-69.282c0,-44.153 -35.847,-80 -80,-80c-44.153,0 -80,35.847 -80,80c0,28.581 15.248,54.991 40,69.282l40,-69.282l40,69.282Z" style="fill:#5392ff;"/><text x="334.369px" y="266.204px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:24px;fill:#1f57a4;">Receptor</text></g><g id="diamond"><path d="M384,288l40,69.282l-40,69.282l-40,-69.282l40,-69.282Z" style="fill:#ff5c49;"/><g transform="matrix(6.12323e-17,-1,1,6.12323e-17,-3935.35,-237.885)"><text x="-635.332px" y="4324.4px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:20px;fill:#aa231f;">Estrogen</text></g></g><path id="cable1" d="M364.82,218.666c0,0 -17.869,-27.061 3.18,-73.688" style="fill:none;stroke:#000;stroke-width:6px;stroke-dasharray:150,600,0,0;"/><path id="cable2" d="M403.18,218.696c0,0 17.869,-27.061 -3.18,-73.688" style="fill:none;stroke:#000;stroke-width:6px;stroke-dasharray:150,600,0,0;"/></svg>
 
@@ -96,7 +105,7 @@
 
           var scene = new ScrollMagic.Scene({
             triggerElement: '#step2',
-            triggerHook: 0.2,
+            triggerHook: 0.3,
           })
           .setTween(timeline)
           .addTo(controller);
@@ -105,20 +114,15 @@
         </script>
 
       </div>
-      <div id="gfp-text" class="col-sm-6">
-        <h3>Green Fluorescent Protein (GFP)</h3>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      <div id="gfp-text" class="col-lg-6">
+        <h3>>> Title goes here <<</h3>
+        <p>In presence of phthalate molecule, which binds to LBD hER-α, the receptor undergoes a conformational change, which brings together the GFP10 and GFP11 tags.</p>
       </div>
     </section>
 
 
     <section id="step3" class="row animation-row">
-      <div id="model3" class="col-sm-6">
+      <div id="model3" class="col-lg-4 col-sm-5">
 
         <svg width="100%" height="100%" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;"><rect id="Model-3" x="0" y="0" width="512" height="512" style="fill:none;"/><g id="gfpGroup"><g id="gfpBase"><path d="M304,72c0,-17.661 -14.339,-32 -32,-32l-64,0c-17.661,0 -32,14.339 -32,32l0,128c0,17.661 14.339,32 32,32l64,0c17.661,0 32,-14.339 32,-32l0,-128Z" style="fill:#e3ecec;"/><text x="215.272px" y="65.312px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:24px;fill:#9fa7a7;">GFP</text></g><path id="gfp1" d="M184,76c0,-2.208 -1.792,-4 -4,-4l-8,0c-2.208,0 -4,1.792 -4,4l0,120c0,2.208 1.792,4 4,4l8,0c2.208,0 4,-1.792 4,-4l0,-120Z" style="fill:#34bc6e;"/><path id="gfp2" d="M216,76c0,-2.208 -1.792,-4 -4,-4l-8,0c-2.208,0 -4,1.792 -4,4l0,120c0,2.208 1.792,4 4,4l8,0c2.208,0 4,-1.792 4,-4l0,-120Z" style="fill:#34bc6e;"/><path id="gfp5" d="M312,76c0,-2.208 -1.792,-4 -4,-4l-8,0c-2.208,0 -4,1.792 -4,4l0,120c0,2.208 1.792,4 4,4l8,0c2.208,0 4,-1.792 4,-4l0,-120Z" style="fill:#34bc6e;"/></g><g id="popGroup"><path id="gfp3" d="M248,76c0,-2.208 -1.792,-4 -4,-4l-8,0c-2.208,0 -4,1.792 -4,4l0,120c0,2.208 1.792,4 4,4l8,0c2.208,0 4,-1.792 4,-4l0,-120Z" style="fill:#34bc6e;"/><path id="gfp4" d="M280,76c0,-2.208 -1.792,-4 -4,-4l-8,0c-2.208,0 -4,1.792 -4,4l0,120c0,2.208 1.792,4 4,4l8,0c2.208,0 4,-1.792 4,-4l0,-120Z" style="fill:#34bc6e;"/><g id="pop"><path d="M296,404.274c24.752,-14.291 40,-40.701 40,-69.282c0,-44.154 -35.847,-80 -80,-80c-44.153,0 -80,35.846 -80,80c0,28.581 15.248,54.991 40,69.282l40,-69.282l40,69.282Z" style="fill:#5392ff;"/><text x="206.373px" y="313.196px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:24px;fill:#1f57a4;">Receptor</text></g><g id="diamond"><path d="M255.996,335.029l40,69.282l-40,69.282l-40,-69.282l40,-69.282Z" style="fill:#ff5c49;"/><g transform="matrix(6.12323e-17,-1,1,6.12323e-17,-4110.38,-318.86)"><text x="-763.335px" y="4371.43px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:20px;fill:#aa231f;">Estrogen</text></g></g><path id="cable1" d="M236.82,265.658c0,0 -17.869,-27.061 3.18,-73.688" style="fill:none;stroke:#000;stroke-width:6px;stroke-dasharray:150,600,0,0;"/><path id="cable2" d="M275.18,265.688c0,0 17.869,-27.061 -3.18,-73.688" style="fill:none;stroke:#000;stroke-width:6px;stroke-dasharray:150,600,0,0;"/></g></svg>
 
@@ -144,7 +148,7 @@
 
           var scene = new ScrollMagic.Scene({
             triggerElement: '#step3',
-            triggerHook: 0.2,
+            triggerHook: 0.3,
           })
           .setTween(timeline)
           .addTo(controller);
@@ -153,14 +157,9 @@
         </script>
 
       </div>
-      <div id="gfp-text" class="col-sm-6">
+      <div id="gfp-text" class="col-lg-6">
         <h3>Let there be light</h3>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        <p>Successfully expressed GFP1-9 (indication of POP presence) binds to GFP10-GFP11 construct (indicating presence of phthalate molecule) and reconstitutes a functional sfGFP, resulting in a fluorescent signal.</p>
       </div>
     </section>
 

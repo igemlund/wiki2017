@@ -14,15 +14,66 @@
     #047CC0,
     #175D8D
     );
-  height: 500px;
+  height: 600px;
 
   position: relative;
 
   .home-landing-texts {
     position: absolute;
     width: 100%;
-    top: 200px;
+    top: 250px;
     text-align: center;
     color: #fff;
+  }
+}
+
+.home {
+  font-size: 24px;
+  font-weight: 300;
+
+  strong {
+    font-weight: 500;
+  }
+
+  section {
+    padding: 10rem 0;
+  }
+
+  .display-btn {
+    display: inline-block;
+    color: #047CC0;
+    transition: background-color 0.1s, color 0.1s;
+    &:hover, &:focus {
+      text-decoration: none;
+    }
+    &:hover {
+      background-color: #047CC0;
+      color: #fff;
+    }
+    margin: 2rem 0 0;
+    border: 1px solid #047CC0;
+    padding: 10px 20px;
+    border-radius: 8px;
+  }
+
+  .display-btn-white {
+    color: #fff;
+    &:hover {
+          background-color: white;
+          color: #175D8D;
+        }
+    border: 1px solid #fff;
+  }
+
+  .hp-section {
+    background: linear-gradient(
+    to bottom,
+    #047CC0,
+    #175D8D
+    );
+    color: #fff;
+  }
+  .model-section {
+
   }
 }

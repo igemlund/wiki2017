@@ -1,7 +1,6 @@
 {{Lund}}
 <html>
 
-<link rel="stylesheet" type="text/css" href="/Team:Lund/styles/jvectormap?action=raw&ctype=text/css&cache=2.0.3">
 <script type="text/javascript" src="/Team:Lund/scripts/jvectormap?action=raw&ctype=text/javascript"></script>
 <script type="text/javascript" src="/Team:Lund/scripts/jvectormap-world-mill?action=raw&ctype=text/javascript"></script>
 <script type="text/javascript">
@@ -17,7 +16,7 @@ $(document).ready(function() {
     {latLng: [-23.5505, -46.6333], name: 'São Paulo', ref: 'Sao_Paulo'},
     {latLng: [59.3293, 18.0686], name: 'Stockholm', ref: 'Stockholm'},
     {latLng: [52.3702, 4.8952], name: 'Amsterdam', ref: 'Amsterdam'},
-    {latLng: [37.2006, -93.2807], name: 'Missouri S&T', ref: 'Missouri'}
+    {latLng: [37.2006, -93.2807], name: 'Missouri', ref: 'Missouri'}
   ];
   $('#map').vectorMap({
     map: 'world_mill',
@@ -37,6 +36,9 @@ $(document).ready(function() {
   });
 });
 </script>
+<style type="text/css">
+  .jvectormap-tip { z-index: 1000; }
+</style>
 
 <div id="map-container">
   <div id="map"></div>

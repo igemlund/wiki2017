@@ -38,21 +38,24 @@
 
           <p>In addition, we present our reasoning behind the reactions and the corresponding assumptions. We start by modeling the regulation of the
           pETDuet-1 plasmid which consists of one gene encoding the <i>lac</i> repressor and two <i>lac</i> regulated genes which constitute the
-          respective pathway in our AND-logic. The biomolecular network is then presented for each pathway followed by the final GFP complementation. At the
-          end, a deterministic scheme representing the system in terms of ordinary differential equations is presented along with the associated assumptions
-          and boundary conditions.</p>
+          respective pathway in our AND-logic. The biomolecular network is then presented for each pathway followed by the final GFP complementation.
+          At the end, a deterministic scheme representing the system in terms of ordinary differential equations is presented along with the
+          associated assumptions and boundary conditions. </p>
+
         </section>
 
         <section>
           <h3 class="section-heading">Overview</h3>
-          <p>A simplified description of the biochemical network for the implemented whole cell biosensor in the pETDuet-1 plasmid is illustrated in <i>fig. 1</i>.
-            The vector has one <i>lac</i> operator regulating each T7-promoter and one corresponding <i>lacI</i> which
-          constituitively expresses the <i>lac</i> repressor for both operators. Upon IPTG induction, the proteins NahR and GFP10-ER-GFP11 are expressed. These
-          correspond to the respective pathway in the AND-logic. The former protein, NahR, is a transcription factor which binds to the <i>Psal</i>
-          promoter located upstreams of <i>GFP1-9</i>. This activates the transcription of <i>GFP1-9</i> under the presence of salicylate, which serves as the first
-          input into the gate. The GFP10-ER-GFP11 fusion protein can undergo a conformational change in the presence of estrogen, the second input. This brings the GFP10 and GFP11 linker bound fragments into close
-          proximity to allow for a subsequent association with GFP1-9. This complementation yields a fully restored chromophore
-          which can be detected by fluorometric methods, consequently closing the circuit. See the <a href="/Team:Lund/Design">design section</a> for more information.</p>
+          <p>A simplified description of the biochemical
+          network for the implemented whole cell biosensor in the pETDuet-1 plasmid is illustrated in <i>fig. 1</i>. The vector has one <i>lac</i>
+          operator regulating each T7-promoter and one corresponding <i>lacI</i> which constituitively expresses the <i>lac</i> repressor for both
+          operators. Upon IPTG induction, the proteins NahR and GFP10-ER-GFP11 are expressed. These correspond to the respective pathway in the
+          AND-logic. The former protein, NahR, is a transcription factor which binds to the <i>Psal</i> promoter located upstreams of <i>GFP1-9</i>.
+          This activates the transcription of <i>GFP1-9</i> under the presence of salicylate, which serves as the first input into the gate. The
+          GFP10-ER-GFP11 fusion protein can undergo a conformational change in the presence of estrogen, the second input. This brings the GFP10 and
+          GFP11 linker bound fragments into close proximity to allow for a subsequent association with GFP1-9. This complementation yields a fully
+          restored chromophore which can be detected by fluorometric methods, consequently closing the circuit. See the <a
+          href="/Team:Lund/Design">design section</a> for more information.</p> 
 
           <figure>
             <a href="#" data-featherlight="http://2017.igem.org/wiki/images/d/d5/T--Lund--modelimage.svg">

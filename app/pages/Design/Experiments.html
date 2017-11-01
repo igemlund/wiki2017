@@ -24,11 +24,6 @@
     <div class="row">
       <div class="col-lg-8">
         <section>
-          <blockquote>
-            It doesn't matter how beautiful your theory is, it doesn't matter how smart you are. If it doesn't agree with experiment, it's wrong.
-            <footer>Einstein</footer>
-          </blockquote>
-
           <h3 class="section-heading">Overview</h3>
           <p>
 
@@ -68,27 +63,23 @@
             In this section we introduce the constructs intended to be used as controls. The gene architecture is designed to best generate parameters to fit the model and evaluate individual gene behaviors.
           </p>
 
-          The pETDuet-1 vector was chosen for all desired protein expressions in this project as recommended by our advisor Dr. Nélida Leiva Eriksson.
-          Genes were synthesized at Eurofins Genomics and cloned into the pETDuet-1 vector using the restriction site pairs NcoI/BamHI and NdeI/AatII.
-          The restriction sites were chosen based on their location downstream the two T7 promoters. In addition, it was required that these
-          restriction enzymes were single site cutters which was ensured by using the <i>RestrictionMapper</i> online tool. All the gene sequences used were
-          codon optimized for E. coli by using <a
-          href="https://www.eurofinsgenomics.eu/en/gene-synthesis-molecular-biology/geneius.aspx">Eurofins’</a> and <a
-          href="https://eu.idtdna.com/CodonOpt">IDT’s</a> codon optimization tools prior to ordering the constructs. Furthermore, all genes encoding a
-          protein were chosen to be ended with the double stop codon, TAA TAA.
-
+          The pETDuet-1 vector was chosen for all desired protein expressions in this project as recommended by our advisor Dr. Nélida Leiva Eriksson. Genes were
+          synthesized at Eurofins Genomics and cloned into the pETDuet-1 vector using the restriction site pairs NcoI/BamHI and NdeI/AatII. The restriction
+          sites were chosen based on their location downstream the two T7 promoters. In addition, it was required that these restriction enzymes were single
+          site cutters which was ensured by using the <i>RestrictionMapper</i> online tool. All the gene sequences used were codon optimized for <em>E.
+          coli</em> by using Eurofins’ and IDT’s codon optimization tools prior to ordering the constructs. Furthermore, all genes encoding a protein were chosen to be ended with the double stop codon, TAA TAA.
           <p>
         </section>
 
         <section>
-          <h3 class="section-heading">nahR</h3>
+          <h3 class="section-heading">NahR</h3>
           <p>
             The control plasmid carries the <i>nahR gene</i> with a histidine tag, located under the T7 promoter. The purpose of this control plasmid was to
-            see if it is possible to induce expression of the nahR protein, using the drawn-up design illustrated in <i>fig. 1</i>. By utilizing the His-tag,
+            see if it is possible to induce expression of NahR, using the drawn-up design illustrated in <i>fig. 1</i>. By utilizing the His-tag,
             the protein could be purified in order to determine its concentration.
           </p>
           <p>
-            The DNA sequence for the NahR protein was obtained from the BioBrick part <a href="parts.igem.org/Part:BBa_K228004">BBa_K228004</a>.
+            The DNA sequence for the NahR protein was obtained from the BioBrick part <a href="http://parts.igem.org/Part:BBa_K228004">BBa_K228004</a>.
           </p>
 
           <figure>
@@ -114,7 +105,7 @@
           <p>
 
             The purpose of expressing the largest fragment of the tripartite split-GFP was to examine if the protein emit any fluorescence signal and
-            if so, how large the fluorescence signal is compared to one from the sfGFP. A his-tag with 6 histidine residues was added to enable
+            if so, how large the fluorescence signal is compared to one from the sfGFP. A His-tag with 6 histidine residues was added to enable
             purification and measurements of protein concentration. Construct illustrated in <i>fig. 3</i>.
           </p>
 
@@ -145,7 +136,7 @@
 
           <figure>
             <img class="img-responsive" src="http://2017.igem.org/wiki/images/3/35/T--Lund--nahrsfgfp.svg" alt="Gene structure">
-            <figcaption>Figure 4. <i>nahR</i> located under the T7 promoter, inducible by IPTG. After induced expression of the NahR protein, the latter binds to <i>Psal</i> and the sfGFP is expressed.</figcaption>
+            <figcaption>Fig. 4: <i>nahR</i> located under the T7 promoter, inducible by IPTG. After induced expression of the NahR protein, the latter binds to <i>Psal</i> and the sfGFP is expressed.</figcaption>
           </figure>
         </section>
 
@@ -159,7 +150,7 @@
 
           <figure>
             <img class="img-responsive" src="http://2017.igem.org/wiki/images/f/fb/T--Lund--nahrgfp.svg" alt="Gene structure">
-            <figcaption>Figure 5. The <i>nahR</i> gene located under the T7 promoter, inducible by IPTG. After induced expression of the NahR protein, the latter binds to <i>Psal</i> promoter (in presence of salicylate) and the GFP1-9 is expressed.</figcaption>
+            <figcaption>Fig. 5: The <i>NahR</i> gene located under the T7 promoter, inducible by IPTG. After induced expression of the NahR protein, the latter binds to <i>Psal</i> promoter (in presence of salicylate) and the GFP1-9 is expressed.</figcaption>
           </figure>
         </section>
 
@@ -173,15 +164,18 @@
 
           <figure>
             <img class="img-responsive" src="http://2017.igem.org/wiki/images/3/34/T--Lund--erhis.svg" alt="Gene structure">
-            <figcaption>Figure 6. GFP10-hER-α LBD-GFP11 located under the T7 promoter with His-tag.</figcaption>
+            <figcaption>Fig. 6: GFP10-hER-α LBD-GFP11 located under the T7 promoter with His-tag.</figcaption>
           </figure>
         </section>
 
         <section>
           <h3 class="section-heading">GFP1-9 + GFP10-hER-α LBD-GFP11 device</h3>
+          <p>
+            Construct with GFP1-9 and GFP10-hER-α LBD-GFP11, each located under a T7 promoter. This control was designed to investigate the reassembling of the tripartite split GFP and measure its fluorescence.
+          </p>
           <figure>
-            <img class="img-responsive" src="http://2017.igem.org/wiki/images/2/28/T--Lund--fridaplasmid.svg" alt="Gene structure">
-            <figcaption>Figure 7. Construct with genes encoding GFP1-9 and GFP10-hER-α LBD-GFP11 each placed under their own T7 promoter. Note that the <i>lac</i> operators have been omitted for clarity.</figcaption>
+            <img class="img-responsive" src="http://2017.igem.org/wiki/images/9/99/T--Lund--partsernahr.svg" alt="Gene structure">
+            <figcaption>Fig. 7: Construct with genes encoding GFP1-9 and GFP10-hER-α LBD-GFP11 each placed under their own T7 promoter. Note that the <i>lac</i> operators have been omitted for clarity.</figcaption>
           </figure>
         </section>
 

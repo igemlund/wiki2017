@@ -39,10 +39,16 @@
 
 .hp-engagement {
   .circles {
-    margin-bottom: 1rem;
+    img {
+      width: 300px;
+    }
   }
   .circle-text {
     margin-top: 1rem;
+    margin-bottom: 1rem;
+    @media(max-width: @screen-sm) {
+      margin-bottom: 3rem;
+    }
     font-weight: 700;
     text-align: center;
   }

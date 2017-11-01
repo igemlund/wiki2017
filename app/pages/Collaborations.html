@@ -9,7 +9,7 @@ $(document).ready(function() {
     //        North    East
     {latLng: [55.6802, 12.5724], name: 'University of Copenhagen', ref: 'Copenhagen'},
     {latLng: [55.7856, 12.5214], name: 'Technical University of Denmark', ref: 'DTU'},
-    {latLng: [57.7089, 11.9746], name: 'Gothenburg', ref: 'Gothenburg'},
+    {latLng: [57.7089, 11.9746], name: 'Chalmers', ref: 'Gothenburg'},
     {latLng: [13.0827, 80.2707], name: 'Chennai', ref: 'Chennai'},
     {latLng: [59.8586, 17.6389], name: 'Uppsala', ref: 'Uppsala'},
     {latLng: [51.0504, 13.7373], name: 'Dresden', ref: 'Dresden'},
@@ -17,7 +17,17 @@ $(document).ready(function() {
     {latLng: [59.3293, 18.0686], name: 'Stockholm', ref: 'Stockholm'},
     {latLng: [52.3702, 4.8952], name: 'Amsterdam', ref: 'Amsterdam'},
     {latLng: [37.2006, -93.2807], name: 'Missouri', ref: 'Missouri'},
-    {latLng: [30.0444, 31.2357], name: 'AFCM Egypt', ref: 'Egypt'}
+    {latLng: [30.0444, 31.2357], name: 'AFCM Egypt', ref: 'video'},
+    {latLng: [58.41086, 15.62157], name: 'Linköping', ref: 'video'},
+    {latLng: [52.0907, 5.1214], name: 'Utrecht', ref: 'video'},
+    {latLng: [53.9599, -1.0872], name: 'York', ref: 'video'},
+    {latLng: [40.6400, 22.994], name: 'Thessaloinki', ref: 'Surveys'},
+    {latLng: [30.6437, 76.7231], name: 'IISER Mohali', ref: 'Surveys'},
+    {latLng: [-33.8901, 151.1798], name: 'Sydney', ref: 'Surveys'},
+    {latLng: [32.0602, 118.7968], name: 'Nanjing', ref: 'Surveys'},
+    {latLng: [54.6871, 25.2796], name: 'Vilnius', ref: 'Surveys'},
+    {latLng: [48.8404, 2.3106], name: 'Institut Pasteur', ref: 'Surveys'},
+    {latLng: [47.6553, -122.3035], name: 'Washington', ref: 'Surveys'}
   ];
   $('#map').vectorMap({
     map: 'world_mill',
@@ -118,16 +128,21 @@ $(document).ready(function() {
             <h4>Missouri University of Science and Technology</h4>
             <p>In the later stages of the iGEM project, we exchanged a rewarding video correspondence with the established Missouri S&amp;T team. This provided us with the opportunity to reflect and review the decisions that were made during the course of the project together with a seasoned project group, leaving us with insightful suggestions as how to better organize the project for the years to come.</p>
           </article>
-          <article id="Egypt">
-            <h4>AFCM Egypt</h4>
-            <p>We contacted AFCM from Egypt to hear about their iGEM experience so far. We had a fun conversation about our more or less troublesome projects and progress in the lab.</p>
-          </article>
         </section>
 
-        <article id="Surveys">
-          <h3 class="section-heading">Surveys</h3>
-          <p>Upon request, we happily obliged to fill out or distribute surveys on our social media for the Chalmers Gothenburg, Indian Institute of Science Education and Research, Aristotle University of Thessaloniki, University of Sydney, Nanjing University, Vilnius University, Institut Pasteur and University of Washington iGEM teams respectively.</p>
+        <section>
+          <article id="video">
+            <h3 class="section-heading">Video Conferences</h3>
+            <p>During the passing year, we exchanged numerous video conferences with teams from all over the world discussing various facts of the iGEM competition and synthetic biology. Each and every one of the dialogues left us with some advice or suggestion that would prove to play a role in the molding of some aspects of our project. Thus, we would be remiss if we did not mention their impact and thank them accordingly. The teams were Amsterdam, AQA UNESP São Paulo, Chalmers, Chennai, AFCM Egypt, Linköping, Missouri S&T, Stockholm, Uppsala, Utrecht, York.</p>
         </article>
+        </section>
+
+        <section>
+        <article id="Surveys">
+            <h3 class="section-heading">Surveys</h3>
+            <p>Upon request, we happily obliged to fill out or distribute surveys on our social media for the Chalmers Gothenburg, Indian Institute of Science Education and Research, Aristotle University of Thessaloniki, University of Sydney, Nanjing University, Vilnius University, Institut Pasteur and University of Washington iGEM teams respectively.</p>
+          </article>
+        </section>
 
       </div>
     </div>

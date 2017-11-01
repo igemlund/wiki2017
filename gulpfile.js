@@ -97,6 +97,7 @@ gulp.task('browser-sync', ['build'], () => {
         return next();
       },
     },
+    ghostMode: false,
   });
 });
 

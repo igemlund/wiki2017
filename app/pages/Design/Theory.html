@@ -13,7 +13,7 @@ $(document).ready(function() {
 
   var viewer1 = pv.Viewer(document.getElementById('viewer-NahR'), options);
   // Public url: http://2017.igem.org/wiki/images/2/27/T--Lund--NahR.txt
-  pv.io.fetchPdb('/assets/T--Lund--NahR.txt', function(structure) {
+  pv.io.fetchPdb('http://2017.igem.org/wiki/images/2/27/T--Lund--NahR.txt', function(structure) {
     if (structure) {
       mol.assignHelixSheet(structure); // See https://github.com/biasmv/pv/issues/169
       viewer1.cartoon('NahR', structure, { color: pv.color.ssSuccession() });
@@ -25,7 +25,7 @@ $(document).ready(function() {
 
   var viewer2 = pv.Viewer(document.getElementById('viewer-hER'), options);
   // Public url: http://2017.igem.org/wiki/images/8/84/T--Lund--hER.txt
-  pv.io.fetchPdb('/assets/T--Lund--hER.txt', function(structure) {
+  pv.io.fetchPdb('http://2017.igem.org/wiki/images/8/84/T--Lund--hER.txt', function(structure) {
     if (structure) {
       viewer2.cartoon('hER', structure, { color: pv.color.ssSuccession() });
       viewer2.centerOn(structure);
@@ -58,7 +58,11 @@ $(document).ready(function() {
   <div class="container">
 
     <section>
-      <h3 class="section-heading">Sensing organic pollutants</h3>
+      <div class="row">
+        <div class="col-md-8">
+          <h3 class="section-heading">Sensing organic pollutants</h3>
+        </div>
+      </div>
       <div class="row">
         <div class="col-md-8">
           <p>Persistent organic pollutants are harmful organic compounds of anthropogenic origins that have been, and in some cases still are, utilized as industry chemicals and pesticides. Due to their ecotoxicity and their propensity of bioaccumulation, the United Nations Environment Programme (UNEP) adopted and implemented proposed regulation of these chemicals as put forward by the Stockholm Convention on Persistent Organic Pollutants in 2001 [10]. As of 2017, 181 countries have ratified the convention [11]. While there is no explicit organic backbone, most organic pollutants share certain characteristics. They have one or more cyclic ring structures, most often of the aromatic nature, they are highly lipophilic and they are, to a varied extent, halogenated [12]. Consequently, there are different moieties that can be exploited when searching for homologues that act as natural ligands to gene regulatory elements. The 2012 UCL iGEM team successfully determined and utilized the homology between the NahR inducing ligand salicylate and the aromatic backbone found in most organic pollutants [9]. </p>
@@ -82,7 +86,11 @@ $(document).ready(function() {
       </div>
     </section>
     <section>
-      <h3 class="section-heading">Sensing plasticizers</h3>
+      <div class="row">
+        <div class="col-md-8">
+          <h3 class="section-heading">Sensing plasticizers</h3>
+        </div>
+      </div>
       <div class="row">
         <div class="col-md-8">
           <p>Plasticizers are very common additives found in most commercial plastic products. They provide the polymers with durability, elasticity and flexibility, offering increased malleability and strength [19]. The plasticizer action on the polymeric material has generally thought to be lubrication between the polymeric chains, but recent thermodynamic simulations have shown that the situation might be more complex [20]. The most predominant class of plasticizers used today is that of low-weight phthalate esters (PEs), in particular DEHP (bis-2-ethylhexyl phthalate) [19]. While PEs offer a cost-effective solution to maintaining flexibility, there is cause for concern as they are not covalently bonded to the plastic and will readily leach into the environment. Multiple sources have reported severe adverse effects in vertebrates; among other things, toxic action on the human endocrine system has been noted [21] [22] [23] [24] [25]. In particular, low-weight PEs have demonstrated some antagonistic affinity for the ligand-binding domain of the human estrogen-alpha receptor (hER-α) [23] [24], making it a viable candidate for detecting plasticizers.</p>

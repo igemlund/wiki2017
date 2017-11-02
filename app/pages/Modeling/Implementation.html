@@ -115,8 +115,10 @@
             Show
           </button>
           <div class="collapse" id="ref">
-            <p>[1] Herman, J. and Usher, W. (2017) SALib: An open-source Python library for sensitivity analysis. <i>Journal of Open Source Software</i>, 2(9).</p>
-            <p>[2] Zi, Z. (2011). Sensitivity analysis approaches applied to systems biology models. <i>IET Systems Biology</i>, 5(6), pp.336-346. </p>
+            <ol class="references">
+              <li>[1] Herman, J. and Usher, W. (2017) SALib: An open-source Python library for sensitivity analysis. <i>Journal of Open Source Software</i>, 2(9).</li>
+              <li>[2] Zi, Z. (2011). Sensitivity analysis approaches applied to systems biology models. <i>IET Systems Biology</i>, 5(6), pp.336-346. </li>
+            </ol>
           </div>
         </section>
       </div>
@@ -124,5 +126,16 @@
   </div>
 </div>
 </div>
+<script>
+  $(function() {
+    $('#ref').on('shown.bs.collapse', function () {
+       $("#refBtn").text('Hide');
+    });
+
+    $('#ref').on('hidden.bs.collapse', function () {
+       $("#refBtn").text('Show');
+    });
+  });
+</script>
 </html>
 {{Lund/footer}}

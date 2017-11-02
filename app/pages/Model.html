@@ -420,14 +420,29 @@
             Show
           </button>
           <div class="collapse" id="ref">
-            <p>[1] Larentis, A., Nicolau, J., Esteves, G., Vareschini, D., de Almeida, F., dos Reis, M., Galler, R. and Medeiros, M. (2014). Evaluation of pre-induction temperature, cell growth at induction and IPTG concentration on the expression of a leptospiral protein in E. coli using shaking flasks and microbioreactor. <i>BMC Research Notes</i>, 7(1), p.671.</p>
-            <p>[2] Zi, Z. (2011). Sensitivity analysis approaches applied to systems biology models. <i>IET Systems Biology</i>, 5(6), pp.336-346.</p>
-            <p>[3] Kafri, M., Metzl-Raz, E., Jona, G. and Barkai, N. (2016). The Cost of Protein Production. <i>Cell Reports</i>, 14(1), pp.22-31.</p>
+            <ol class="references">
+              <li>[1] Larentis, A., Nicolau, J., Esteves, G., Vareschini, D., de Almeida, F., dos Reis, M., Galler, R. and Medeiros, M. (2014). Evaluation of pre-induction temperature, cell growth at induction and IPTG concentration on the expression of a leptospiral protein in E. coli using shaking flasks and microbioreactor. <i>BMC Research Notes</i>, 7(1), p.671.</li>
+              <li>[2] Zi, Z. (2011). Sensitivity analysis approaches applied to systems biology models. <i>IET Systems Biology</i>, 5(6), pp.336-346.</li>
+              <li>[3] Kafri, M., Metzl-Raz, E., Jona, G. and Barkai, N. (2016). The Cost of Protein Production. <i>Cell Reports</i>, 14(1), pp.22-31.</li>
+            </ol>
           </div>
         </section>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+  $(function() {
+    $('#ref').on('shown.bs.collapse', function () {
+       $("#refBtn").text('Hide');
+    });
+
+    $('#ref').on('hidden.bs.collapse', function () {
+       $("#refBtn").text('Show');
+    });
+  });
+</script>
+
 </html>
 {{Lund/footer}}

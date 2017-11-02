@@ -12,7 +12,7 @@
 
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500|Varela+Round" rel="stylesheet">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="/Team:Lund/styles/wrapper?action=raw&ctype=text/css&cache=32">
+<link rel="stylesheet" type="text/css" href="/Team:Lund/styles/wrapper?action=raw&ctype=text/css&cache=33">
 <script type="text/javascript" src="/Team:Lund/scripts/bootstrap?action=raw&ctype=text/javascript"></script>
 <script type="text/javascript" src="/Team:Lund/scripts/ScrollTrigger?action=raw&ctype=text/javascript"></script>
 <script type="text/javascript" src="/Team:Lund/scripts/jquery-scrollTo?action=raw&ctype=text/javascript"></script>
@@ -26,10 +26,47 @@
       once: true
     });
 
-    // Select current page in navbar
-    var listItem = $('#navbar li a[href="/' + wgPageName + '"]').parent();
+    var pages = {
+      'Team:Lund':                                    '#li_home',
+      'Team:Lund/Team':                               '#li_team',
+      'Team:Lund/Collaborations':                     '#li_team',
+      'Team:Lund/Attributions':                       '#li_team',
+      'Team:Lund/Description':                        '#li_team',
+      'Team:Lund/Design':                             '#li_team',
+      'Team:Lund/Description':                        '#li_team',
+      'Team:Lund/Attributions':                       '#li_team',
+      'Team:Lund/Attributions/LundUniversity':        '#li_team',
+      'Team:Lund/Attributions/Team':                  '#li_team',
+      'Team:Lund/Attributions/Sponsors':              '#li_team',
+      'Team:Lund/Attributions/Inspiration':           '#li_team',
+      'Team:Lund/Attributions/ProjectDesign':         '#li_team',
+      'Team:Lund/Description':                        '#li_project',
+      'Team:Lund/Design':                             '#li_project',
+      'Team:Lund/Design/Animation':                   '#li_project',
+      'Team:Lund/Design/Theory':                      '#li_project',
+      'Team:Lund/Design/Design':                      '#li_project',
+      'Team:Lund/Design/Circuit':                     '#li_project',
+      'Team:Lund/Design/Experiments':                 '#li_project',
+      'Team:Lund/Design/References':                  '#li_project',
+      'Team:Lund/Results':                            '#li_project',
+      'Team:Lund/InterLab':                           '#li_project',
+      'Team:Lund/Parts':                              '#li_project',
+      'Team:Lund/Experiments':                        '#li_project',
+      'Team:Lund/Notebook':                           '#li_project',
+      'Team:Lund/Model':                              '#li_model',
+      'Team:Lund/Modeling/ModelDerivation':           '#li_model',
+      'Team:Lund/Modeling/ParameterEstimation':       '#li_model',
+      'Team:Lund/Modeling/Implementation':            '#li_model',
+      'Team:Lund/Safety':                             '#li_safety',
+      'Team:Lund/HP/Silver':                          '#li_hp',
+      'Team:Lund/HP/Gold_Integrated':                 '#li_hp',
+      'Team:Lund/Engagement':                         '#li_hp',
+      'Team:Lund/HP/Media':                           '#li_hp',
+      'Team:Lund/Communication':                      '#li_hp',
+    };
+
+    var listItem = $(pages[wgPageName]);
     listItem.addClass('active');
-    listItem.parent('.dropdown-menu').parent('#navbar .dropdown').addClass('active');
   });
 </script>
 
@@ -150,9 +187,9 @@
     <div class="collapse navbar-collapse" id="navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
 
-        <li><a href="/Team:Lund">Home</a></li>
+        <li id="li_home"><a href="/Team:Lund">Home</a></li>
 
-        <li class="dropdown">
+        <li id="li_team" class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Team <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="/Team:Lund/Team">Team</a></li>
@@ -161,7 +198,7 @@
           </ul>
         </li>
 
-        <li class="dropdown">
+        <li id="li_project" class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Project <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="/Team:Lund/Description">Description</a></li>
@@ -174,12 +211,9 @@
           </ul>
         </li>
 
-        <li><a href="/Team:Lund/Model">Model</a></li>
-        <li><a href="/Team:Lund/Safety">Safety</a></li>
-        <li><a href="/Team:Lund/HP/Silver">Practices</a></li>
-
-        <!-- <li><a href="#">Achievements</a></li> -->
-
+        <li id="li_model"><a href="/Team:Lund/Model">Model</a></li>
+        <li id="li_safety"><a href="/Team:Lund/Safety">Safety</a></li>
+        <li id="li_hp"><a href="/Team:Lund/HP/Silver">Practices</a></li>
 
       </ul>
     </div><!-- /.navbar-collapse -->

@@ -1,13 +1,13 @@
 <html>
-<!-- MathJax CDN -->
 <script type="text/x-mathjax-config">
+  MathJax.Ajax.config.path["mhchem"] = "https://cdnjs.cloudflare.com/ajax/libs/mathjax-mhchem/3.1.0";
   MathJax.Hub.Config({
-    extensions: ["[Contrib]/mhchem/mhchem.js"],
+    extensions: ["[mhchem]/mhchem.js"],
     tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   });
 </script>
 <script type="text/javascript"
-  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  src="http://2017.igem.org/common/MathJax-2.5-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500|Varela+Round" rel="stylesheet">

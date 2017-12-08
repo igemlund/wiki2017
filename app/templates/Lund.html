@@ -12,7 +12,7 @@
 
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500|Varela+Round" rel="stylesheet">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="/Team:Lund/styles/wrapper?action=raw&ctype=text/css&cache=34">
+<link rel="stylesheet" type="text/css" href="/Team:Lund/styles/wrapper?action=raw&ctype=text/css&cache=37">
 <script type="text/javascript" src="/Team:Lund/scripts/bootstrap?action=raw&ctype=text/javascript"></script>
 <script type="text/javascript" src="/Team:Lund/scripts/ScrollTrigger?action=raw&ctype=text/javascript"></script>
 <script type="text/javascript" src="/Team:Lund/scripts/jquery-scrollTo?action=raw&ctype=text/javascript"></script>
@@ -151,6 +151,27 @@
 
   });
 
+$(document).ready(function() {
+  var visible = false;
+  //Check to see if the window is top if not then display button
+  $(window).scroll(function() {
+    var scrollTop = $(this).scrollTop();
+    if (!visible) {
+      if (scrollTop > 400) {
+        $("#scroll-to-top-btn").fadeIn();
+        visible = true;
+      }
+    }
+    else if (scrollTop <= 400) {
+      $("#scroll-to-top-btn").fadeOut();
+      visible = false;
+    }
+  });
+  
+  $("#scroll-to-top-btn").click(function() {
+    $(window).scrollTo(0, 250);
+  });
+});
 
 </script>
 
@@ -219,4 +240,9 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+<button type="button" id="scroll-to-top-btn">
+  <i class="fa fa-arrow-up" aria-hidden="true"></i>
+</button>
+
 </html>

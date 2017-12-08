@@ -4,10 +4,18 @@
   padding: 10rem 0;
   color: white;
 
+  @media (max-width: @screen-sm) {
+    padding: 11rem 0;
+  }
+
   .display {
     font-size: 4.5rem;
     font-weight: 300;
     line-height: 1.1;
+    @media (max-width: @screen-sm) {
+      font-size: 3rem;
+      text-align: center;
+    }
   }
 
   p {
